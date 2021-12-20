@@ -1,0 +1,16 @@
+
+#: ../../reference/sandbox-api.rst:2
+msgid "Sandbox API"
+msgstr "Sandbox API"
+
+#: ../../reference/sandbox-api.rst:4
+msgid ""
+"This reference describes the API of the so-called ``sandbox`` which is the "
+"isolated environment for running custom code. The API includes standard Lua "
+"and Tarantool functions as well as specific TDG functions used for data "
+"access, data processing, and more."
+msgstr ""
+"В этом справочнике описан API окружения ``sandbox`` — изолированной среды "
+"выполнения кода. Sandbox API включает в себя как стандартные функции Lua и "
+"Tarantool, так и специальные функции TDG, предназначенные для доступа к "
+"данным, их обработки и других действий."

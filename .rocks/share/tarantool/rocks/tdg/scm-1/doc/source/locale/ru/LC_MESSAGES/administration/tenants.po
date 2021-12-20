@@ -1,0 +1,12 @@
+
+#: ../../administration/tenants.rst:2
+msgid "Tenants"
+msgstr "Тенанты"
+
+#: ../../administration/tenants.rst:4
+msgid ""
+"This chapter explains the concept and usage of tenants in TDG. It also "
+"explains how to add and configure tenants in the system."
+msgstr ""
+"В главе объясняется, что такое тенанты в TDG, как их добавлять в систему и "
+"настраивать."

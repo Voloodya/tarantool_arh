@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hello world with Lua &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Developer’s guide" href="../development.html"/>
+        <link rel="next" title="Data access requests" href="requests.html"/>
+        <link rel="prev" title="Developer’s guide" href="../development.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration.html">Administrator’s guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../development.html">Developer’s guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hello world with Lua</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-data-model">Setting up the data model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uploading-data-to-tdg">Uploading data to TDG</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-data-queries">Running data queries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reading-data">Reading data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-data">Changing data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-data">Deleting data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-stored-procedures">Writing stored procedures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#randomized-playlist">Randomized playlist</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="requests.html">Data access requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-model.html">Data model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster-roles.html">Understanding cluster roles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../development.html">Developer’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Hello world with Lua</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hello-world-with-lua">
+<h1>Hello world with Lua<a class="headerlink" href="#hello-world-with-lua" title="Permalink to this headline">¶</a></h1>
+<p>This guide explains how to set up a data model, run data queries, and write a couple of stored procedures in Lua.</p>
+<p>First, you will need a running TDG instance.
+You can <a class="reference internal" href="../administration/deployment/run-in-docker.html"><span class="doc">run TDG as a Docker container</span></a>,
+or deploy it on your machine <a class="reference internal" href="../administration/deployment/manual-deployment.html"><span class="doc">manually</span></a>
+or with <a class="reference internal" href="../administration/deployment/ansible-deployment.html"><span class="doc">Ansible</span></a>.</p>
+<p>Then you will learn how to:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#set-up-data-model"><span class="std std-ref">Set up the data model</span></a>.</li>
+<li><a class="reference internal" href="#run-data-queries"><span class="std std-ref">Run data queries</span></a>.</li>
+<li><a class="reference internal" href="#write-stored-procedures"><span class="std std-ref">Write stored procedures</span></a>.</li>
+</ol>
+<div class="section" id="setting-up-the-data-model">
+<span id="set-up-data-model"></span><h2>Setting up the data model<a class="headerlink" href="#setting-up-the-data-model" title="Permalink to this headline">¶</a></h2>
+<p>This guide uses a data model that contains two types of objects: music bands and artists.
+Each music band has a name, a genre, and a year it was formed.
+Artists have a name, a country, and the instruments they play.</p>
+<p>Here is an example of such a model:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MusicBand&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;genre&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span> <span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}},</span>
+            <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;wasformed&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;long&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;indexes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;genre&quot;</span><span class="p">,</span> <span class="s2">&quot;wasformed&quot;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Artist&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fullname&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;instruments&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span> <span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;indexes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fullname&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>In the menu on the left, there is a tab called <strong>Model</strong>.
+Switch to this tab and paste the model to the <strong>Request</strong> field.
+Click <strong>Submit</strong>:</p>
+<img alt="Data model" src="../_images/model.png" />
+<p>You have set up the data model.
+Now you can upload, select, and delete data.</p>
+<div class="section" id="uploading-data-to-tdg">
+<h3>Uploading data to TDG<a class="headerlink" href="#uploading-data-to-tdg" title="Permalink to this headline">¶</a></h3>
+<p>In the menu on the left, there is a tab called <strong>GraphQL</strong>.
+Switch to this tab, select <strong>default</strong> as the desired scheme, and clear the request field:</p>
+<img alt="GraphQL tab" src="../_images/graphql.png" />
+<p>Paste the following data to the request field:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mutation all <span class="o">{</span>
+  rammstein:MusicBand<span class="o">(</span>insert: <span class="o">{</span>
+      name: <span class="s2">&quot;Rammstein&quot;</span>,
+      genre: <span class="o">[</span><span class="s2">&quot;metal&quot;</span>, <span class="s2">&quot;industrial&quot;</span>, <span class="s2">&quot;gothic&quot;</span><span class="o">]</span>,
+      wasformed: <span class="m">1994</span><span class="o">})</span> <span class="o">{</span>
+    name
+    genre
+    wasformed
+  <span class="o">}</span>
+  linkinpark:MusicBand<span class="o">(</span>insert: <span class="o">{</span>
+      name: <span class="s2">&quot;Linkin Park&quot;</span>,
+      genre: <span class="o">[</span><span class="s2">&quot;alternative&quot;</span>, <span class="s2">&quot;metal&quot;</span><span class="o">]</span>,
+      wasformed: <span class="m">1996</span><span class="o">})</span> <span class="o">{</span>
+    name
+    genre
+    wasformed
+  <span class="o">}</span>
+  blacksabbath:MusicBand<span class="o">(</span>insert: <span class="o">{</span>
+      name: <span class="s2">&quot;Black Sabbath&quot;</span>,
+      genre: <span class="o">[</span><span class="s2">&quot;gothic&quot;</span>, <span class="s2">&quot;metal&quot;</span><span class="o">]</span>,
+      wasformed: <span class="m">1968</span><span class="o">})</span> <span class="o">{</span>
+    name
+    genre
+    wasformed
+  <span class="o">}</span>
+  deeppurple:MusicBand<span class="o">(</span>insert:<span class="o">{</span>
+      name: <span class="s2">&quot;Deep Purple&quot;</span>,
+      genre: <span class="o">[</span><span class="s2">&quot;metal&quot;</span>, <span class="s2">&quot;rock&quot;</span><span class="o">]</span>,
+      wasformed: <span class="m">1968</span><span class="o">})</span> <span class="o">{</span>
+    name
+    genre
+    wasformed
+  <span class="o">}</span>
+  maxkorzh:MusicBand<span class="o">(</span>insert:<span class="o">{</span>
+      name:<span class="s2">&quot;Max Korzh&quot;</span>,
+      genre:<span class="o">[</span><span class="s2">&quot;rap&quot;</span>, <span class="s2">&quot;electro&quot;</span><span class="o">]</span>,
+      wasformed: <span class="m">2006</span><span class="o">})</span> <span class="o">{</span>
+    name
+    genre
+    wasformed
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Execute query by clicking the play button:</p>
+<img alt="Uploading data" src="../_images/uploading.png" />
+<p>The data is now uploaded.</p>
+</div>
+</div>
+<div class="section" id="running-data-queries">
+<span id="run-data-queries"></span><h2>Running data queries<a class="headerlink" href="#running-data-queries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-data">
+<h3>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this headline">¶</a></h3>
+<p>You can read data in the <strong>Graphql</strong> tab.
+Make sure the <strong>default</strong> scheme is switched on, clear the field on the left, and write a request that selects every music band:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>query <span class="o">{</span>
+  MusicBand <span class="o">{</span>
+    name
+    wasformed
+    genre
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click the play button.
+In the right field, you’ll get the result:</p>
+<img alt="Reading all data" src="../_images/reading-all.png" />
+<p>Select data by the primary key:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>query <span class="o">{</span>
+  MusicBand<span class="o">(</span>name:<span class="s2">&quot;Black Sabbath&quot;</span><span class="o">)</span> <span class="o">{</span>
+    name
+    wasformed
+    genre
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>After clicking the play button, you will get all stored information about the Black Sabbath music band:</p>
+<img alt="Reading data about one music band" src="../_images/reading-band.png" />
+</div>
+<div class="section" id="changing-data">
+<h3>Changing data<a class="headerlink" href="#changing-data" title="Permalink to this headline">¶</a></h3>
+<p>Add one more music genre to one of the music bands.
+In the <strong>GraphQL</strong> tab, insert the data about the band with two genres instead of one:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mutation <span class="o">{</span>
+  MusicBand<span class="o">(</span>insert:<span class="o">{</span>
+      name: <span class="s2">&quot;Deep Purple&quot;</span>,
+      genre: <span class="o">[</span><span class="s2">&quot;metal&quot;</span>, <span class="s2">&quot;rock&quot;</span><span class="o">]</span>,
+      wasformed: <span class="m">1968</span><span class="o">})</span> <span class="o">{</span>
+        name
+        genre
+        wasformed
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click the play button.
+The information about the Deep Purple music band is now updated.</p>
+</div>
+<div class="section" id="deleting-data">
+<h3>Deleting data<a class="headerlink" href="#deleting-data" title="Permalink to this headline">¶</a></h3>
+<p>In the <strong>GraphQL</strong> tab, write the query to delete all data about one of the music bands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mutation <span class="o">{</span>
+  MusicBand<span class="o">(</span>name:<span class="s2">&quot;Linkin Park&quot;</span> delete:true<span class="o">)</span> <span class="o">{</span>
+    name
+    genre
+    wasformed
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click the play button.
+You’ve deleted the data about the Linkin Park music band.</p>
+</div>
+</div>
+<div class="section" id="writing-stored-procedures">
+<span id="write-stored-procedures"></span><h2>Writing stored procedures<a class="headerlink" href="#writing-stored-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hello-world">
+<h3>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h3>
+<p>In the menu on the left, there is a tab called <strong>Code</strong>.
+Switch to the tab and create the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory.
+In the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory, create the <code class="docutils literal notranslate"><span class="pre">hello.lua</span></code> file, which is a Lua module that exports the functions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> hello<span class="o">()</span>
+  <span class="k">return</span> <span class="s2">&quot;Hello World&quot;</span>
+end
+
+<span class="k">return</span> <span class="o">{</span>
+  <span class="nv">hello</span> <span class="o">=</span> hello
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click <strong>Apply</strong>:</p>
+<img alt="Creating hello.lua file" src="../_images/hello-lua.png" />
+<p>This Lua module requires a GraphQL interface.
+In the <strong>Code</strong> tab, create a file called <code class="docutils literal notranslate"><span class="pre">services.yml</span></code> and specify the signature of the GraphQL call:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hello_world:
+  doc: <span class="s2">&quot;Hello World script&quot;</span>
+  <span class="k">function</span>: hello.hello
+  return_type: string
+</pre></div>
+</div>
+<p>Click <strong>Apply</strong>:</p>
+<img alt="Creating a GraphQL interface" src="../_images/hello-lua2.png" />
+<p>The code is validated and uploaded to the cluster.
+If there is an error, a notification at the bottom right corner will give you the details about it.</p>
+<p>Now switch to the <strong>Graphql</strong> tab, select <strong>default</strong> the desired scheme, and call the stored procedure:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  hello_world</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>In the right field, you’ll get the result:</p>
+<img alt="Hello World" src="../_images/hello-lua3.png" />
+</div>
+<div class="section" id="randomized-playlist">
+<h3>Randomized playlist<a class="headerlink" href="#randomized-playlist" title="Permalink to this headline">¶</a></h3>
+<p>In the dataset, there are various music bands.
+Make a stored procedure to give you a randomized playlist.</p>
+<p>In the <strong>Code</strong> tab, open the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory and create a file called <code class="docutils literal notranslate"><span class="pre">playlist.lua</span></code>.
+This file defines the logic to generate a randomized playlist:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">local</span> <span class="nv">repository</span> <span class="o">=</span> require<span class="o">(</span><span class="s1">&#39;repository&#39;</span><span class="o">)</span>
+
+<span class="k">function</span> shuffle<span class="o">(</span>tbl<span class="o">)</span>
+  <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="c1">#tbl, 2, -1 do</span>
+    <span class="nb">local</span> <span class="nv">j</span> <span class="o">=</span> math.random<span class="o">(</span>i<span class="o">)</span>
+    tbl<span class="o">[</span>i<span class="o">]</span>, tbl<span class="o">[</span>j<span class="o">]</span> <span class="o">=</span> tbl<span class="o">[</span>j<span class="o">]</span>, tbl<span class="o">[</span>i<span class="o">]</span>
+  end
+  <span class="k">return</span> tbl
+end
+
+<span class="k">function</span> playlist<span class="o">()</span>
+  <span class="nb">local</span> <span class="nv">result</span> <span class="o">=</span> repository.find<span class="o">(</span><span class="s2">&quot;MusicBand&quot;</span>, <span class="o">{})</span>
+  <span class="nv">result</span> <span class="o">=</span> result or <span class="o">{}</span>
+  shuffle<span class="o">(</span>result<span class="o">)</span>
+  <span class="k">return</span> result
+end
+
+<span class="k">return</span> <span class="o">{</span>
+    <span class="nv">playlist</span><span class="o">=</span>playlist
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">services.yml</span></code>, specify the signature of the GraphQL call:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>playlist:
+    doc: <span class="s2">&quot;Return randomized playlist&quot;</span>
+    <span class="k">function</span>: playlist.playlist
+    return_type: <span class="o">{</span><span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;array&quot;</span>, <span class="s2">&quot;items&quot;</span>:<span class="s2">&quot;MusicBand&quot;</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>Switch to the <strong>GraphQL</strong> tab and run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    playlist <span class="o">{</span> name <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click the play button.
+As a result, you’ll get a randomized playlist:</p>
+<img alt="Randomized playlist" src="../_images/randomized-playlist.png" />
+<p>Each time you click the play button, you’ll get a different playlist.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development.html" class="rst-footer-buttons-btn float-left" title="Developer’s guide" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Developer’s guide</a>
+      
+      
+        <a href="requests.html" class="rst-footer-buttons-btn float-right" title="Data access requests" accesskey="n" rel="next">Data access requests <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../_static/js/searchbox.js"></script>  
+</body>
+</html>

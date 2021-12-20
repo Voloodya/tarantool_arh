@@ -1,0 +1,165 @@
+
+#: ../../administration/security/role-access.rst:2
+msgid "Role-based access control"
+msgstr "Контроль доступа на основе ролей"
+
+#: ../../administration/security/role-access.rst:4
+msgid ""
+"Tarantool Data Grid has a role-based model of access to system functions and"
+" data stored in the system. The administrator sets data access permissions "
+"via UI or external tools (LDAP). Each role has a set of permissions that "
+"determine what users or external applications with that role can access and "
+"change."
+msgstr ""
+"В Tarantool Data Grid используется основанная на ролях модель доступа к "
+"системным функциям и данным, хранящимся в системе. Администратор настраивает"
+" права доступа к данным, используя UI или такие внешние инструменты, как "
+"LDAP. Каждая роль имеет набор разрешений, которые определяют, что "
+"пользователи или внешние приложения могут просматривать или изменять."
+
+#: ../../administration/security/role-access.rst:8
+msgid "You can find the list of roles on the **Settings > Roles** tab:"
+msgstr "Список ролей можно найти на вкладке **Settings > Roles**:"
+
+#: ../../administration/security/role-access.rst:16
+msgid "Default roles"
+msgstr "Роли по умолчанию"
+
+#: ../../administration/security/role-access.rst:18
+msgid ""
+"There are three default roles that you can assign to users and external "
+"applications for authorized access and actions in the system:"
+msgstr ""
+"Пользователям и внешним приложениям можно назначать роли. Эти роли позволяют"
+" получать авторизованный доступ к определенным данным и выполнять в системе "
+"те или иные действия. Существует три роли по умолчанию:"
+
+#: ../../administration/security/role-access.rst:20
+#: ../../administration/security/role-access.rst:38
+msgid "admin"
+msgstr "admin"
+
+#: ../../administration/security/role-access.rst:22
+#: ../../administration/security/role-access.rst:42
+msgid "supervisor"
+msgstr "supervisor"
+
+#: ../../administration/security/role-access.rst:24
+msgid "user."
+msgstr "user"
+
+#: ../../administration/security/role-access.rst:26
+msgid ""
+"The default roles have a predefined set of permissions, and they cannot be "
+"edited or deleted."
+msgstr ""
+"Эти роли имеют предопределенный набор прав. Кроме того, такие роли нельзя "
+"редактировать или удалять."
+
+#: ../../administration/security/role-access.rst:34
+msgid "Role"
+msgstr "Роль"
+
+#: ../../administration/security/role-access.rst:35
+msgid "Authority"
+msgstr "Доступ к функциям"
+
+#: ../../administration/security/role-access.rst:36
+msgid "Data access"
+msgstr "Доступ к данным"
+
+#: ../../administration/security/role-access.rst:39
+msgid "Full access to TDG functions"
+msgstr "Полный доступ ко всем функциям TDG"
+
+#: ../../administration/security/role-access.rst:40
+msgid "Read and write access for all aggregates"
+msgstr "Доступ для чтения и записи для всех агрегатов"
+
+#: ../../administration/security/role-access.rst:43
+msgid "Full read-only access to TDG functions"
+msgstr "Полный доступ в режиме \"только для чтения\""
+
+#: ../../administration/security/role-access.rst:44
+msgid "Read access for all aggregates"
+msgstr "Доступ для чтения для всех агрегатов"
+
+#: ../../administration/security/role-access.rst:46
+msgid "user"
+msgstr "user (пользователь)"
+
+#: ../../administration/security/role-access.rst:47
+msgid ""
+"Default access: has access to the Test tab to send test objects, the Repair "
+"Queues tab, the Tasks tab, and the GraphQL tab."
+msgstr ""
+"По умолчанию: доступ к вкладке Test для отправки объектов тестирования, а "
+"также ко вкладкам Repair Queues, Tasks и GraphQL"
+
+#: ../../administration/security/role-access.rst:49
+msgid "None"
+msgstr "–"
+
+#: ../../administration/security/role-access.rst:54
+msgid "Adding new user roles via UI"
+msgstr "Создание новых ролей пользователей с помощью UI"
+
+#: ../../administration/security/role-access.rst:56
+msgid ""
+"You can create new user roles based on the default roles or the roles you've"
+" already created."
+msgstr ""
+"Новую роль можно создать на основе роли по умолчанию или же ранее созданной "
+"роли."
+
+#: ../../administration/security/role-access.rst:58
+msgid "To create a new user role:"
+msgstr "Чтобы создать новую роль пользователя, выполните следующие шаги:"
+
+#: ../../administration/security/role-access.rst:60
+msgid "Switch to the **Settings > Roles** tab and click **Add new role**."
+msgstr "Откройте вкладку **Settings > Roles** и нажмите **Add new role**."
+
+#: ../../administration/security/role-access.rst:62
+msgid "In the **New role** dialog, set the following parameters:"
+msgstr "В диалоговом окне **New role** укажите следующие параметры:"
+
+#: ../../administration/security/role-access.rst:64
+msgid "``Name``: the name of the new role."
+msgstr "``Name``: название новой роли."
+
+#: ../../administration/security/role-access.rst:66
+msgid "``Description``: an optional description of the new role."
+msgstr "``Description``: описание роли (опционально)."
+
+#: ../../administration/security/role-access.rst:68
+msgid ""
+"``Roles``: an optional selection of the existing role on the basis of which "
+"the new role will be created."
+msgstr ""
+"``Roles``: существующая роль, на основе которой будет создаваться новая "
+"(опционально)."
+
+#: ../../administration/security/role-access.rst:70
+msgid ""
+"In the list of actions, select the actions that will be available to the new"
+" user role. Don't forget to check whether the role allows access to the "
+"interface page. For example, if you allow the new role to make GraphQL "
+"queries, make sure to check the box **Pages Access > Show GraphQL page** in "
+"the list of actions."
+msgstr ""
+"В списке выберите действия, которые будут доступны для роли пользователя. Не"
+" забудьте проверить, есть ли у роли доступ к интерфейсу. Например, если вы "
+"собираетесь дать роли права на выполнение запросов GraphQL, отметьте **Pages"
+" Access > Show GraphQL page**."
+
+#: ../../administration/security/role-access.rst:74
+msgid "Click **Add new role**."
+msgstr "Нажмите **Add new role**."
+
+#: ../../administration/security/role-access.rst:79
+msgid ""
+"After you've created a new user role, you can edit or delete it any time."
+msgstr ""
+"Создав роль пользователя, вы можете в любое время отредактировать ее или "
+"удалить."

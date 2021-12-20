@@ -1,0 +1,11 @@
+---
+
+- name: Stop Tarantool Data Grid instances
+  hosts: tdg_group
+  become: true
+  gather_facts: false
+  vars:
+    cartridge_scenario:
+      - stop_instance
+  roles:
+    - tarantool.cartridge

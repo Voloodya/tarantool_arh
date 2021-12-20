@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managing users &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Security settings" href="../security.html"/>
+        <link rel="next" title="Adding tokens" href="tokens.html"/>
+        <link rel="prev" title="Role-based access control" href="role-access.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webui.html">Web UI</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../security.html">Security settings</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="role-access.html">Role-based access control</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Managing users</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-and-editing-user-profiles">Creating and editing user profiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-user-status">Changing user status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-and-importing-users">Exporting and importing users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-password-policy">Managing password policy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tokens.html">Adding tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authorization.html">Mandatory authentication mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html">Setting up data actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security-checklist.html">Security checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../repair-queue.html">Repair queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+            <li><a href="../security.html">Security settings</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Managing users</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="managing-users">
+<h1>Managing users<a class="headerlink" href="#managing-users" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes the TDG user management operations:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#creating-and-editing-user-profiles" id="toc-entry-1">Creating and editing user profiles</a></li>
+<li><a class="reference internal" href="#changing-user-status" id="toc-entry-2">Changing user status</a></li>
+<li><a class="reference internal" href="#exporting-and-importing-users" id="toc-entry-3">Exporting and importing users</a></li>
+<li><a class="reference internal" href="#managing-password-policy" id="toc-entry-4">Managing password policy</a></li>
+</ul>
+</div>
+<p>The list of users is in the <strong>Settings &gt; Users</strong> tab:</p>
+<img alt="List of users" src="../../_images/users.png" />
+<div class="section" id="creating-and-editing-user-profiles">
+<span id="create-edit-user-profile"></span><h2><a class="toc-backref" href="#toc-entry-1">Creating and editing user profiles</a><a class="headerlink" href="#creating-and-editing-user-profiles" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-a-new-user">
+<span id="create-new-user"></span><h3>Creating a new user<a class="headerlink" href="#creating-a-new-user" title="Permalink to this headline">¶</a></h3>
+<p>To create a new TDG user:</p>
+<ol class="arabic simple">
+<li>Switch to the <strong>Settings &gt; Users</strong> tab.
+Click <strong>Add new user</strong>.
+You will get the <strong>New user</strong> dialog:</li>
+</ol>
+<img alt="New user dialog" src="../../_images/add-new-user.png" />
+<ol class="arabic simple" start="2">
+<li>In the <strong>New user</strong> dialog, set the following parameters:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">Name</span></code>: user name.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Email</span></code>: user email.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Password</span></code>: a password to log into the system.
+There are several options here: you can generate a password by clicking <strong>Generate</strong> or leave an empty field.
+In the second case, the system will automatically generate and send a password to the user’s <code class="docutils literal notranslate"><span class="pre">Email</span></code>,
+but it requires <a class="reference internal" href="#reset-password"><span class="std std-ref">a configured SMTP server</span></a>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Expires</span> <span class="pre">in</span></code>: password expiration date.
+This field is optional.
+Passwords are checked for expiration approximately every 30 minutes.
+Accounts with expired passwords are blocked.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Role</span></code>: user role according to the role-based model of access.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Tenant</span></code>: leave the <strong>Default</strong> parameter unless you have several tenants.
+In that case, choose the name of the tenant to add the user to.</li>
+</ul>
+</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+<p>You will now see the new user in the list of users.
+After you’ve created a user, you can edit the user’s profile: change profile settings, reset password, block or delete the user.</p>
+</div>
+<div class="section" id="editing-a-user-profile">
+<span id="edit-user-profile"></span><h3>Editing a user profile<a class="headerlink" href="#editing-a-user-profile" title="Permalink to this headline">¶</a></h3>
+<p>To edit a user profile, open the <strong>Settings &gt; Users</strong> tab and click the pencil edit button:</p>
+<img alt="Editing a user profile" src="../../_images/edit-user.png" />
+<p>Change profile settings and click <strong>Submit</strong>.</p>
+</div>
+<div class="section" id="deleting-a-user">
+<span id="delete-user"></span><h3>Deleting a user<a class="headerlink" href="#deleting-a-user" title="Permalink to this headline">¶</a></h3>
+<p>The administrator can delete any user from the user list:</p>
+<ol class="arabic simple">
+<li>In the <strong>Actions</strong> column, choose the user profile you want to delete, click the <code class="docutils literal notranslate"><span class="pre">...</span></code> button, and select <strong>Delete user</strong>.</li>
+<li>In the dialog tab, confirm the deletion of the user by clicking OK.</li>
+</ol>
+<p>The deleted user will be automatically removed from the list of users.</p>
+</div>
+</div>
+<div class="section" id="changing-user-status">
+<span id="change-user-status"></span><h2><a class="toc-backref" href="#toc-entry-2">Changing user status</a><a class="headerlink" href="#changing-user-status" title="Permalink to this headline">¶</a></h2>
+<p>After you’ve created a user’s profile, it is automatically activated in the system.
+You’ll see the “ACTIVE” status in the <strong>Status</strong> column in the list of users.
+As an administrator, you can change this status and block the user:</p>
+<ol class="arabic">
+<li><p class="first">In the <strong>Actions</strong> column, click the <code class="docutils literal notranslate"><span class="pre">...</span></code> button and select <strong>Block</strong>:</p>
+<img alt="Blocking user" src="../../_images/delete-user.png" />
+</li>
+<li><p class="first">In the dialog tab, write the reason why you are blocking this user and click <strong>Block</strong>:</p>
+<blockquote>
+<div><img alt="Blocking user" src="../../_images/block-user.png" />
+</div></blockquote>
+</li>
+</ol>
+<p>After that, the user’s status will change to “BLOCKED”.
+To unblock the user, click the <code class="docutils literal notranslate"><span class="pre">...</span></code> button and select <strong>Unblock</strong>.</p>
+<div class="section" id="resetting-a-password">
+<span id="reset-password"></span><h3>Resetting a password<a class="headerlink" href="#resetting-a-password" title="Permalink to this headline">¶</a></h3>
+<p>The administrator can reset the password of any user:</p>
+<ol class="arabic simple">
+<li>In the <strong>Actions</strong> column, choose the user profile you want to update, click the <code class="docutils literal notranslate"><span class="pre">...</span></code> button, and select <strong>Reset password</strong>.</li>
+<li>In the dialog tab, confirm the resetting of the password by clicking OK.</li>
+</ol>
+<p>The user will get a temporary password via email that is set in the user’s profile.</p>
+<p><strong>Note:</strong> to send a temporary password, you need a configured SMTP server.</p>
+<p>To set the workflow for sending temporary passwords:</p>
+<ol class="arabic simple">
+<li>Install and start the SMTP server.</li>
+<li>In the <code class="docutils literal notranslate"><span class="pre">config.yml</span></code> file with TDG configuration, write the following settings:</li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">connector</span><span class="p">:</span>
+  <span class="nt">output</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">to_smtp</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">smtp</span>
+      <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;URL of SMTP server&gt;</span>
+      <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;sender&#39;s address&gt;</span>
+      <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;timeout value, seconds&gt;</span>
+
+<span class="nt">account_manager</span><span class="p">:</span>
+  <span class="nt">only_one_time_passwords</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">output</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">to_smtp</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">output</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">to_smtp</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">smtp</span>
+      <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost:2525</span>
+      <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tdg@example.com</span>
+      <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Upload the changed configuration to the system.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="exporting-and-importing-users">
+<span id="export-import-users"></span><h2><a class="toc-backref" href="#toc-entry-3">Exporting and importing users</a><a class="headerlink" href="#exporting-and-importing-users" title="Permalink to this headline">¶</a></h2>
+<p>You can export and import user profiles in JSON format:</p>
+<img alt="Exporting and importing users" src="../../_images/export-import.png" />
+<div class="section" id="exporting-users">
+<span id="export-users"></span><h3>Exporting users<a class="headerlink" href="#exporting-users" title="Permalink to this headline">¶</a></h3>
+<p>In the <strong>Settings &gt; Users</strong> tab, click <strong>Export</strong>.
+The system will generate and export a JSON file.
+This file will contain an array with profiles of all current users.</p>
+<p>Here is a user profile example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+   <span class="o">{</span>
+    <span class="s2">&quot;expires_in&quot;</span>:2592000,
+    <span class="s2">&quot;login&quot;</span>:<span class="s2">&quot;ui8896&quot;</span>,
+    <span class="s2">&quot;email&quot;</span>:<span class="s2">&quot;test@mail.ru&quot;</span>,
+    <span class="s2">&quot;created_at&quot;</span>:1626360261875418600,
+    <span class="s2">&quot;tenant&quot;</span>:null,
+    <span class="s2">&quot;state_reason&quot;</span>:<span class="s2">&quot;test@mail.ru state is changed to active: recover from disabled&quot;</span>,
+    <span class="s2">&quot;failed_login_attempts&quot;</span>:1,
+    <span class="s2">&quot;uid&quot;</span>:<span class="s2">&quot;bd2e91f3-ce0f-4ff1-8aae-bc4212f99c7d&quot;</span>,
+    <span class="s2">&quot;role&quot;</span>:<span class="s2">&quot;admin&quot;</span>,
+    <span class="s2">&quot;state&quot;</span>:<span class="s2">&quot;active&quot;</span>
+    ,<span class="s2">&quot;username&quot;</span>:<span class="s2">&quot;User1&quot;</span>,
+    <span class="s2">&quot;last_login&quot;</span>:1628058891852268000,
+    <span class="s2">&quot;last_password_update_time&quot;</span>:null
+   <span class="o">}</span>,
+   <span class="o">{</span>
+   ...
+   <span class="o">}</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="importing-users">
+<span id="import-users"></span><h3>Importing users<a class="headerlink" href="#importing-users" title="Permalink to this headline">¶</a></h3>
+<p>To import users, you need a JSON file with an array of user profiles.
+You can make this file manually or generate it as described in the previous topic about the export.
+The JSON file must include the fields listed above in the user profile example, except for the fields called
+<code class="docutils literal notranslate"><span class="pre">state_reason</span></code>, <code class="docutils literal notranslate"><span class="pre">last_login</span></code>, <code class="docutils literal notranslate"><span class="pre">last_password_update_time</span></code>, <code class="docutils literal notranslate"><span class="pre">password</span></code>.</p>
+<p>As for the password, there are several ways to set it:</p>
+<ol class="arabic simple">
+<li>Manually: In the JSON file, set a <code class="docutils literal notranslate"><span class="pre">password</span></code> for every user.
+Make sure the passwords meet the <a class="reference internal" href="#password-policy"><span class="std std-ref">password policy</span></a> requirements.
+In the <strong>Import users from JSON file</strong> dialog, do not check any boxes.
+The passwords will be uploaded from the JSON file as-is.</li>
+<li><strong>Generate passwords</strong>: Set <code class="docutils literal notranslate"><span class="pre">null</span></code> in the <code class="docutils literal notranslate"><span class="pre">password</span></code> field or don’t include this field in the JSON file at all.
+In the <strong>Import users from JSON file</strong> dialog, check the box <strong>Generate passwords</strong>.
+The password will be automatically generated according to the current password policy.</li>
+<li><strong>Send password via users email</strong>: You need a <a class="reference internal" href="#reset-password"><span class="std std-ref">configured SMTP server</span></a> for this.
+In the <strong>Import users from JSON file</strong> dialog, check the <strong>Send password via users email</strong> box.</li>
+</ol>
+<p>You need to choose only one of the listed options for all imported users.</p>
+<p>Here is how to import users:</p>
+<ol class="arabic">
+<li><p class="first">In the <strong>Settings &gt; Users</strong> tab, click <strong>Import</strong>.</p>
+</li>
+<li><p class="first">In the <strong>Import users from JSON file</strong> dialog, check one of the boxes or leave the boxes empty.
+It depends on the option you chose to set the users’ passwords.</p>
+<img alt="Importing users" src="../../_images/import-users.png" />
+</li>
+<li><p class="first">Upload the JSON file with user profiles and click <strong>Apply</strong>.</p>
+</li>
+</ol>
+<p>The new user profiles will now be added to the <strong>Users</strong> list table.
+The profile data will be shown in the web interface in the message containing the results of the import operation.</p>
+<p>You can save the imported data, including the generated passwords, by clicking <strong>Download</strong>.
+The data will be saved as a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p>
+</div>
+</div>
+<div class="section" id="managing-password-policy">
+<span id="password-policy"></span><h2><a class="toc-backref" href="#toc-entry-4">Managing password policy</a><a class="headerlink" href="#managing-password-policy" title="Permalink to this headline">¶</a></h2>
+<p>TDG has a password policy for users to sign into the system.
+This policy applies to the passwords that users set manually as well as to automatically generated passwords.
+The administrator can control the password policy in the <strong>Settings &gt; Password Policy</strong> tab:</p>
+<img alt="Password policy" src="../../_images/password-policy.png" />
+<p>Default password settings include lowercase and uppercase characters and digits from 0 to 9, inclusive.
+The default password length is 8 characters.
+You can change the default settings and click <strong>Save</strong>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="role-access.html" class="rst-footer-buttons-btn float-left" title="Role-based access control" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Role-based access control</a>
+      
+      
+        <a href="tokens.html" class="rst-footer-buttons-btn float-right" title="Adding tokens" accesskey="n" rel="next">Adding tokens <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../../_static/js/searchbox.js"></script>  
+</body>
+</html>

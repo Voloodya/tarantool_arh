@@ -1,0 +1,85 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "3d5941f5e3954cc7c491d7669e47b9ff",
+      ["cleanup.py"] = "0afb765f397dde4c65f73e2e4afe7cb8",
+      ["conf.py"] = "7992fb4d57de2a1b6fa96a8f75c565a2",
+      ["crowdin.yaml"] = "2c6d4ff0b7d4f2e5d53eb750da44de61",
+      locale = {
+         ru = {
+            LC_MESSAGES = {
+               ["api_reference.po"] = "27eb8c131e9b96820743e2ba12234883",
+               ["getting_started.po"] = "949c6aeed8d558639e0faca580c2224d",
+               ["index.po"] = "42db2c27411ef8472fea3341663ddbec",
+               ["metrics_reference.po"] = "aa56ddbf016deecb6169a3d5df188ccd",
+               ["plugins.po"] = "9342ce73d0b120496d300b9a385253bc"
+            }
+         }
+      },
+      monitoring = {
+         ["api_reference.rst"] = "3825f7298941cac0074d6c4ea1914b36",
+         ["getting_started.rst"] = "a404aa5c81f367890c3df19379d68fa2",
+         images = {
+            ["role-config.png"] = "0ce6a676fc2745cbc6d9b82e5ff9119f",
+            ["role-enable.png"] = "b412799ba135cac65cc428d998684964"
+         },
+         ["index.rst"] = "66e8f1d72470c1ec09b1a53d50559e99",
+         ["metrics_reference.rst"] = "b513a8dd76eb246d12726efbb9986f8b",
+         ["plugins.rst"] = "371aea7cbe639323d533e02f912ee4e3"
+      },
+      ["requirements.txt"] = "f7c306702027ddcf153b9df233538338"
+   },
+   lua = {
+      cartridge = {
+         ["health.lua"] = "9e14203f104cb991779069b3f439b30d",
+         roles = {
+            ["metrics.lua"] = "630e954de269bbcaca1398ef41b1b296"
+         }
+      },
+      metrics = {
+         cartridge = {
+            ["issues.lua"] = "38431f2590e86fc948e1df23934f449d"
+         },
+         ["cartridge.lua"] = "023d13003a8b24e7a47152d61982f704",
+         collectors = {
+            ["counter.lua"] = "e13f959a228aa901bc5d64cf588e03e7",
+            ["gauge.lua"] = "366056d7f9108ceb2e76653669fb0d74",
+            ["histogram.lua"] = "fb84bbd169284812450bb4a1a783e7ca",
+            ["shared.lua"] = "071bfa570d05b48eefe4bddeb6fbeaaa",
+            ["summary.lua"] = "1c618e3aea88325c4b67297cc027083c"
+         },
+         ["const.lua"] = "9420bfc79fcba46fdf2d1cf5073757af",
+         ["http_middleware.lua"] = "4a523d08a674dc54be13c35924602386",
+         ["init.lua"] = "fbf95c8e9543a00e7aa44338371bb0d8",
+         plugins = {
+            ["graphite.lua"] = "6e6c816c8033f0e111fc5cefcb9a601a",
+            ["json.lua"] = "a614c97e1aa98ce5b52a87f676147b7a",
+            ["prometheus.lua"] = "e3d13b7656b54522ee2ec395d93c1ca4"
+         },
+         psutils = {
+            ["cpu.lua"] = "5a8e8bef7bfddf35f9395eb5cf55e0cd",
+            ["psutils_linux.lua"] = "af33182164c8112a7fc877de9e14d1dd"
+         },
+         ["quantile.lua"] = "47e5a24f5d98fe719ee50d6bc17f583a",
+         ["registry.lua"] = "7677a2eaddbda9707f87373312b7b665",
+         tarantool = {
+            ["clock.lua"] = "38e598a413d4cd28495104e7ab16e74e",
+            ["cpu.lua"] = "a9532d32ea2a7483008ebe279db26fb0",
+            ["fibers.lua"] = "af745022e3148c14c26ccd62a88c29fd",
+            ["info.lua"] = "da953ab916ce89d52147f533038f39d1",
+            ["luajit.lua"] = "157e22b952752b16f64433cecd0e037e",
+            ["memory.lua"] = "d9a830eedae3167d6e31c0a100fefde2",
+            ["network.lua"] = "585180203f3b29a199b838dcc28c0bd8",
+            ["operations.lua"] = "b0a44d1b19128d21fc7996a4689528f5",
+            ["replicas.lua"] = "66d4d7aae463c88d46f6176a3e1c8783",
+            ["runtime.lua"] = "84bc6369178d08995381792bc4040abd",
+            ["slab.lua"] = "948f5b95a5fa413b41ed72798fffc664",
+            ["spaces.lua"] = "5a090d052fc0bf6c03b62a474692bbc0",
+            ["system.lua"] = "e32aeb464bfc28ebc80dcfff6edfda86",
+            ["vinyl.lua"] = "0c6eff05e355fed11b3715a18cc8b180"
+         },
+         ["tarantool.lua"] = "f61e5dae2ca760a92cb86097cd799a51",
+         ["utils.lua"] = "734184bd8af5ab8229f8d035ba3fdd3d"
+      }
+   },
+   ["metrics-0.11.0-1.rockspec"] = "41d5d2e887d2b9472db61f8950c06907"
+}

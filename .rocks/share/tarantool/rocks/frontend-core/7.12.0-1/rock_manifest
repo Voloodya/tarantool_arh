@@ -1,0 +1,13 @@
+rock_manifest = {
+   doc = {
+      ["CHANGELOG.md"] = "d2b155234f492e294912ac888209bae8",
+      ["README.md"] = "3c52e7b7b0d7c87bea3b961e82b0b2a4"
+   },
+   ["frontend-core-7.12.0-1.rockspec"] = "dd1b303b63804f4b32abb063380f9ab4",
+   lua = {
+      ["frontend-core"] = {
+         ["bundle.lua"] = "652965620f9f3c34d5b93cb8c9b1aa5d"
+      },
+      ["frontend-core.lua"] = "6a23f7303ef3b4f1d6124429c36c7bef"
+   }
+}

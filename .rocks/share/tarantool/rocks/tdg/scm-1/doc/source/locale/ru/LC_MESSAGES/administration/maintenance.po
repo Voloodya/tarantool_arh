@@ -1,0 +1,13 @@
+
+#: ../../administration/maintenance.rst:2
+msgid "Maintenance"
+msgstr "Обслуживание"
+
+#: ../../administration/maintenance.rst:4
+msgid ""
+"This chapter explains various TDG maintenance activities such as data and "
+"configuration backup, gathering debug info, and some others."
+msgstr ""
+"В этой главе описано, как обслуживать систему TDG, в том числе сохранять "
+"резервные копии данных и настроек, собирать сведения для отладки и выполнять"
+" другие действия."

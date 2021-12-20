@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administrator’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+        <li>&lt;no title&gt;</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release/whats-new.html">What’s new in Tarantool Data Grid 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="release/whats-new.html#simplified-architecture">Simplified architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release/whats-new.html#handlers-instead-of-data-pipelines">Handlers instead of data pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release/whats-new.html#visual-data-model-constructor">Visual data model constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release/whats-new.html#optional-data-versioning">Optional data versioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release/whats-new.html#multitenancy">Multitenancy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="release/changelog.html">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administrator’s guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="administration/deployment.html">Deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="administration/deployment/ansible-deployment.html">First deployment with Ansible</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/ansible-deployment.html#getting-a-tgz-file-for-deployment">Getting a TGZ file for deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/ansible-deployment.html#setting-up-virtual-machines">Setting up virtual machines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/ansible-deployment.html#deploying-the-cluster">Deploying the cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="administration/deployment/ansible-deployment.html#preparing">Preparing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/deployment/ansible-deployment.html#configuring">Configuring</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/deployment/ansible-deployment.html#deploying">Deploying</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/ansible-deployment.html#managing-the-cluster">Managing the cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="administration/deployment/ansible-deployment.html#configuring-topology-of-the-cluster">Configuring topology of the cluster</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/deployment/ansible-deployment.html#starting-or-stopping-instances">Starting or stopping instances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="administration/deployment/manual-deployment.html">First manual deployment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/manual-deployment.html#getting-a-tgz-file-for-deployment">Getting a TGZ file for deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/manual-deployment.html#deployment">Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="administration/deployment/run-in-docker.html">Running Tarantool Data Grid in Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/run-in-docker.html#getting-docker-image-file-for-deployment">Getting Docker image file for deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/run-in-docker.html#running-an-instance">Running an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/deployment/run-in-docker.html#configuring-instance">Configuring instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="administration/webui.html">Web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="administration/webui.html#signing-in">Signing in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="administration/webui.html#web-ui-overview-1">Web UI overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/webui.html#tab-pane-1">Tab pane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/webui.html#cluster-tab-1">Cluster tab</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="administration/webui.html#replica-sets">Replica sets</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/webui.html#replica-set-widget">Replica set widget</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/webui.html#instance-widget">Instance widget</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/webui.html#instance-details">Instance details</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/webui.html#more-functions">More functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="administration/security.html">Security settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="administration/security/role-access.html">Role-based access control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/role-access.html#default-roles-1">Default roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/role-access.html#adding-new-user-roles-via-ui">Adding new user roles via UI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="administration/security/users.html">Managing users</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/users.html#creating-and-editing-user-profiles">Creating and editing user profiles</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="administration/security/users.html#creating-a-new-user">Creating a new user</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/security/users.html#editing-a-user-profile">Editing a user profile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/security/users.html#deleting-a-user">Deleting a user</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/users.html#changing-user-status">Changing user status</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="administration/security/users.html#resetting-a-password">Resetting a password</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/users.html#exporting-and-importing-users">Exporting and importing users</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="administration/security/users.html#exporting-users">Exporting users</a></li>
+<li class="toctree-l5"><a class="reference internal" href="administration/security/users.html#importing-users">Importing users</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/users.html#managing-password-policy">Managing password policy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="administration/security/tokens.html">Adding tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="administration/security/authorization.html">Mandatory authentication mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="administration/security/actions.html">Setting up data actions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/actions.html#creating-a-new-data-action">Creating a new data action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="administration/security/actions.html#assigning-data-actions-to-user-roles">Assigning data actions to user roles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="administration/security/security-checklist.html">Security checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="administration/repair-queue.html">Repair queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="administration/repair-queue.html#input">Input</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="administration/repair-queue.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="administration/repair-queue.html#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="administration/repair-queue.html#jobs">Jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="administration/monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration/maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration/cluster-mgmt.html">Cluster management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="administration/add_node.html">Adding cluster nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="administration/tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration/versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer’s guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development/hello-world-lua.html">Hello world with Lua</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development/hello-world-lua.html#setting-up-the-data-model">Setting up the data model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development/hello-world-lua.html#uploading-data-to-tdg">Uploading data to TDG</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development/hello-world-lua.html#running-data-queries">Running data queries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development/hello-world-lua.html#reading-data">Reading data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/hello-world-lua.html#changing-data">Changing data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/hello-world-lua.html#deleting-data">Deleting data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development/hello-world-lua.html#writing-stored-procedures">Writing stored procedures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development/hello-world-lua.html#hello-world">Hello World</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/hello-world-lua.html#randomized-playlist">Randomized playlist</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development/requests.html">Data access requests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development/requests.html#preparing-a-data-model">Preparing a data model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#presenting-a-model-in-avro-schema">Presenting a model in Avro Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development/requests.html#uploading-the-data-model">Uploading the data model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/requests.html#uploading-data">Uploading data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/requests.html#data-access-requests-1">Data access requests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#general-object-type-query">General object type query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#requests-by-primary-index">Requests by primary index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#requests-by-secondary-index">Requests by secondary index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#requests-by-compound-index">Requests by compound index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#comparison-operators">Comparison operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#multiple-conditions">Multiple conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#requests-by-relations">Requests by relations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#pagination">Pagination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development/requests.html#requests-by-version">Requests by version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development/data-model.html">Data model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/cluster-roles.html">Understanding cluster roles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/config-yml.html">YAML configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/repository-api.html">Repository API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/sandbox-api.html">Sandbox API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="_static/js/searchbox.js"></script>  
+</body>
+</html>

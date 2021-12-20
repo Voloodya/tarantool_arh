@@ -1,0 +1,8 @@
+
+#: ../../development/architecture.rst:2
+msgid "Architecture"
+msgstr "Архитектура"
+
+#: ../../development/architecture.rst:4
+msgid "This chapter gives an overview of the TDG architecture."
+msgstr "В этой главе кратко описана архитектура TDG."

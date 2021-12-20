@@ -1,0 +1,534 @@
+
+#: ../../administration/ansible-deployment.rst:2
+msgid "First deployment with Ansible"
+msgstr "Первое развертывание с помощью Ansible"
+
+#: ../../administration/ansible-deployment.rst:4
+msgid ""
+"This guide explains how to deploy Tarantool Data Grid (TDG) for the first "
+"time using Ansible. It offers an option of TDG deployment on two virtual "
+"machines with a pre-defined configuration."
+msgstr ""
+"В этом руководстве описано, как впервые быстро развернуть Tarantool Data "
+"Grid (TDG) с помощью Ansible. Здесь приведен вариант развертывания TDG на "
+"двух виртуальных машинах с заданной конфигурацией."
+
+#: ../../administration/ansible-deployment.rst:8
+msgid "Getting a TGZ file for deployment"
+msgstr "Подготовка TGZ-файла для развертывания"
+
+#: ../../administration/ansible-deployment.rst:10
+msgid ""
+"To deploy Tarantool Data Grid, you need an RPM (``.rpm``), TGZ (``tar.gz``),"
+" or Docker image (``docker-image.tar.gz``) file. For deployment with "
+"Ansible, you can only use either an RPM or a TGZ file. For now, a TGZ file "
+"will do just fine. It is easier to deploy and does not require root access."
+msgstr ""
+"Чтобы развернуть Tarantool Data Grid, вам понадобится RPM-файл (``.rpm``), "
+"TGZ-файл (``tar.gz``) или Docker-образ (``docker-image.tar.gz``). Для "
+"развертывания с помощью Ansible подходят только два из них: RPM- и TGZ-файл."
+" В этом руководстве для примера используется TGZ-файл. Его проще развернуть,"
+" и вам не потребуется root-доступ."
+
+#: ../../administration/ansible-deployment.rst:15
+msgid ""
+"Download a TGZ file of the latest version at the customer zone of "
+"`tarantool.io "
+"<https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2>`_. Make "
+"sure your browser did not unarchive the downloaded file: the file extension "
+"should be ``tar.gz``."
+msgstr ""
+"Скачайте TGZ-файл последней версии в личном кабинете на сайте `tarantool.io "
+"<https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2>`_. "
+"Убедитесь, что ваш браузер не разархивировал скачанный файл: расширение "
+"файла должно быть ``tar.gz``."
+
+#: ../../administration/ansible-deployment.rst:18
+msgid ""
+"If you do not have access to the customer zone, you can get one by applying "
+"`this form <https://www.tarantool.io/en/datagrid/#contact>`_ or writing to "
+"**sales@tarantool.io**."
+msgstr ""
+"Если у вас нет доступа к личному кабинету, заполните `эту форму "
+"<https://www.tarantool.io/en/datagrid/#contact>`_ или напишите на "
+"**sales@tarantool.io**."
+
+#: ../../administration/ansible-deployment.rst:22
+msgid "Setting up virtual machines"
+msgstr "Настройка виртуальных машин"
+
+#: ../../administration/ansible-deployment.rst:24
+msgid ""
+"For TDG deployment, you need to bring up two virtual machines with Linux OS "
+"(CentOS 7/RHEL 7 are preferable) and SSH access. If you already have them, "
+"just skip this topic. If you don't have virtual machines, then follow these "
+"instructions."
+msgstr ""
+"Чтобы развернуть TDG, вам нужно запустить две виртуальные машины с ОС Linux "
+"(желательно CentOS 7/RHEL 7) и доступом по SSH. Если у вас уже есть "
+"виртуальные машины, то пропустите эту главу. Если нет, то следуйте "
+"инструкции."
+
+#: ../../administration/ansible-deployment.rst:28
+msgid ""
+"Install `VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ to run "
+"virtual machines and `Vagrant <https://www.vagrantup.com/>`_ to automate the"
+" configuration process. Vagrant will prepare the configuration of two "
+"virtual machines with additional scripts for TDG to deploy."
+msgstr ""
+"Установите `VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ для "
+"запуска виртуальных машин и `Vagrant <https://www.vagrantup.com/>`_ для "
+"автоматизации процесса конфигурации. Vagrant подготовит конфигурацию двух "
+"виртуальных машин с дополнительными сценариями для развертывания TDG."
+
+#: ../../administration/ansible-deployment.rst:32
+msgid ""
+"Make sure you have ``VBoxManage`` in your ``$PATH`` environment variable. "
+"Check with the command:"
+msgstr ""
+"Убедитесь, что в переменной окружения ``$PATH`` у вас есть ``VBoxManage``. "
+"Проверьте такой командой:"
+
+#: ../../administration/ansible-deployment.rst:35
+msgid "$ which VBoxManage"
+msgstr "$ which VBoxManage"
+
+#: ../../administration/ansible-deployment.rst:39
+msgid ""
+"In the downloaded TGZ file, there is a directory called ``deploy``. There "
+"you'll find ``Vagrantfile``, which automates the creation of a test "
+"environment for cluster deployment."
+msgstr ""
+"В скачанном TGZ-файле есть директория под названием ``deploy``. Там "
+"находится ``Vagrantfile``, который автоматизирует создание тестовой среды "
+"для развертывания кластера."
+
+#: ../../administration/ansible-deployment.rst:42
+msgid ""
+"Open the terminal, unpack the ``tar.gz`` archive, go to the ``deploy`` "
+"directory, and run virtual machines:"
+msgstr ""
+"Откройте терминал, распакуйте архив ``tar.gz``, перейдите в директорию "
+"``deploy`` и запустите виртуальные машины:"
+
+#: ../../administration/ansible-deployment.rst:44
+msgid ""
+"tar xzf tdg-<VERSION>.tar.gz # change <VERSION> for the TDG version you've downloaded\n"
+"cd tdg2/deploy\n"
+"vagrant up"
+msgstr ""
+"tar xzf tdg-<VERSION>.tar.gz # замените <VERSION> на версию скачанного TDG\n"
+"cd tdg2/deploy\n"
+"vagrant up"
+
+#: ../../administration/ansible-deployment.rst:51
+msgid ""
+"This command will bring up two virtual machines with CentOS 7 and "
+"passwordless SSH access for user ``vagrant``. IP addresses of those machines"
+" are: ``172.19.0.2`` and ``172.19.0.3``."
+msgstr ""
+"Эта команда поднимет две виртуальные машины с CentOS 7 и доступом по SSH без"
+" пароля для пользователя ``vagrant``. IP-адреса этих машин будут такие: "
+"``172.19.0.2`` и ``172.19.0.3``."
+
+#: ../../administration/ansible-deployment.rst:55
+msgid "Deploying the cluster"
+msgstr "Развертывание кластера"
+
+#: ../../administration/ansible-deployment.rst:58
+msgid "Preparing"
+msgstr "Подготовка"
+
+#: ../../administration/ansible-deployment.rst:60
+msgid ""
+"After you've created virtual machines, install locally `Ansible "
+"<https://docs.ansible.com/ansible/latest/installation_guide/>`_ and "
+"Tarantool Cartridge `Ansible role <https://github.com/tarantool/ansible-"
+"cartridge>`_ (the latest 1.x version). If Ansible role version 2.x is "
+"available, you can choose it instead, but you may face some challenges."
+msgstr ""
+"После создания виртуальных машин установите локально `Ansible "
+"<https://docs.ansible.com/ansible/latest/installation_guide/>`_ и `Ansible-"
+"роль <https://github.com/tarantool/ansible-cartridge>`_ для Tarantool "
+"Cartridge (последняя версия 1.x). Если доступна Ansible-роль версии 2.x, "
+"можно выбрать ее, но тогда вы можете столкнуться с некоторыми трудностями."
+
+#: ../../administration/ansible-deployment.rst:64
+msgid "Here is one of the ways to install Ansible and Ansible role:"
+msgstr "Вот один из способов установки Ansible и Ansible-роли:"
+
+#: ../../administration/ansible-deployment.rst:66
+msgid ""
+"pip install ansible~=4.1.0 # version 4.1 or later, but not version 5.x\n"
+"ansible-galaxy install tarantool.cartridge,1.10.0"
+msgstr ""
+"pip install ansible~=4.1.0 # версия 4.1 или более поздняя, но не 5.x\n"
+"ansible-galaxy install tarantool.cartridge,1.10.0"
+
+#: ../../administration/ansible-deployment.rst:72
+msgid "Configuring"
+msgstr "Конфигурация"
+
+#: ../../administration/ansible-deployment.rst:74
+msgid ""
+"In the ``deploy`` directory, there is the ``hosts.yml`` file. It contains "
+"cluster configuration."
+msgstr ""
+"В директории ``deploy`` есть файл ``hosts.yml``. В нем лежит конфигурация "
+"кластера."
+
+#: ../../administration/ansible-deployment.rst:77
+msgid "Open it to set cluster cookie and path to package:"
+msgstr ""
+"Откройте этот файл, чтобы указать cookie для кластера и путь до пакета:"
+
+#: ../../administration/ansible-deployment.rst:79
+msgid ""
+"all\n"
+"  vars:\n"
+"    # cartridge_package_path: \"../../packages/tdg-ENTER-VERSION-HERE.tgz\" # path relative to playbook\n"
+"    # cartridge_cluster_cookie: \"ENTER-SECRET-COOKIE-HERE\" # change for \"secret-cookie\""
+msgstr ""
+"all\n"
+"  vars:\n"
+"    # cartridge_package_path: \"../../packages/tdg-ENTER-VERSION-HERE.tgz\" # путь до плейбука\n"
+"    # cartridge_cluster_cookie: \"ENTER-SECRET-COOKIE-HERE\" # замените на \"secret-cookie\""
+
+#: ../../administration/ansible-deployment.rst:86
+msgid ""
+"Delete # to uncomment these lines, enter the TDG version that you've "
+"downloaded, and specify the path to the TGZ file. Also, set a cluster cookie"
+" which should be a unique string. For this tutorial, just \"secret-cookie\" "
+"will do."
+msgstr ""
+"Удалите #, чтобы раскомментировать эти строки, укажите версию TDG, которую "
+"вы скачали, и путь к TGZ-файлу. Также задайте cookie для кластера. Это "
+"должна быть уникальная строка, но для практики достаточно указать \"secret-"
+"cookie\"."
+
+#: ../../administration/ansible-deployment.rst:90
+msgid "Here is an example:"
+msgstr "Вот пример:"
+
+#: ../../administration/ansible-deployment.rst:92
+msgid ""
+"all\n"
+"  vars:\n"
+"    cartridge_package_path: \"../tdg-2.0.0-1132-g2358e716.tgz\"\n"
+"    cartridge_cluster_cookie: \"secret-cookie\""
+msgstr ""
+"all\n"
+"  vars:\n"
+"    cartridge_package_path: \"../tdg-2.0.0-1132-g2358e716.tgz\"\n"
+"    cartridge_cluster_cookie: \"secret-cookie\""
+
+#: ../../administration/ansible-deployment.rst:99
+msgid ""
+"If you need to, you can always edit this file to change cluster "
+"configuration. Here is some info about file sections:"
+msgstr ""
+"При необходимости всегда можно отредактировать этот файл, чтобы изменить "
+"конфигурацию кластера. Вот информация о секциях файла:"
+
+#: ../../administration/ansible-deployment.rst:102
+msgid "``all.var`` for common variables"
+msgstr "``all.var`` — для общих переменных"
+
+#: ../../administration/ansible-deployment.rst:104
+msgid "``all.children.tdg_group.hosts`` for instances parameters"
+msgstr ""
+"``all.children.tdg_group.hosts`` — для параметров экземпляров (инстансов, "
+"instances)"
+
+#: ../../administration/ansible-deployment.rst:106
+msgid ""
+"``all.children.tdg_group.children`` to specify parameters for a group of "
+"instances:"
+msgstr ""
+"``all.children.tdg_group.children`` — для параметров группы экземпляров:"
+
+#: ../../administration/ansible-deployment.rst:108
+msgid ""
+"to group the instances by the host, set their ``ansible_host`` parameter"
+msgstr ""
+"чтобы сгруппировать экземпляры по хосту, задайте для них параметр "
+"``ansible_host``"
+
+#: ../../administration/ansible-deployment.rst:110
+msgid ""
+"to group the instances by replica set, set their ``replicaset_alias``, "
+"``roles``, ``failover_priority`` parameters, and so on."
+msgstr ""
+"чтобы сгруппировать экземпляры по наборам реплик, задайте для них параметры "
+"``replicaset_alias``, ``roles``, ``failover_priority`` и так далее."
+
+#: ../../administration/ansible-deployment.rst:112
+msgid ""
+"You can find more information about parameters in Tarantool Cartridge "
+"`Ansible role documentation <https://github.com/tarantool/ansible-"
+"cartridge>`_."
+msgstr ""
+"Более подробную информацию о параметрах смотрите `в документации по Ansible-"
+"роли  <https://github.com/tarantool/ansible-cartridge>`_ в Tarantool "
+"Cartridge."
+
+#: ../../administration/ansible-deployment.rst:115
+msgid "Deploying"
+msgstr "Развертывание"
+
+#: ../../administration/ansible-deployment.rst:117
+msgid ""
+"In the ``deploy`` directory, there are `Ansible playbooks "
+"<https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-"
+"playbooks>`_ that will help you finish the deployment. There are two options"
+" of TDG deployment with the given playbooks:"
+msgstr ""
+"В директории ``deploy`` находятся `Ansible-плейбуки "
+"<https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-"
+"playbooks>`_, которые помогут вам завершить развертывание. Есть два способа "
+"развернуть TDG с помощью плейбуков:"
+
+#: ../../administration/ansible-deployment.rst:121
+msgid "Deploying a TDG cluster with completely configured topology."
+msgstr "кластер TDG с полностью сконфигурированной топологией;"
+
+#: ../../administration/ansible-deployment.rst:123
+msgid "Deploying a TDG cluster with a list of unconfigured instances."
+msgstr ""
+"кластер TDG со списком экземпляров (инстансов, instances) без заданной "
+"конфигурации."
+
+#: ../../administration/ansible-deployment.rst:125
+msgid "For a complete TDG deployment with topology, run this command:"
+msgstr "Чтобы полностью развернуть TDG с топологией, выполните эту команду:"
+
+#: ../../administration/ansible-deployment.rst:127
+msgid "$ ansible-playbook -i hosts.yml playbooks/deploy.yml"
+msgstr "$ ansible-playbook -i hosts.yml playbooks/deploy.yml"
+
+#: ../../administration/ansible-deployment.rst:131
+msgid ""
+"If you want to practice configuring the topology of the cluster via the web "
+"interface, run the playbook to deploy only instances:"
+msgstr ""
+"Если вы хотите cами задать конфигурацию топологии кластера через веб-"
+"интерфейс, запустите плейбук, чтобы развернуть только экземпляры:"
+
+#: ../../administration/ansible-deployment.rst:133
+msgid "$ ansible-playbook -i hosts.yml playbooks/deploy_without_topology.yml"
+msgstr "$ ansible-playbook -i hosts.yml playbooks/deploy_without_topology.yml"
+
+#: ../../administration/ansible-deployment.rst:137
+msgid ""
+"Now you can open `http://172.19.0.2:8081 <http://172.19.0.2:8081>`_ in your "
+"web browser to see the cluster web interface. This is what you'll see if you"
+" chose to deploy without topology:"
+msgstr ""
+"Откройте `http://172.19.0.2:8081 <http://172.19.0.2:8081>`_ в браузере, "
+"чтобы увидеть веб-интерфейс кластера. Вот как будет выглядеть кластер, "
+"развернутый без топологии:"
+
+#: ../../administration/ansible-deployment.rst:144
+msgid "Managing the cluster"
+msgstr "Управление кластером"
+
+#: ../../administration/ansible-deployment.rst:147
+msgid "Configuring topology of the cluster"
+msgstr "Конфигурация топологии кластера"
+
+#: ../../administration/ansible-deployment.rst:149
+msgid "If you have deployed instances with topology, skip this topic."
+msgstr ""
+"Если вы развернули экземпляры (инстансы, instances) с топологией, пропустите"
+" эту главу."
+
+#: ../../administration/ansible-deployment.rst:151
+msgid ""
+"If you have deployed instances without topology, you can now edit topology "
+"by creating replica sets and specifying their parameters in the web "
+"interface:"
+msgstr ""
+"Если вы развернули экземпляры без топологии, теперь вы можете редактировать "
+"топологию: создавать наборы реплик и задавать их параметры в веб-интерфейсе:"
+
+#: ../../administration/ansible-deployment.rst:154
+msgid ""
+"On the Cluster tab, there is a set of unconfigured instances. Select the "
+"**core** instance with the ``172.19.0.2:3001`` URL and click **Configure**. "
+"You will get the **Configure server** dialog:"
+msgstr ""
+"На вкладке Cluster находятся экземпляры без заданной конфигурации. Выберите "
+"экземпляр **core** с URL ``172.19.0.2:3001`` и нажмите **Configure**. "
+"Появится окно **Configure server**:"
+
+#: ../../administration/ansible-deployment.rst:161
+msgid ""
+"In the **Configure server** dialog, specify two replica set parameters: "
+"replica set name and role."
+msgstr ""
+"В диалоговом окне **Configure server** укажите значения двух параметров "
+"набора реплик: replica set name (имя набора реплик) и role (роль)."
+
+#: ../../administration/ansible-deployment.rst:163
+msgid ""
+"For the **core** instance, give the replica set name \"core\" and select the"
+" \"core\" role. After you've set the parameters, click **Create replica "
+"set**."
+msgstr ""
+"Для экземпляра **core** задайте имя набора реплик \"core\" и выберите роль "
+"\"core\". После этого нажмите **Create replica set**, чтобы создать набор "
+"реплик."
+
+#: ../../administration/ansible-deployment.rst:166
+msgid ""
+"Set the same parameters for the rest of the unconfigured instances as "
+"follows:"
+msgstr ""
+"Для остальных экземпляров без заданной конфигурации установите параметры "
+"следующим образом:"
+
+#: ../../administration/ansible-deployment.rst:174
+msgid "Instance URL"
+msgstr "URL экземпляра"
+
+#: ../../administration/ansible-deployment.rst:175
+msgid "Replica set name"
+msgstr "Имя набора реплик"
+
+#: ../../administration/ansible-deployment.rst:176
+msgid "Roles"
+msgstr "Роли"
+
+#: ../../administration/ansible-deployment.rst:178
+msgid "172.19.0.2:3002"
+msgstr "172.19.0.2:3002"
+
+#: ../../administration/ansible-deployment.rst:179
+msgid "runner_1"
+msgstr "runner_1"
+
+#: ../../administration/ansible-deployment.rst:180
+msgid "runner, connector, failover-coordinator"
+msgstr "runner, connector, failover-coordinator"
+
+#: ../../administration/ansible-deployment.rst:182
+msgid "172.19.0.2:3003"
+msgstr "172.19.0.2:3003"
+
+#: ../../administration/ansible-deployment.rst:183
+msgid "storage_1"
+msgstr "storage_1"
+
+#: ../../administration/ansible-deployment.rst:184
+#: ../../administration/ansible-deployment.rst:188
+msgid "storage"
+msgstr "storage"
+
+#: ../../administration/ansible-deployment.rst:186
+msgid "172.19.0.2:3004"
+msgstr "172.19.0.2:3004"
+
+#: ../../administration/ansible-deployment.rst:187
+msgid "storage_2"
+msgstr "storage_2"
+
+#: ../../administration/ansible-deployment.rst:190
+msgid "172.19.0.3:3001"
+msgstr "172.19.0.3:3001"
+
+#: ../../administration/ansible-deployment.rst:191
+msgid "runner_2"
+msgstr "runner_2"
+
+#: ../../administration/ansible-deployment.rst:192
+msgid "runner, connector"
+msgstr "runner, connector"
+
+#: ../../administration/ansible-deployment.rst:195
+msgid ""
+"There are two instances left to configure, **storage_1_replica** with the "
+"``172.19.0.3:3002`` URL and **storage_2_replica** with the "
+"``172.19.0.3:3003`` URL."
+msgstr ""
+"Осталось настроить два экземпляра: **storage_1_replica** с URL "
+"``172.19.0.3:3002`` и **storage_2_replica** с URL ``172.19.0.3:3003``."
+
+#: ../../administration/ansible-deployment.rst:198
+msgid "Join them to the already existing replica sets with **storage** roles:"
+msgstr ""
+"Присоедините их к уже существующим наборам реплик с ролями **storage**:"
+
+#: ../../administration/ansible-deployment.rst:200
+msgid "Select **storage_1_replica** and click **Configure**."
+msgstr "Выберите **storage_1_replica** и нажмите **Configure**."
+
+#: ../../administration/ansible-deployment.rst:202
+msgid ""
+"In the **Configure server** dialog, switch to the tab called **Join Replica "
+"Set**."
+msgstr ""
+"В диалоговом окне **Configure server** переключитесь на вкладку **Join "
+"Replica Set**."
+
+#: ../../administration/ansible-deployment.rst:204
+msgid "Check **storage_1** and click **Join replica set**."
+msgstr "Отметьте **storage_1** и нажмите **Join replica set**."
+
+#: ../../administration/ansible-deployment.rst:209
+msgid ""
+"For **storage_2_replica**, repeat the same steps, but check **storage_2** "
+"instead."
+msgstr ""
+"Для **storage_2_replica** повторите те же действия, но отметьте "
+"**storage_2**."
+
+#: ../../administration/ansible-deployment.rst:211
+msgid ""
+"After assigning all roles, enable ``storage`` replica sets by clicking "
+"\"Bootstrap vshard\". It initializes Tarantool ``vshard`` module. You can "
+"read more about this module in `Tarantool documentation "
+"<https://www.tarantool.io/en/doc/latest/reference/reference_rock/vshard/>`_."
+msgstr ""
+"После того, как вы назначите все роли, нажмите \"Bootstrap vshard\", чтобы "
+"включить наборы реплик ``storage``. Это инициализирует модуль Tarantool "
+"``vshard``. Подробнее об этом модуле можно узнать `в документации по "
+"Tarantool "
+"<https://www.tarantool.io/en/doc/latest/reference/reference_rock/vshard/>`_."
+
+#: ../../administration/ansible-deployment.rst:218
+msgid ""
+"You've created virtual buckets that are allocated to storages according to "
+"the number of instances with the ``storage`` role."
+msgstr ""
+"Вы создали виртуальные сегменты (virtual buckets), которые распределяются по"
+" хранилищам — экземплярам с ролью ``storage``."
+
+#: ../../administration/ansible-deployment.rst:224
+msgid "Starting or stopping instances"
+msgstr "Запуск или остановка экземпляров"
+
+#: ../../administration/ansible-deployment.rst:226
+msgid "This step is optional."
+msgstr "Этот шаг необязателен."
+
+#: ../../administration/ansible-deployment.rst:228
+msgid ""
+"In the ``deploy`` directory, there are also playbooks that start or stop the"
+" instances. You can stop and disable all instances by ``stop.yml`` playbook:"
+msgstr ""
+"В директории ``deploy`` также есть плейбуки, которые запускают или "
+"останавливают экземпляры. Вы можете остановить и отключить все экземпляры с "
+"помощью плейбука ``stop.yml``:"
+
+#: ../../administration/ansible-deployment.rst:231
+msgid "$ ansible-playbook -i hosts.yml playbooks/stop.yml"
+msgstr "$ ansible-playbook -i hosts.yml playbooks/stop.yml"
+
+#: ../../administration/ansible-deployment.rst:236
+msgid "You can start and enable all instances by ``start.yml`` playbook:"
+msgstr ""
+"Запустить и включить все экземпляры можно с помощью плейбука ``start.yml``:"
+
+#: ../../administration/ansible-deployment.rst:238
+msgid "$ ansible-playbook -i hosts.yml playbooks/start.yml"
+msgstr "$ ansible-playbook -i hosts.yml playbooks/start.yml"

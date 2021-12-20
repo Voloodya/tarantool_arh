@@ -1,0 +1,10 @@
+rock_manifest = {
+   doc = {
+      ["CHANGELOG.md"] = "daef4639b9029bb4c8ede3fcaba2633e",
+      ["README.md"] = "7ee8e69547de83a4bf34a030230acfb5"
+   },
+   lib = {
+      ["luarapidxml.so"] = "5a56f99137e8d6af54a728e6f32abad8"
+   },
+   ["luarapidxml-2.0.2-1.rockspec"] = "e9e381dfbf8b00e43050a64b96f7926e"
+}

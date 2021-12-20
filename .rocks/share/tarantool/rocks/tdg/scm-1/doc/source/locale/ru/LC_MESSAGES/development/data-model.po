@@ -1,0 +1,12 @@
+
+#: ../../development/data-model.rst:2
+msgid "Data model"
+msgstr "Модель данных"
+
+#: ../../development/data-model.rst:4
+msgid ""
+"This chapter describes the TDG data model in details. It also explains how "
+"to use the data model visual constructor."
+msgstr ""
+"В этой главе подробно описана модель данных TDG, а также рассказано, как "
+"использовать визуальный конструктор модели данных."

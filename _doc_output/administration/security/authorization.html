@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mandatory authentication mode &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Security settings" href="../security.html"/>
+        <link rel="next" title="Setting up data actions" href="actions.html"/>
+        <link rel="prev" title="Adding tokens" href="tokens.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webui.html">Web UI</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../security.html">Security settings</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="role-access.html">Role-based access control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users.html">Managing users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tokens.html">Adding tokens</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mandatory authentication mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html">Setting up data actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security-checklist.html">Security checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../repair-queue.html">Repair queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+            <li><a href="../security.html">Security settings</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Mandatory authentication mode</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mandatory-authentication-mode">
+<h1>Mandatory authentication mode<a class="headerlink" href="#mandatory-authentication-mode" title="Permalink to this headline">¶</a></h1>
+<p>Right after TDG deployment, any anonymous users and external applications can access all TDG functions and data.
+As this action is not secure, TDG will highlight it in a warning message:</p>
+<img alt="Warning message" src="../../_images/warning-auth.png" />
+<p>To enable mandatory authentication mode:</p>
+<ol class="arabic simple">
+<li>Create a <a class="reference internal" href="users.html#create-new-user"><span class="std std-ref">user profile</span></a> with the “admin” role.</li>
+<li>Sign in to the system as this user.</li>
+<li>On the <strong>Cluster</strong> tab, enable the <strong>Auth</strong> toggle switch:</li>
+</ol>
+<img alt="Enable authorization" src="../../_images/enable-auth.png" />
+<ol class="arabic simple" start="4">
+<li>In the <strong>Authorization</strong> dialog, click <strong>Enable</strong>:</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/enable-auth2.png"><img alt="&quot;Enable&quot; button" src="../../_images/enable-auth2.png" style="width: 683.0px; height: 334.5px;" /></a>
+<p>The mandatory authentication mode is on.</p>
+<p>Now users can access the TDG interface using login and password.
+After <a class="reference internal" href="../webui.html#sign-in"><span class="std std-ref">signing in</span></a>, they will have access to the tabs that are available to their <a class="reference internal" href="role-access.html"><span class="doc">user role</span></a>.
+External applications can get authorized access to TDG data and functions via <a class="reference internal" href="tokens.html"><span class="doc">tokens</span></a>.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tokens.html" class="rst-footer-buttons-btn float-left" title="Adding tokens" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Adding tokens</a>
+      
+      
+        <a href="actions.html" class="rst-footer-buttons-btn float-right" title="Setting up data actions" accesskey="n" rel="next">Setting up data actions <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../../_static/js/searchbox.js"></script>  
+</body>
+</html>

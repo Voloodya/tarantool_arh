@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running Tarantool Data Grid in Docker &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Deployment" href="../deployment.html"/>
+        <link rel="next" title="Web UI" href="../webui.html"/>
+        <link rel="prev" title="First manual deployment" href="manual-deployment.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../deployment.html">Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ansible-deployment.html">First deployment with Ansible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual-deployment.html">First manual deployment</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Running Tarantool Data Grid in Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-docker-image-file-for-deployment">Getting Docker image file for deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-an-instance">Running an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-instance">Configuring instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../webui.html">Web UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security.html">Security settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repair-queue.html">Repair queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+            <li><a href="../deployment.html">Deployment</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Running Tarantool Data Grid in Docker</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-tarantool-data-grid-in-docker">
+<h1>Running Tarantool Data Grid in Docker<a class="headerlink" href="#running-tarantool-data-grid-in-docker" title="Permalink to this headline">¶</a></h1>
+<p>You can run Tarantool Data Grid (TDG) as a Docker container to develop your solution or check if TDG is suitable for your project.</p>
+<p>This guide will show you how to:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#download-docker-image"><span class="std std-ref">Download the Docker image file</span></a>.</li>
+<li><a class="reference internal" href="#run-container"><span class="std std-ref">Run a TDG instance as a Docker container</span></a>.</li>
+<li><a class="reference internal" href="#configure-instance"><span class="std std-ref">Configure the instance</span></a>.</li>
+</ol>
+<div class="section" id="getting-docker-image-file-for-deployment">
+<span id="download-docker-image"></span><h2>Getting Docker image file for deployment<a class="headerlink" href="#getting-docker-image-file-for-deployment" title="Permalink to this headline">¶</a></h2>
+<p>Download the Docker image file of the latest version at the customer zone of
+<a class="reference external" href="https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2">tarantool.io</a>.
+The download link looks like <code class="docutils literal notranslate"><span class="pre">tdg-&lt;version&gt;-&lt;hash&gt;-docker-image.tar.gz</span></code>.</p>
+<p>If you do not have access to the customer zone, you can get one by applying
+<a class="reference external" href="https://www.tarantool.io/en/datagrid/#contact">this form</a>
+or writing to <strong>sales&#64;tarantool.io</strong>.</p>
+</div>
+<div class="section" id="running-an-instance">
+<span id="run-container"></span><h2>Running an instance<a class="headerlink" href="#running-an-instance" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">First, load the Docker image from the file that you’ve downloaded:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># change &lt;version&gt; and &lt;hash&gt; for the TDG version that you&#39;ve downloaded</span>
+<span class="gp">$ </span>docker load --input tdg2_tdg-&lt;version&gt;-&lt;hash&gt;docker-image.tar.gz
+</pre></div>
+</div>
+<p>The output will look like the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker load --input tdg2_tdg-2.0.0-1197-g1144f0c9-docker-image.tar.gz
+<span class="go">174f56854903: Loading layer [==================================================&gt;]  211.7MB/211.7MB</span>
+<span class="go">3755a040b03f: Loading layer [==================================================&gt;]  124.4kB/124.4kB</span>
+<span class="go">62e0389f69ce: Loading layer [==================================================&gt;]   80.7MB/80.7MB</span>
+<span class="go">6230a7f7e181: Loading layer [==================================================&gt;]   2.56kB/2.56kB</span>
+<span class="go">e714472acbb5: Loading layer [==================================================&gt;]  54.62MB/54.62MB</span>
+<span class="go">32e4a08d6732: Loading layer [==================================================&gt;]  2.048kB/2.048kB</span>
+<span class="go">63380e3c2f5c: Loading layer [==================================================&gt;]  127.6MB/127.6MB</span>
+<span class="go">9a6936065be6: Loading layer [==================================================&gt;]  4.348MB/4.348MB</span>
+<span class="go">e70d4b034a27: Loading layer [==================================================&gt;]  12.29kB/12.29kB</span>
+<span class="go">Loaded image: tdg:2.0.0-1197-g1144f0c9</span>
+</pre></div>
+</div>
+<p>For details about <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">load</span></code>, refer to the
+<a class="reference external" href="https://docs.docker.com/engine/reference/commandline/load/">Docker documentation</a>.</p>
+</li>
+<li><p class="first">Find an archive named <code class="docutils literal notranslate"><span class="pre">tdg</span></code> in the list of images:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker image ls tdg
+<span class="go">REPOSITORY   TAG                    IMAGE ID       CREATED       SIZE</span>
+<span class="go">tdg          2.0.0-1197-g1144f0c9   564a45b770f8   10 days ago   463MB</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now run a container with a TDG instance:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run --rm -it -p <span class="m">8080</span>:8080 tdg:&lt;tag&gt;
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run --rm -it -p <span class="m">8080</span>:8080 tdg:2.0.0-1197-g1144f0c9
+</pre></div>
+</div>
+<p>You will now find the unconfigured instance at <a class="reference external" href="http://localhost:8080">localhost:8080</a>:</p>
+<img alt="Unconfigured instance" src="../../_images/unconfigured.png" />
+</li>
+</ol>
+</div>
+<div class="section" id="configuring-instance">
+<span id="configure-instance"></span><h2>Configuring instance<a class="headerlink" href="#configuring-instance" title="Permalink to this headline">¶</a></h2>
+<p>On the Cluster tab, there is an unconfigured instance.
+To access all basic functions to work with data, click <strong>Configure</strong>.
+You will get the <strong>Configure server</strong> dialog:</p>
+<img alt="Configure server dialog" src="../../_images/configure-server-dialog.png" />
+<p>In the <strong>Configure server</strong> dialog, specify two replica set parameters: replica set name and roles.
+Set any name and choose <strong>Select all</strong> option to switch on these roles:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">core</span></code>: configuration and administration</li>
+<li><code class="docutils literal notranslate"><span class="pre">runner</span></code>: running the business logic using Lua code</li>
+<li><code class="docutils literal notranslate"><span class="pre">connector</span></code>: data exchange with external systems</li>
+<li><code class="docutils literal notranslate"><span class="pre">storage</span></code>: data validation and storage</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">failover-coordinator</span></code> role enables by default.
+You can read more about this role in <a class="reference external" href="https://github.com/tarantool/cartridge/blob/master/rst/topics/failover.rst#stateful-failover">Tarantool Cartridge documentation</a>.</p>
+<p>After assigning all roles, click <strong>Create replica set</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In this example, all roles are switched simultaneously in one replica set.
+It is a good way to practice and see what TDG can do, but a wrong pattern to follow in production.</p>
+</div>
+<p>Initialize Tarantool <code class="docutils literal notranslate"><span class="pre">vshard</span></code> module by clicking <strong>Bootstrap vshard</strong>:</p>
+<img alt="Bootstrap vshard button" src="../../_images/bootstrap-vshard-button.png" />
+<p>You can read more about this module in <a class="reference external" href="https://www.tarantool.io/en/doc/latest/reference/reference_rock/vshard/">Tarantool documentation</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="manual-deployment.html" class="rst-footer-buttons-btn float-left" title="First manual deployment" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> First manual deployment</a>
+      
+      
+        <a href="../webui.html" class="rst-footer-buttons-btn float-right" title="Web UI" accesskey="n" rel="next">Web UI <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../../_static/js/searchbox.js"></script>  
+</body>
+</html>

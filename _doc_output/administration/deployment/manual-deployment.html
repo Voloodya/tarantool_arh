@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>First manual deployment &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Deployment" href="../deployment.html"/>
+        <link rel="next" title="Running Tarantool Data Grid in Docker" href="run-in-docker.html"/>
+        <link rel="prev" title="First deployment with Ansible" href="ansible-deployment.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../deployment.html">Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ansible-deployment.html">First deployment with Ansible</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">First manual deployment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-a-tgz-file-for-deployment">Getting a TGZ file for deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deployment">Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="run-in-docker.html">Running Tarantool Data Grid in Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../webui.html">Web UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security.html">Security settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repair-queue.html">Repair queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+            <li><a href="../deployment.html">Deployment</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>First manual deployment</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="first-manual-deployment">
+<h1>First manual deployment<a class="headerlink" href="#first-manual-deployment" title="Permalink to this headline">¶</a></h1>
+<p>This guide explains how to quickly deploy Tarantool Data Grid (TDG) manually for the first time.
+As a result, you will get a single node TDG cluster deployed locally.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For TDG deployment, you need Linux OS (CentOS 7/RHEL 7 are preferable).
+Otherwise, you’ll need to set up a virtual machine with Linux OS first.</p>
+</div>
+<div class="section" id="getting-a-tgz-file-for-deployment">
+<h2>Getting a TGZ file for deployment<a class="headerlink" href="#getting-a-tgz-file-for-deployment" title="Permalink to this headline">¶</a></h2>
+<p>To deploy Tarantool Data Grid, you need an RPM (<code class="docutils literal notranslate"><span class="pre">.rpm</span></code>), TGZ (<code class="docutils literal notranslate"><span class="pre">tar.gz</span></code>), or Docker image (<code class="docutils literal notranslate"><span class="pre">docker-image.tar.gz</span></code>) file.
+For the first deployment, a TGZ file will do just fine.
+It is easier to deploy and does not require root access.</p>
+<p>Download a TGZ file of the latest version at the customer zone of <a class="reference external" href="https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2">tarantool.io</a>.
+Make sure your browser did not unarchive the downloaded file: the file extension should be <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code>.</p>
+<p>If you do not have access to the customer zone, you can get one by applying <a class="reference external" href="https://www.tarantool.io/en/datagrid/#contact">this form</a>
+or writing to <strong>sales&#64;tarantool.io</strong>.</p>
+</div>
+<div class="section" id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Unpack <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tar xzf tdg-&lt;VERSION&gt;.tar.gz <span class="c1"># change &lt;VERSION&gt; for the TDG version that you&#39;ve downloaded</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run a single node TDG cluster inside the unpacked <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./tarantool ./init.lua --bootstrap <span class="nb">true</span>
+</pre></div>
+</div>
+<p>If you already have Tarantool installed, make sure that now, while deploying TDG,
+you use the Tarantool version that is packed in the just downloaded <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> archive.</p>
+</li>
+<li><p class="first">Go to <a class="reference external" href="http://127.0.0.1:8080/">http://127.0.0.1:8080/</a> to check the deployed TDG:</p>
+<img alt="Configured instance" src="../../_images/configured-instance.png" />
+<p>By running <code class="docutils literal notranslate"><span class="pre">tarantool</span> <span class="pre">./init.lua</span> <span class="pre">--bootstrap</span> <span class="pre">true</span></code>, you’ve deployed a configured instance with assigned roles.
+If you want to try and assign roles by yourself, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tarantool ./init.lua
+</pre></div>
+</div>
+<p>As a result, you’ll get an unconfigured TDG instance:</p>
+<img alt="Unconfigured instance" src="../../_images/unconfigured-instance.png" />
+<p>In case you want to start over and deploy TDG from scratch,
+don’t forget to delete the configuration, xlog, and snap files that TDG created during the first deployment:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rm -rf ./dev/output
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ansible-deployment.html" class="rst-footer-buttons-btn float-left" title="First deployment with Ansible" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> First deployment with Ansible</a>
+      
+      
+        <a href="run-in-docker.html" class="rst-footer-buttons-btn float-right" title="Running Tarantool Data Grid in Docker" accesskey="n" rel="next">Running Tarantool Data Grid in Docker <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../../_static/js/searchbox.js"></script>  
+</body>
+</html>

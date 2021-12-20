@@ -1,0 +1,98 @@
+
+#: ../../administration/security/actions.rst:2
+msgid "Setting up data actions"
+msgstr "Настройка профилей доступа"
+
+#: ../../administration/security/actions.rst:4
+msgid ""
+"TDG allows you to set permissions for each user role to read and write data "
+"that is processed and stored in the system. You can give users data access "
+"rights in the web interface by creating an access profile (data action) "
+"assigned to any of the user roles."
+msgstr ""
+"TDG позволяет управлять правами пользователей на чтение и запись данных, "
+"обрабатываемых и хранимых в системе. Чтобы роль пользователя получила права "
+"доступа к данным, создайте в веб-интерфейсе профиль доступа (data action) и "
+"назначьте этот профиль для нужной роли."
+
+#: ../../administration/security/actions.rst:14
+msgid "Creating a new data action"
+msgstr "Создание профиля доступа"
+
+#: ../../administration/security/actions.rst:16
+msgid "To set up a new data action:"
+msgstr "Чтобы создать новый профиль доступа, выполните следующие шаги:"
+
+#: ../../administration/security/actions.rst:18
+msgid "Open the **Settings > Data actions** tab."
+msgstr "Откройте вкладку **Settings > Data actions**."
+
+#: ../../administration/security/actions.rst:20
+msgid "Click **Add data action**."
+msgstr "Нажмите **Add data action**."
+
+#: ../../administration/security/actions.rst:22
+msgid ""
+"In the **New data action** dialog, set the data action's ``Name`` and check "
+"the ``Read``/ ``Write`` rights for each aggregate:"
+msgstr ""
+"В диалоговом окне **New data action** задайте имя профиля доступа в поле "
+"``Name`` и выберите права ``Read``/ ``Write`` для каждого агрегата в списке "
+"Aggregate:"
+
+#: ../../administration/security/actions.rst:28
+msgid "Save the data action by clicking **Save**."
+msgstr "Нажмите **Save**, чтобы сохранить профиль доступа."
+
+#: ../../administration/security/actions.rst:30
+msgid "After creating a data action, you can edit any of its parameters."
+msgstr "Создав профиль доступа, вы можете отредактировать любой его параметр."
+
+#: ../../administration/security/actions.rst:35
+msgid "Assigning data actions to user roles"
+msgstr "Привязка профилей доступа к ролям пользователей"
+
+#: ../../administration/security/actions.rst:37
+msgid ""
+"You can assign data action to any user role created by the administrator. "
+"However, assigning data actions to default roles is impossible, as they "
+"cannot be edited."
+msgstr ""
+"Профиль доступа можно привязать к любой роли пользователя, созданной "
+"администратором. Исключения составляют роли по умолчанию, поскольку их "
+"нельзя редактировать."
+
+#: ../../administration/security/actions.rst:40
+msgid "To assign a data action to a user role:"
+msgstr ""
+"Чтобы привязать профиль доступа к роли пользователя, выполните следующие "
+"шаги:"
+
+#: ../../administration/security/actions.rst:42
+msgid "Switch to the **Settings > Roles** tab."
+msgstr "Откройте вкладку **Settings > Roles**."
+
+#: ../../administration/security/actions.rst:44
+msgid ""
+"In the list of roles, choose the role you want to edit and click the pencil "
+"edit button."
+msgstr ""
+"В списке ролей выберите роль, которую хотите отредактировать, и нажмите на "
+"значок карандаша."
+
+#: ../../administration/security/actions.rst:46
+msgid ""
+"In the list of all actions, find **Data actions** section and tick the "
+"checkbox of the data action you want to assign to the role:"
+msgstr ""
+"В списке действий найдите раздел **Data actions** и выберите нужный профиль "
+"доступа:"
+
+#: ../../administration/security/actions.rst:51
+msgid "Click **Apply**."
+msgstr "Нажмите **Apply**."
+
+#: ../../administration/security/actions.rst:53
+msgid "Likewise, you can assign data actions while creating a new role."
+msgstr ""
+"Вы также можете привязывать профили доступа, когда создаете новую роль."

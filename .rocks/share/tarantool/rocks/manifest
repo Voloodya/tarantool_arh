@@ -1,0 +1,1746 @@
+commands = {
+   stateboard = {
+      "cartridge/scm-1"
+   }
+}
+dependencies = {
+   ["avro-schema"] = {
+      ["3.0.6-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   cartridge = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 5, 0, revision = 1, string = "1.5.0-1"
+                  }
+               }
+            },
+            name = "ddl"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 1, 0, revision = 1, string = "1.1.0-1"
+                  }
+               }
+            },
+            name = "http"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     3, 1, 0, revision = 1, string = "3.1.0-1"
+                  }
+               }
+            },
+            name = "checks"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     2, 2, 1, revision = 1, string = "2.2.1-1"
+                  }
+               }
+            },
+            name = "errors"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     0, 1, 18, revision = 1, string = "0.1.18-1"
+                  }
+               }
+            },
+            name = "vshard"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     2, 4, 0, revision = 1, string = "2.4.0-1"
+                  }
+               }
+            },
+            name = "membership"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     7, 12, 0, revision = 1, string = "7.12.0-1"
+                  }
+               }
+            },
+            name = "frontend-core"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     0, 1, 1, revision = 1, string = "0.1.1-1"
+                  }
+               }
+            },
+            name = "graphql"
+         }
+      }
+   },
+   checks = {
+      ["3.1.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ["cron-parser"] = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ddl = {
+      ["1.5.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {},
+            name = "tarantool"
+         }
+      }
+   },
+   errors = {
+      ["2.2.1-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   expirationd = {
+      ["1.1.1-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ["frontend-core"] = {
+      ["7.12.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   graphql = {
+      ["0.1.1-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     0, 1, 0, revision = 1, string = "0.1.0-1"
+                  }
+               }
+            },
+            name = "luagraphqlparser"
+         }
+      }
+   },
+   http = {
+      ["1.1.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ["icu-date"] = {
+      ["1.4.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   kafka = {
+      ["1.3.1-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ldap = {
+      ["1.0.2-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   luagraphqlparser = {
+      ["0.1.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   luarapidxml = {
+      ["2.0.2-1"] = {
+         {
+            constraints = {},
+            name = "tarantool"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   membership = {
+      ["2.4.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {
+               {
+                  op = "~>",
+                  version = {
+                     3, string = "3"
+                  }
+               }
+            },
+            name = "checks"
+         }
+      }
+   },
+   metrics = {
+      ["0.11.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     2, 0, 0, string = "2.0.0"
+                  }
+               }
+            },
+            name = "checks"
+         }
+      }
+   },
+   odbc = {
+      ["1.0.1-1"] = {}
+   },
+   smtp = {
+      ["0.0.6-1"] = {
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   tdg = {
+      ["scm-1"] = {
+         {
+            constraints = {},
+            name = "tarantool"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     110000000, string = "scm"
+                  }
+               }
+            },
+            name = "cartridge"
+         },
+         {
+            constraints = {},
+            name = "vshard"
+         },
+         {
+            constraints = {},
+            name = "errors"
+         },
+         {
+            constraints = {},
+            name = "http"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 1, 1, revision = 1, string = "1.1.1-1"
+                  }
+               }
+            },
+            name = "watchdog"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 1, 1, revision = 1, string = "1.1.1-1"
+                  }
+               }
+            },
+            name = "expirationd"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     0, 11, 0, string = "0.11.0"
+                  }
+               }
+            },
+            name = "metrics"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     3, 1, 0, revision = 1, string = "3.1.0-1"
+                  }
+               }
+            },
+            name = "checks"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     3, 0, 6, string = "3.0.6"
+                  }
+               }
+            },
+            name = "avro-schema"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     0, 1, 1, revision = 1, string = "0.1.1-1"
+                  }
+               }
+            },
+            name = "tracing"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     2, 0, 2, revision = 1, string = "2.0.2-1"
+                  }
+               }
+            },
+            name = "luarapidxml"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 4, 0, revision = 1, string = "1.4.0-1"
+                  }
+               }
+            },
+            name = "icu-date"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     0, 0, 6, string = "0.0.6"
+                  }
+               }
+            },
+            name = "smtp"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     110000000, string = "scm"
+                  }
+               }
+            },
+            name = "cron-parser"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 0, 1, revision = 1, string = "1.0.1-1"
+                  }
+               }
+            },
+            name = "odbc"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 3, 1, revision = 1, string = "1.3.1-1"
+                  }
+               }
+            },
+            name = "kafka"
+         },
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     1, 0, 2, revision = 1, string = "1.0.2-1"
+                  }
+               }
+            },
+            name = "ldap"
+         }
+      }
+   },
+   tracing = {
+      ["0.1.1-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     3, 0, 1, string = "3.0.1"
+                  }
+               }
+            },
+            name = "checks"
+         }
+      }
+   },
+   vshard = {
+      ["0.1.18-1"] = {
+         {
+            constraints = {
+               {
+                  op = "~>",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   watchdog = {
+      ["1.1.1-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   }
+}
+modules = {
+   ["avro_schema.backend"] = {
+      "avro-schema/3.0.6-1"
+   },
+   ["avro_schema.compiler"] = {
+      "avro-schema/3.0.6-1"
+   },
+   ["avro_schema.fingerprint"] = {
+      "avro-schema/3.0.6-1"
+   },
+   ["avro_schema.frontend"] = {
+      "avro-schema/3.0.6-1"
+   },
+   ["avro_schema.il"] = {
+      "avro-schema/3.0.6-1"
+   },
+   ["avro_schema.init"] = {
+      "avro-schema/3.0.6-1"
+   },
+   ["avro_schema.runtime"] = {
+      "avro-schema/3.0.6-1"
+   },
+   ["avro_schema.utils"] = {
+      "avro-schema/3.0.6-1"
+   },
+   avro_schema_rt_c = {
+      "avro-schema/3.0.6-1"
+   },
+   cartridge = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.VERSION"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.admin"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.argparse"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.auth"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.auth-backend"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.cluster-cookie"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.clusterwide-config"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.confapplier"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.etcd2"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.etcd2-client"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.failover"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.feedback"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.front-bundle"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.funcall"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.graphql"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.graphql.execute"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.graphql.funcall"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.graphql.parse"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.graphql.schema"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.graphql.types"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.graphql.validate"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.health"] = {
+      "metrics/0.11.0-1"
+   },
+   ["cartridge.hotreload"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.issues"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.label-utils"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.boxinfo"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.deprecated"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.edit-topology"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.failover"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.get-topology"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.proxy"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.stat"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.topology"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.lua-api.vshard"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.pool"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.remote-control"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.roles"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.roles.coordinator"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.roles.ddl-manager"] = {
+      "ddl/1.5.0-1"
+   },
+   ["cartridge.roles.metrics"] = {
+      "metrics/0.11.0-1"
+   },
+   ["cartridge.roles.vshard-router"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.roles.vshard-storage"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.rpc"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.service-registry"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.stateboard"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.stateboard-client"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.tar"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.test-helpers"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.test-helpers.cluster"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.test-helpers.etcd"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.test-helpers.server"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.test-helpers.stateboard"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.topology"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.twophase"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.upload"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.user-defined-role"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.utils"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.vars"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.vshard-utils"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-auth"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-config"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-ddl"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-failover"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-issues"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-suggestions"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-topology"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.api-vshard"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.gql-boxinfo"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge.webui.gql-stat"] = {
+      "cartridge/scm-1"
+   },
+   ["cartridge/VERSION.lua.in"] = {
+      "cartridge/scm-1"
+   },
+   checks = {
+      "checks/3.1.0-1"
+   },
+   ["cron.ccronexpr"] = {
+      "cron-parser/scm-1"
+   },
+   ["cron.init"] = {
+      "cron-parser/scm-1"
+   },
+   ddl = {
+      "ddl/1.5.0-1"
+   },
+   ["ddl.check"] = {
+      "ddl/1.5.0-1"
+   },
+   ["ddl.db"] = {
+      "ddl/1.5.0-1"
+   },
+   ["ddl.get"] = {
+      "ddl/1.5.0-1"
+   },
+   ["ddl.set"] = {
+      "ddl/1.5.0-1"
+   },
+   ["ddl.utils"] = {
+      "ddl/1.5.0-1"
+   },
+   errors = {
+      "errors/2.2.1-1"
+   },
+   ["errors.deprecate"] = {
+      "errors/2.2.1-1"
+   },
+   expirationd = {
+      "expirationd/1.1.1-1"
+   },
+   ["frontend-core"] = {
+      "frontend-core/7.12.0-1"
+   },
+   ["frontend-core.bundle"] = {
+      "frontend-core/7.12.0-1"
+   },
+   ["graphql.execute"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.introspection"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.parse"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.query_util"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.rules"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.schema"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.types"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.util"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.validate"] = {
+      "graphql/0.1.1-1"
+   },
+   ["graphql.validate_variables"] = {
+      "graphql/0.1.1-1"
+   },
+   ["http.codes"] = {
+      "http/1.1.0-1"
+   },
+   ["http.lib"] = {
+      "http/1.1.0-1"
+   },
+   ["http.mime_types"] = {
+      "http/1.1.0-1"
+   },
+   ["http.server"] = {
+      "http/1.1.0-1"
+   },
+   ["icu-date.detect_icu_version_suffix"] = {
+      "icu-date/1.4.0-1"
+   },
+   ["icu-date.ffi_cdef"] = {
+      "icu-date/1.4.0-1"
+   },
+   ["icu-date.init"] = {
+      "icu-date/1.4.0-1"
+   },
+   ["kafka.init"] = {
+      "kafka/1.3.1-1"
+   },
+   ["kafka.tntkafka"] = {
+      "kafka/1.3.1-1"
+   },
+   ldap = {
+      "ldap/1.0.2-1"
+   },
+   luagraphqlparser = {
+      "luagraphqlparser/0.1.0-1"
+   },
+   lualdap = {
+      "ldap/1.0.2-1"
+   },
+   luarapidxml = {
+      "luarapidxml/2.0.2-1"
+   },
+   membership = {
+      "membership/2.4.0-1"
+   },
+   ["membership.events"] = {
+      "membership/2.4.0-1"
+   },
+   ["membership.members"] = {
+      "membership/2.4.0-1"
+   },
+   ["membership.network"] = {
+      "membership/2.4.0-1"
+   },
+   ["membership.options"] = {
+      "membership/2.4.0-1"
+   },
+   ["membership.stash"] = {
+      "membership/2.4.0-1"
+   },
+   ["metrics.cartridge"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.cartridge.issues"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.collectors.counter"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.collectors.gauge"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.collectors.histogram"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.collectors.shared"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.collectors.summary"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.const"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.http_middleware"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.init"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.plugins.graphite"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.plugins.json"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.plugins.prometheus"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.psutils.cpu"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.psutils.psutils_linux"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.quantile"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.registry"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.clock"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.cpu"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.fibers"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.info"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.luajit"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.memory"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.network"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.operations"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.replicas"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.runtime"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.slab"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.spaces"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.system"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.tarantool.vinyl"] = {
+      "metrics/0.11.0-1"
+   },
+   ["metrics.utils"] = {
+      "metrics/0.11.0-1"
+   },
+   odbc = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.connection"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.cursor"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.libcoio_odbc"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.odbc_header"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.odbc_lib"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.pool"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.prepare"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.sql_utils"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc.utils"] = {
+      "odbc/1.0.1-1"
+   },
+   ["odbc/coio_odbc.c"] = {
+      "odbc/1.0.1-1"
+   },
+   opentracing = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.extractors"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.extractors.http"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.extractors.map"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.extractors.validate"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.injectors"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.injectors.http"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.injectors.map"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.span"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.span_context"] = {
+      "tracing/0.1.1-1"
+   },
+   ["opentracing.tracer"] = {
+      "tracing/0.1.1-1"
+   },
+   ["smtp.init"] = {
+      "smtp/0.0.6-1"
+   },
+   ["smtp.lib"] = {
+      "smtp/0.0.6-1"
+   },
+   ["vshard.cfg"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.consts"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.error"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.hash"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.heap"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.init"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.lua_gc"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.registry"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.replicaset"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.rlist"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.router.init"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.storage.init"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.storage.ref"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.storage.reload_evolution"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.storage.sched"] = {
+      "vshard/0.1.18-1"
+   },
+   ["vshard.util"] = {
+      "vshard/0.1.18-1"
+   },
+   watchdog = {
+      "watchdog/1.1.1-1"
+   },
+   ["zipkin.bounded_queue"] = {
+      "tracing/0.1.1-1"
+   },
+   ["zipkin.handler"] = {
+      "tracing/0.1.1-1"
+   },
+   ["zipkin.reporter"] = {
+      "tracing/0.1.1-1"
+   },
+   ["zipkin.tracer"] = {
+      "tracing/0.1.1-1"
+   }
+}
+repository = {
+   ["avro-schema"] = {
+      ["3.0.6-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["avro_schema.backend"] = "avro_schema/backend.lua",
+               ["avro_schema.compiler"] = "avro_schema/compiler.lua",
+               ["avro_schema.fingerprint"] = "avro_schema/fingerprint.lua",
+               ["avro_schema.frontend"] = "avro_schema/frontend.lua",
+               ["avro_schema.il"] = "avro_schema/il.lua",
+               ["avro_schema.init"] = "avro_schema/init.lua",
+               ["avro_schema.runtime"] = "avro_schema/runtime.lua",
+               ["avro_schema.utils"] = "avro_schema/utils.lua",
+               avro_schema_rt_c = "avro_schema_rt_c.so"
+            }
+         }
+      }
+   },
+   cartridge = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {
+               stateboard = "stateboard"
+            },
+            dependencies = {
+               checks = "3.1.0-1",
+               ddl = "1.5.0-1",
+               errors = "2.2.1-1",
+               ["frontend-core"] = "7.12.0-1",
+               graphql = "0.1.1-1",
+               http = "1.1.0-1",
+               luagraphqlparser = "0.1.0-1",
+               membership = "2.4.0-1",
+               vshard = "0.1.18-1"
+            },
+            modules = {
+               cartridge = "cartridge.lua",
+               ["cartridge.VERSION"] = "cartridge/VERSION.lua",
+               ["cartridge.admin"] = "cartridge/admin.lua",
+               ["cartridge.argparse"] = "cartridge/argparse.lua",
+               ["cartridge.auth"] = "cartridge/auth.lua",
+               ["cartridge.auth-backend"] = "cartridge/auth-backend.lua",
+               ["cartridge.cluster-cookie"] = "cartridge/cluster-cookie.lua",
+               ["cartridge.clusterwide-config"] = "cartridge/clusterwide-config.lua",
+               ["cartridge.confapplier"] = "cartridge/confapplier.lua",
+               ["cartridge.etcd2"] = "cartridge/etcd2.lua",
+               ["cartridge.etcd2-client"] = "cartridge/etcd2-client.lua",
+               ["cartridge.failover"] = "cartridge/failover.lua",
+               ["cartridge.feedback"] = "cartridge/feedback.lua",
+               ["cartridge.front-bundle"] = "cartridge/front-bundle.lua",
+               ["cartridge.funcall"] = "cartridge/funcall.lua",
+               ["cartridge.graphql"] = "cartridge/graphql.lua",
+               ["cartridge.graphql.execute"] = "cartridge/graphql/execute.lua",
+               ["cartridge.graphql.funcall"] = "cartridge/graphql/funcall.lua",
+               ["cartridge.graphql.parse"] = "cartridge/graphql/parse.lua",
+               ["cartridge.graphql.schema"] = "cartridge/graphql/schema.lua",
+               ["cartridge.graphql.types"] = "cartridge/graphql/types.lua",
+               ["cartridge.graphql.validate"] = "cartridge/graphql/validate.lua",
+               ["cartridge.hotreload"] = "cartridge/hotreload.lua",
+               ["cartridge.issues"] = "cartridge/issues.lua",
+               ["cartridge.label-utils"] = "cartridge/label-utils.lua",
+               ["cartridge.lua-api.boxinfo"] = "cartridge/lua-api/boxinfo.lua",
+               ["cartridge.lua-api.deprecated"] = "cartridge/lua-api/deprecated.lua",
+               ["cartridge.lua-api.edit-topology"] = "cartridge/lua-api/edit-topology.lua",
+               ["cartridge.lua-api.failover"] = "cartridge/lua-api/failover.lua",
+               ["cartridge.lua-api.get-topology"] = "cartridge/lua-api/get-topology.lua",
+               ["cartridge.lua-api.proxy"] = "cartridge/lua-api/proxy.lua",
+               ["cartridge.lua-api.stat"] = "cartridge/lua-api/stat.lua",
+               ["cartridge.lua-api.topology"] = "cartridge/lua-api/topology.lua",
+               ["cartridge.lua-api.vshard"] = "cartridge/lua-api/vshard.lua",
+               ["cartridge.pool"] = "cartridge/pool.lua",
+               ["cartridge.remote-control"] = "cartridge/remote-control.lua",
+               ["cartridge.roles"] = "cartridge/roles.lua",
+               ["cartridge.roles.coordinator"] = "cartridge/roles/coordinator.lua",
+               ["cartridge.roles.vshard-router"] = "cartridge/roles/vshard-router.lua",
+               ["cartridge.roles.vshard-storage"] = "cartridge/roles/vshard-storage.lua",
+               ["cartridge.rpc"] = "cartridge/rpc.lua",
+               ["cartridge.service-registry"] = "cartridge/service-registry.lua",
+               ["cartridge.stateboard"] = "cartridge/stateboard.lua",
+               ["cartridge.stateboard-client"] = "cartridge/stateboard-client.lua",
+               ["cartridge.tar"] = "cartridge/tar.lua",
+               ["cartridge.test-helpers"] = "cartridge/test-helpers.lua",
+               ["cartridge.test-helpers.cluster"] = "cartridge/test-helpers/cluster.lua",
+               ["cartridge.test-helpers.etcd"] = "cartridge/test-helpers/etcd.lua",
+               ["cartridge.test-helpers.server"] = "cartridge/test-helpers/server.lua",
+               ["cartridge.test-helpers.stateboard"] = "cartridge/test-helpers/stateboard.lua",
+               ["cartridge.topology"] = "cartridge/topology.lua",
+               ["cartridge.twophase"] = "cartridge/twophase.lua",
+               ["cartridge.upload"] = "cartridge/upload.lua",
+               ["cartridge.user-defined-role"] = "cartridge/user-defined-role.lua",
+               ["cartridge.utils"] = "cartridge/utils.lua",
+               ["cartridge.vars"] = "cartridge/vars.lua",
+               ["cartridge.vshard-utils"] = "cartridge/vshard-utils.lua",
+               ["cartridge.webui"] = "cartridge/webui.lua",
+               ["cartridge.webui.api-auth"] = "cartridge/webui/api-auth.lua",
+               ["cartridge.webui.api-config"] = "cartridge/webui/api-config.lua",
+               ["cartridge.webui.api-ddl"] = "cartridge/webui/api-ddl.lua",
+               ["cartridge.webui.api-failover"] = "cartridge/webui/api-failover.lua",
+               ["cartridge.webui.api-issues"] = "cartridge/webui/api-issues.lua",
+               ["cartridge.webui.api-suggestions"] = "cartridge/webui/api-suggestions.lua",
+               ["cartridge.webui.api-topology"] = "cartridge/webui/api-topology.lua",
+               ["cartridge.webui.api-vshard"] = "cartridge/webui/api-vshard.lua",
+               ["cartridge.webui.gql-boxinfo"] = "cartridge/webui/gql-boxinfo.lua",
+               ["cartridge.webui.gql-stat"] = "cartridge/webui/gql-stat.lua",
+               ["cartridge/VERSION.lua.in"] = "cartridge/VERSION.lua.in"
+            }
+         }
+      }
+   },
+   checks = {
+      ["3.1.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               checks = "checks.lua"
+            }
+         }
+      }
+   },
+   ["cron-parser"] = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["cron.ccronexpr"] = "cron/ccronexpr.so",
+               ["cron.init"] = "cron/init.lua"
+            }
+         }
+      }
+   },
+   ddl = {
+      ["1.5.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["cartridge.roles.ddl-manager"] = "cartridge/roles/ddl-manager.lua",
+               ddl = "ddl.lua",
+               ["ddl.check"] = "ddl/check.lua",
+               ["ddl.db"] = "ddl/db.lua",
+               ["ddl.get"] = "ddl/get.lua",
+               ["ddl.set"] = "ddl/set.lua",
+               ["ddl.utils"] = "ddl/utils.lua"
+            }
+         }
+      }
+   },
+   errors = {
+      ["2.2.1-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               errors = "errors.lua",
+               ["errors.deprecate"] = "errors/deprecate.lua"
+            }
+         }
+      }
+   },
+   expirationd = {
+      ["1.1.1-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               expirationd = "expirationd.lua"
+            }
+         }
+      }
+   },
+   ["frontend-core"] = {
+      ["7.12.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["frontend-core"] = "frontend-core.lua",
+               ["frontend-core.bundle"] = "frontend-core/bundle.lua"
+            }
+         }
+      }
+   },
+   graphql = {
+      ["0.1.1-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               luagraphqlparser = "0.1.0-1"
+            },
+            modules = {
+               ["graphql.execute"] = "graphql/execute.lua",
+               ["graphql.introspection"] = "graphql/introspection.lua",
+               ["graphql.parse"] = "graphql/parse.lua",
+               ["graphql.query_util"] = "graphql/query_util.lua",
+               ["graphql.rules"] = "graphql/rules.lua",
+               ["graphql.schema"] = "graphql/schema.lua",
+               ["graphql.types"] = "graphql/types.lua",
+               ["graphql.util"] = "graphql/util.lua",
+               ["graphql.validate"] = "graphql/validate.lua",
+               ["graphql.validate_variables"] = "graphql/validate_variables.lua"
+            }
+         }
+      }
+   },
+   http = {
+      ["1.1.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["http.codes"] = "http/codes.lua",
+               ["http.lib"] = "http/lib.so",
+               ["http.mime_types"] = "http/mime_types.lua",
+               ["http.server"] = "http/server.lua"
+            }
+         }
+      }
+   },
+   ["icu-date"] = {
+      ["1.4.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["icu-date.detect_icu_version_suffix"] = "icu-date/detect_icu_version_suffix.lua",
+               ["icu-date.ffi_cdef"] = "icu-date/ffi_cdef.lua",
+               ["icu-date.init"] = "icu-date/init.lua"
+            }
+         }
+      }
+   },
+   kafka = {
+      ["1.3.1-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["kafka.init"] = "kafka/init.lua",
+               ["kafka.tntkafka"] = "kafka/tntkafka.so"
+            }
+         }
+      }
+   },
+   ldap = {
+      ["1.0.2-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ldap = "ldap.lua",
+               lualdap = "lualdap.so"
+            }
+         }
+      }
+   },
+   luagraphqlparser = {
+      ["0.1.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               luagraphqlparser = "luagraphqlparser.so"
+            }
+         }
+      }
+   },
+   luarapidxml = {
+      ["2.0.2-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               luarapidxml = "luarapidxml.so"
+            }
+         }
+      }
+   },
+   membership = {
+      ["2.4.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               checks = "3.1.0-1"
+            },
+            modules = {
+               membership = "membership.lua",
+               ["membership.events"] = "membership/events.lua",
+               ["membership.members"] = "membership/members.lua",
+               ["membership.network"] = "membership/network.lua",
+               ["membership.options"] = "membership/options.lua",
+               ["membership.stash"] = "membership/stash.lua"
+            }
+         }
+      }
+   },
+   metrics = {
+      ["0.11.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               checks = "3.1.0-1"
+            },
+            modules = {
+               ["cartridge.health"] = "cartridge/health.lua",
+               ["cartridge.roles.metrics"] = "cartridge/roles/metrics.lua",
+               ["metrics.cartridge"] = "metrics/cartridge.lua",
+               ["metrics.cartridge.issues"] = "metrics/cartridge/issues.lua",
+               ["metrics.collectors.counter"] = "metrics/collectors/counter.lua",
+               ["metrics.collectors.gauge"] = "metrics/collectors/gauge.lua",
+               ["metrics.collectors.histogram"] = "metrics/collectors/histogram.lua",
+               ["metrics.collectors.shared"] = "metrics/collectors/shared.lua",
+               ["metrics.collectors.summary"] = "metrics/collectors/summary.lua",
+               ["metrics.const"] = "metrics/const.lua",
+               ["metrics.http_middleware"] = "metrics/http_middleware.lua",
+               ["metrics.init"] = "metrics/init.lua",
+               ["metrics.plugins.graphite"] = "metrics/plugins/graphite.lua",
+               ["metrics.plugins.json"] = "metrics/plugins/json.lua",
+               ["metrics.plugins.prometheus"] = "metrics/plugins/prometheus.lua",
+               ["metrics.psutils.cpu"] = "metrics/psutils/cpu.lua",
+               ["metrics.psutils.psutils_linux"] = "metrics/psutils/psutils_linux.lua",
+               ["metrics.quantile"] = "metrics/quantile.lua",
+               ["metrics.registry"] = "metrics/registry.lua",
+               ["metrics.tarantool"] = "metrics/tarantool.lua",
+               ["metrics.tarantool.clock"] = "metrics/tarantool/clock.lua",
+               ["metrics.tarantool.cpu"] = "metrics/tarantool/cpu.lua",
+               ["metrics.tarantool.fibers"] = "metrics/tarantool/fibers.lua",
+               ["metrics.tarantool.info"] = "metrics/tarantool/info.lua",
+               ["metrics.tarantool.luajit"] = "metrics/tarantool/luajit.lua",
+               ["metrics.tarantool.memory"] = "metrics/tarantool/memory.lua",
+               ["metrics.tarantool.network"] = "metrics/tarantool/network.lua",
+               ["metrics.tarantool.operations"] = "metrics/tarantool/operations.lua",
+               ["metrics.tarantool.replicas"] = "metrics/tarantool/replicas.lua",
+               ["metrics.tarantool.runtime"] = "metrics/tarantool/runtime.lua",
+               ["metrics.tarantool.slab"] = "metrics/tarantool/slab.lua",
+               ["metrics.tarantool.spaces"] = "metrics/tarantool/spaces.lua",
+               ["metrics.tarantool.system"] = "metrics/tarantool/system.lua",
+               ["metrics.tarantool.vinyl"] = "metrics/tarantool/vinyl.lua",
+               ["metrics.utils"] = "metrics/utils.lua"
+            }
+         }
+      }
+   },
+   odbc = {
+      ["1.0.1-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               odbc = "odbc.lua",
+               ["odbc.connection"] = "odbc/connection.lua",
+               ["odbc.cursor"] = "odbc/cursor.lua",
+               ["odbc.libcoio_odbc"] = "odbc/libcoio_odbc.so",
+               ["odbc.odbc_header"] = "odbc/odbc_header.lua",
+               ["odbc.odbc_lib"] = "odbc/odbc_lib.lua",
+               ["odbc.pool"] = "odbc/pool.lua",
+               ["odbc.prepare"] = "odbc/prepare.lua",
+               ["odbc.sql_utils"] = "odbc/sql_utils.lua",
+               ["odbc.utils"] = "odbc/utils.lua",
+               ["odbc/coio_odbc.c"] = "odbc/coio_odbc.c"
+            }
+         }
+      }
+   },
+   smtp = {
+      ["0.0.6-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["smtp.init"] = "smtp/init.lua",
+               ["smtp.lib"] = "smtp/lib.so"
+            }
+         }
+      }
+   },
+   tdg = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               ["avro-schema"] = "3.0.6-1",
+               cartridge = "scm-1",
+               checks = "3.1.0-1",
+               ["cron-parser"] = "scm-1",
+               ddl = "1.5.0-1",
+               errors = "2.2.1-1",
+               expirationd = "1.1.1-1",
+               ["frontend-core"] = "7.12.0-1",
+               graphql = "0.1.1-1",
+               http = "1.1.0-1",
+               ["icu-date"] = "1.4.0-1",
+               kafka = "1.3.1-1",
+               ldap = "1.0.2-1",
+               luagraphqlparser = "0.1.0-1",
+               luarapidxml = "2.0.2-1",
+               membership = "2.4.0-1",
+               metrics = "0.11.0-1",
+               odbc = "1.0.1-1",
+               smtp = "0.0.6-1",
+               tracing = "0.1.1-1",
+               vshard = "0.1.18-1",
+               watchdog = "1.1.1-1"
+            },
+            modules = {}
+         }
+      }
+   },
+   tracing = {
+      ["0.1.1-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               checks = "3.1.0-1"
+            },
+            modules = {
+               opentracing = "opentracing.lua",
+               ["opentracing.extractors"] = "opentracing/extractors.lua",
+               ["opentracing.extractors.http"] = "opentracing/extractors/http.lua",
+               ["opentracing.extractors.map"] = "opentracing/extractors/map.lua",
+               ["opentracing.extractors.validate"] = "opentracing/extractors/validate.lua",
+               ["opentracing.injectors"] = "opentracing/injectors.lua",
+               ["opentracing.injectors.http"] = "opentracing/injectors/http.lua",
+               ["opentracing.injectors.map"] = "opentracing/injectors/map.lua",
+               ["opentracing.span"] = "opentracing/span.lua",
+               ["opentracing.span_context"] = "opentracing/span_context.lua",
+               ["opentracing.tracer"] = "opentracing/tracer.lua",
+               ["zipkin.bounded_queue"] = "zipkin/bounded_queue.lua",
+               ["zipkin.handler"] = "zipkin/handler.lua",
+               ["zipkin.reporter"] = "zipkin/reporter.lua",
+               ["zipkin.tracer"] = "zipkin/tracer.lua"
+            }
+         }
+      }
+   },
+   vshard = {
+      ["0.1.18-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["vshard.cfg"] = "vshard/cfg.lua",
+               ["vshard.consts"] = "vshard/consts.lua",
+               ["vshard.error"] = "vshard/error.lua",
+               ["vshard.hash"] = "vshard/hash.lua",
+               ["vshard.heap"] = "vshard/heap.lua",
+               ["vshard.init"] = "vshard/init.lua",
+               ["vshard.lua_gc"] = "vshard/lua_gc.lua",
+               ["vshard.registry"] = "vshard/registry.lua",
+               ["vshard.replicaset"] = "vshard/replicaset.lua",
+               ["vshard.rlist"] = "vshard/rlist.lua",
+               ["vshard.router.init"] = "vshard/router/init.lua",
+               ["vshard.storage.init"] = "vshard/storage/init.lua",
+               ["vshard.storage.ref"] = "vshard/storage/ref.lua",
+               ["vshard.storage.reload_evolution"] = "vshard/storage/reload_evolution.lua",
+               ["vshard.storage.sched"] = "vshard/storage/sched.lua",
+               ["vshard.util"] = "vshard/util.lua"
+            }
+         }
+      }
+   },
+   watchdog = {
+      ["1.1.1-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               watchdog = "watchdog.so"
+            }
+         }
+      }
+   }
+}

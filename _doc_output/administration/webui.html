@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Web UI &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s guide" href="../administration.html"/>
+        <link rel="next" title="Security settings" href="security.html"/>
+        <link rel="prev" title="Running Tarantool Data Grid in Docker" href="deployment/run-in-docker.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signing-in">Signing in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web-ui-overview-1">Web UI overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tab-pane-1">Tab pane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cluster-tab-1">Cluster tab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repair-queue.html">Repair queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Web UI</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="web-ui">
+<h1>Web UI<a class="headerlink" href="#web-ui" title="Permalink to this headline">¶</a></h1>
+<p>This chapter explains how to access TDG web UI and sign in.
+It also gives an overview of the web UI controls and functions.</p>
+<p>In the example below, authorization to the TDG system is already enabled.
+To learn how to enable authorization, read the <a class="reference internal" href="security/authorization.html"><span class="doc">authorization guide</span></a>.</p>
+<div class="section" id="signing-in">
+<span id="sign-in"></span><h2>Signing in<a class="headerlink" href="#signing-in" title="Permalink to this headline">¶</a></h2>
+<p>To access the TDG web interface, you need to sign in:</p>
+<ol class="arabic">
+<li><p class="first">Contact your administrator to get your credentials:</p>
+<ul class="simple">
+<li><strong>Username</strong>: login that is automatically generated when the administrator creates a <a class="reference internal" href="security/users.html"><span class="doc">user profile</span></a>.
+For example, <code class="docutils literal notranslate"><span class="pre">ui8896</span></code> or <code class="docutils literal notranslate"><span class="pre">gz1200</span></code>.</li>
+<li><strong>Password</strong>: automatically generated when the administrator creates a <a class="reference internal" href="security/users.html"><span class="doc">user profile</span></a>.</li>
+<li><strong>TDG server address</strong>: <code class="docutils literal notranslate"><span class="pre">http://&lt;address&gt;:&lt;http_port&gt;</span></code>, is set by the administrator in the configuration file.
+This guide uses the <code class="docutils literal notranslate"><span class="pre">http://172.19.0.2:8080</span></code> server address as an example.</li>
+</ul>
+</li>
+<li><p class="first">Open the TDG server address in the browser.
+You will see the authorization dialog:</p>
+<a class="reference internal image-reference" href="../_images/authorization.png"><img alt="Authorization dialog" src="../_images/authorization.png" style="width: 597.0px; height: 398.5px;" /></a>
+</li>
+<li><p class="first">Input your credentials.
+In the <strong>Username</strong> text field, enter your login.
+In the <strong>Password</strong> text field, enter your password.</p>
+</li>
+<li><p class="first">Click <strong>Login</strong>.</p>
+</li>
+</ol>
+<p>During the authorization process, the TDG system will check that your credentials are correct.
+Also, it will check your access rights to particular TDG tabs.
+After a successful authorization, you will see the TDG interface.
+You will only get access to certain tabs in the TDG interface.
+It depends on the <a class="reference internal" href="security/role-access.html"><span class="doc">user role</span></a> that the administrator has given you.</p>
+<p>If there is a typo in the credentials, TDG won’t be able to identify you.
+In that case, you will see the “Authentication failed” message:</p>
+<a class="reference internal image-reference" href="../_images/authentication-failed.png"><img alt="Authentication failed" src="../_images/authentication-failed.png" style="width: 596.0px; height: 487.0px;" /></a>
+<p>Try to input your credentials one more time.</p>
+</div>
+<div class="section" id="web-ui-overview-1">
+<span id="web-ui-overview"></span><h2>Web UI overview<a class="headerlink" href="#web-ui-overview-1" title="Permalink to this headline">¶</a></h2>
+<p>In the TDG interface, there are two sections:</p>
+<ol class="arabic simple">
+<li><strong>Tab pane</strong>: a list of tabs to switch between different sections of TDG.</li>
+<li><strong>Working area</strong>: displays the contents of the selected tab.</li>
+</ol>
+<img alt="Web interface" src="../_images/web-ui.png" />
+<div class="section" id="tab-pane-1">
+<span id="tab-pane"></span><h3>Tab pane<a class="headerlink" href="#tab-pane-1" title="Permalink to this headline">¶</a></h3>
+<p>The contents of the tab pane vary depending on the <a class="reference internal" href="security/role-access.html"><span class="doc">user role</span></a>.
+Users with the “admin” and “supervisor” rights can see all tabs.
+Users with the access rights of the “user” role have access to a limited set of tabs.</p>
+<p>At the bottom of the page, there is a <strong>Collapse menu</strong> button.
+Click it to hide the full tab pane view.</p>
+<p>The tab pane consists of the following tabs:</p>
+<div class="table docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Cluster</td>
+<td>Cluster configuration and administration.</td>
+</tr>
+<tr class="row-even"><td>Configuration files</td>
+<td>TDG configuration settings management.</td>
+</tr>
+<tr class="row-odd"><td>Test</td>
+<td>Sending test queries in JSON or XML (SOAP) format.</td>
+</tr>
+<tr class="row-even"><td>GraphQL</td>
+<td>Sending queries in GraphQL format.</td>
+</tr>
+<tr class="row-odd"><td>Model</td>
+<td>Current data model uploaded to the system.</td>
+</tr>
+<tr class="row-even"><td>Repair Queues: Input</td>
+<td>Repair queue for the uploaded objects.</td>
+</tr>
+<tr class="row-odd"><td>Repair Queues: Output</td>
+<td>Repair queue for the objects replicated to external systems.</td>
+</tr>
+<tr class="row-even"><td>Repair Queues: Jobs</td>
+<td>Repair queue for pending jobs that ended with an error.</td>
+</tr>
+<tr class="row-odd"><td>Logger</td>
+<td>Event log.</td>
+</tr>
+<tr class="row-even"><td>Audit Log</td>
+<td>Audit log.</td>
+</tr>
+<tr class="row-odd"><td>Tasks</td>
+<td>Task management.</td>
+</tr>
+<tr class="row-even"><td>Data types</td>
+<td>Data types that are represented in the uploaded data model.</td>
+</tr>
+<tr class="row-odd"><td>Connectors</td>
+<td>Connector creation and management.</td>
+</tr>
+<tr class="row-even"><td>Settings</td>
+<td>System settings management.</td>
+</tr>
+<tr class="row-odd"><td>Doc</td>
+<td>English version of TDG documentation that is available locally.
+It is deployed from the package with the rest of TDG.
+As a result, it only contains the chapters published before the package was formed.
+You can read the up-to-date documentation both in English and in Russian at <a class="reference external" href="https://www.tarantool.io/en/tdg/latest/">tarantool.io</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="cluster-tab-1">
+<span id="cluster-tab"></span><h3>Cluster tab<a class="headerlink" href="#cluster-tab-1" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Cluster</strong> tab displays the current status of the TDG instances cluster.
+You can administrate it via UI.
+There are several groups of elements in the interface for cluster management:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#replica-sets" id="toc-entry-1">Replica sets</a></li>
+<li><a class="reference internal" href="#replica-set-widget" id="toc-entry-2">Replica set widget</a></li>
+<li><a class="reference internal" href="#instance-widget" id="toc-entry-3">Instance widget</a></li>
+<li><a class="reference internal" href="#instance-details" id="toc-entry-4">Instance details</a></li>
+<li><a class="reference internal" href="#more-functions" id="toc-entry-5">More functions</a></li>
+</ul>
+</div>
+<div class="section" id="replica-sets">
+<h4><a class="toc-backref" href="#toc-entry-1">Replica sets</a><a class="headerlink" href="#replica-sets" title="Permalink to this headline">¶</a></h4>
+<img alt="Replica sets statistics" src="../_images/clustertab1.png" />
+<p>In the highlighted area, you can see general replica set statistics:</p>
+<div class="table docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Total</td>
+<td>Total number of replica sets in the cluster.</td>
+</tr>
+<tr class="row-even"><td>Unhealthy</td>
+<td>Number of replica sets with the “unhealthy” status.</td>
+</tr>
+<tr class="row-odd"><td>Servers</td>
+<td>Total number of TDG instances.</td>
+</tr>
+<tr class="row-even"><td>Filter</td>
+<td>A dropdown menu to filter replica sets by status or cluster role.</td>
+</tr>
+<tr class="row-odd"><td>Search box</td>
+<td>A search box to display replica sets filtered by URI, UUID, role, alias, or labels.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="replica-set-widget">
+<h4><a class="toc-backref" href="#toc-entry-2">Replica set widget</a><a class="headerlink" href="#replica-set-widget" title="Permalink to this headline">¶</a></h4>
+<img alt="Replica set widget" src="../_images/clustertab2.png" />
+<p>The following statistics are available in the replica set widget:</p>
+<div class="table docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Name and role</td>
+<td>For example, replica set “storage_1” with the role “storage”.</td>
+</tr>
+<tr class="row-even"><td>Status</td>
+<td>“Healthy” means the current replica set functions properly.
+“Unhealthy” means the current replica set is not available or does not function properly.</td>
+</tr>
+<tr class="row-odd"><td>Storage group and replica set weight</td>
+<td>Only for replica sets with the “storage” role.
+For example, storage group “default”, replica set weight “1”.</td>
+</tr>
+<tr class="row-even"><td><strong>Edit</strong> button</td>
+<td>Opens a dialog where you can edit the parameters of the replica set.</td>
+</tr>
+<tr class="row-odd"><td>Instances widgets</td>
+<td>The widgets of the instances included in this replica set.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="instance-widget">
+<h4><a class="toc-backref" href="#toc-entry-3">Instance widget</a><a class="headerlink" href="#instance-widget" title="Permalink to this headline">¶</a></h4>
+<img alt="Instance widget" src="../_images/clustertab3.png" />
+<p>The widget of the instance is in the highlighted area.
+It allows you to see the following information about the instance:</p>
+<div class="table docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Instance name</td>
+<td>For example, “storage_1” or “storage_1_replica”.</td>
+</tr>
+<tr class="row-even"><td>URI</td>
+<td>Instance URI for binary port access.
+Is set in the cluster configuration via the <code class="docutils literal notranslate"><span class="pre">advertise_uri</span></code> parameter.
+For example, <code class="docutils literal notranslate"><span class="pre">172.19.0.2:3003</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>Status</td>
+<td>“Healthy” means the current instance functions properly.
+“Unhealthy” means the current instance is not available or does not function properly.</td>
+</tr>
+<tr class="row-even"><td>Leader indicator</td>
+<td>Indicates if the instance is the leader in the replica set.</td>
+</tr>
+<tr class="row-odd"><td>Memory usage indicator</td>
+<td>The actual memory used / memory limit set for the instance.
+For example, 3.3 MiB / 1024.0 MiB.</td>
+</tr>
+<tr class="row-even"><td>Virtual buckets indicator</td>
+<td>Indicates the number of virtual buckets on the instance.
+Only for replica sets with the “storage” role.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">…</span></code> button</td>
+<td>Options to see instance details, promote the instance as a leader, disable or expel the instance.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="instance-details">
+<h4><a class="toc-backref" href="#toc-entry-4">Instance details</a><a class="headerlink" href="#instance-details" title="Permalink to this headline">¶</a></h4>
+<p>For each instance, you can view detailed information about its parameters in read-only mode.
+On the <strong>Cluster</strong> tab of the instance, click <code class="docutils literal notranslate"><span class="pre">…</span></code> &gt; <strong>Server details</strong>:</p>
+<img alt="**Server** details" src="../_images/server-details.png" />
+<p>You will see a pop-up window with detailed information about the instance parameters:</p>
+<img alt="Instance's parameters" src="../_images/instance-parameters.png" />
+</div>
+<div class="section" id="more-functions">
+<h4><a class="toc-backref" href="#toc-entry-5">More functions</a><a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h4>
+<img alt="More cluster management functions" src="../_images/clustertab4.png" />
+<p>Several more TDG functions are also available on the <strong>Cluster</strong> tab:</p>
+<div class="table docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Issues</td>
+<td>The history of issues occurring in the cluster operation.</td>
+</tr>
+<tr class="row-even"><td>Probe server</td>
+<td>Manual server availability check.
+Used when configuring a cluster.</td>
+</tr>
+<tr class="row-odd"><td>Auth</td>
+<td>Enable and disable mandatory authorization mode.</td>
+</tr>
+<tr class="row-even"><td>Failover: disabled/eventual/stateful</td>
+<td>Switch for automatic recovery mode after failure.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deployment/run-in-docker.html" class="rst-footer-buttons-btn float-left" title="Running Tarantool Data Grid in Docker" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Running Tarantool Data Grid in Docker</a>
+      
+      
+        <a href="security.html" class="rst-footer-buttons-btn float-right" title="Security settings" accesskey="n" rel="next">Security settings <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../_static/js/searchbox.js"></script>  
+</body>
+</html>

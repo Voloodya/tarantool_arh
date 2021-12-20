@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What’s new in Tarantool Data Grid 2.0 &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Release notes" href="../release.html"/>
+        <link rel="next" title="Changelog" href="changelog.html"/>
+        <link rel="prev" title="Release notes" href="../release.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../release.html">Release notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">What’s new in Tarantool Data Grid 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simplified-architecture">Simplified architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handlers-instead-of-data-pipelines">Handlers instead of data pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visual-data-model-constructor">Visual data model constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-data-versioning">Optional data versioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multitenancy">Multitenancy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../administration.html">Administrator’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../release.html">Release notes</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>What’s new in Tarantool Data Grid 2.0</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-s-new-in-tarantool-data-grid-2-0">
+<h1>What’s new in Tarantool Data Grid 2.0<a class="headerlink" href="#what-s-new-in-tarantool-data-grid-2-0" title="Permalink to this headline">¶</a></h1>
+<p>Tarantool Data Grid (TDG) version 2.0 brings a lot of new features.
+This document tells about all major changes and new capabilities in version 2.0:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#simplified-architecture" id="toc-entry-1">Simplified architecture</a></li>
+<li><a class="reference internal" href="#handlers-instead-of-data-pipelines" id="toc-entry-2">Handlers instead of data pipelines</a></li>
+<li><a class="reference internal" href="#visual-data-model-constructor" id="toc-entry-3">Visual data model constructor</a></li>
+<li><a class="reference internal" href="#optional-data-versioning" id="toc-entry-4">Optional data versioning</a></li>
+<li><a class="reference internal" href="#multitenancy" id="toc-entry-5">Multitenancy</a></li>
+</ul>
+</div>
+<div class="section" id="simplified-architecture">
+<span id="tdg2wn-components"></span><h2><a class="toc-backref" href="#toc-entry-1">Simplified architecture</a><a class="headerlink" href="#simplified-architecture" title="Permalink to this headline">¶</a></h2>
+<p>Tarantool Data Grid 2.0 has four easily scalable components:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Core</span></code>: configuration and administration</li>
+<li><code class="docutils literal notranslate"><span class="pre">Storage</span></code>: data validation and storage</li>
+<li><code class="docutils literal notranslate"><span class="pre">Runner</span></code>: running the business logic using Lua code</li>
+<li><code class="docutils literal notranslate"><span class="pre">Connector</span></code>: data exchange with external systems</li>
+</ul>
+<p>You can add nodes instantly, with automatic data redistribution.
+One TDG cluster consists of several replica sets.
+In case one of the servers is down, the replica set keeps running without losing any data.</p>
+<p>You can create as many replica sets with <code class="docutils literal notranslate"><span class="pre">storage</span></code>, <code class="docutils literal notranslate"><span class="pre">runner</span></code>, and <code class="docutils literal notranslate"><span class="pre">connector</span></code> components as you like.
+The only exception is the <code class="docutils literal notranslate"><span class="pre">core</span></code>.
+There can be only one replica set that contains the <code class="docutils literal notranslate"><span class="pre">core</span></code> component.</p>
+</div>
+<div class="section" id="handlers-instead-of-data-pipelines">
+<h2><a class="toc-backref" href="#toc-entry-2">Handlers instead of data pipelines</a><a class="headerlink" href="#handlers-instead-of-data-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>When Tarantool Data Grid receives a data package from an external system,
+it needs to process the data before putting it into a storage.</p>
+<p><strong>In version 1.6</strong>, data pipelines processed the incoming data by consecutively calling multiple functions.
+However, writing code to build these pipelines was a bit of a challenge.</p>
+<p><strong>In version 2.0</strong>, there are handlers instead of pipelines.
+Handlers are functions that process the incoming and outcoming data.
+You can write a handler function using Lua and then bind it to any connector.</p>
+<p>An input handler processes all incoming data.
+After that, data objects are validated and put in a storage.
+In case the validation process finishes with an error, objects are put in a repair queue.</p>
+</div>
+<div class="section" id="visual-data-model-constructor">
+<h2><a class="toc-backref" href="#toc-entry-3">Visual data model constructor</a><a class="headerlink" href="#visual-data-model-constructor" title="Permalink to this headline">¶</a></h2>
+<p>Data model explicitly determines the structure of data.
+All incoming data is verified, validated, and stored by the provided data model.</p>
+<p>Tarantool Data Grid uses <a class="reference external" href="https://avro.apache.org/">Avro Schema</a> to describe data model.
+<strong>In version 2.0</strong>, there is no need to write code to describe data structure.
+Everything is done via an interface that is called a model editor.
+Model editor has multiple options like adding a field, naming it, setting its type and value, as well as leaving comments.</p>
+</div>
+<div class="section" id="optional-data-versioning">
+<h2><a class="toc-backref" href="#toc-entry-4">Optional data versioning</a><a class="headerlink" href="#optional-data-versioning" title="Permalink to this headline">¶</a></h2>
+<p>Data versioning allows one to trace what changes have been made to a data package and when.
+Data package is a collection of data.</p>
+<p>In Tarantool Data Grid, when you put a data package in a storage, it is identified by the primary index.
+If an incoming package has the same primary index yet different data fields,
+TDG will not delete the already stored data.
+It will store the new data as a new version.</p>
+<p>Version history often comes in handy, but it has one side effect.
+The bigger version history is, the more it influences the performance of the storage.</p>
+<p><strong>In TDG 2.0</strong>, versioning is off by default.
+It means that data packages with the same primary index will rewrite each other.
+This increases performance and reduces the amount of space taken up by the database.
+But if you need to keep version history, you can always switch this option on.</p>
+</div>
+<div class="section" id="multitenancy">
+<h2><a class="toc-backref" href="#toc-entry-5">Multitenancy</a><a class="headerlink" href="#multitenancy" title="Permalink to this headline">¶</a></h2>
+<p>Tenant is a single team’s workspace.
+Due to multitenancy, several teams can use a single TDG instance and work on it independently.
+Tarantool Data Grid helps isolate the code and data through a system of roles and permissions.
+Each tenant has its own users.
+Teams work separately, have no access to each other’s data, and do not interfere with each other’s processes.</p>
+<p><strong>Perks:</strong> you make the most of your hardware.
+Also, TDG interface helps administer such a system by creating teams, roles and giving different rights to users.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../release.html" class="rst-footer-buttons-btn float-left" title="Release notes" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Release notes</a>
+      
+      
+        <a href="changelog.html" class="rst-footer-buttons-btn float-right" title="Changelog" accesskey="n" rel="next">Changelog <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../_static/js/searchbox.js"></script>  
+</body>
+</html>

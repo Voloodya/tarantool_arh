@@ -1,0 +1,12 @@
+
+#: ../../administration.rst:2
+msgid "Administrator's guide"
+msgstr "Руководство администратора"
+
+#: ../../administration.rst:4
+msgid ""
+"This document explains how to work with Tarantool Data Grid (TDG) if you are"
+" an administrator."
+msgstr ""
+"В этом документе объясняется, как администратору работать с системой "
+"Tarantool Data Grid (TDG)."

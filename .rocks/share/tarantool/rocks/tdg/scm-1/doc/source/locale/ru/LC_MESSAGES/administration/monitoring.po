@@ -1,0 +1,12 @@
+
+#: ../../administration/monitoring.rst:2
+msgid "Monitoring"
+msgstr "Мониторинг"
+
+#: ../../administration/monitoring.rst:4
+msgid ""
+"This chapter explains how to monitor TDG functioning by means of different "
+"metrics."
+msgstr ""
+"В этой главе рассказано, как отслеживать работу TDG, анализируя "
+"разнообразные метрики."

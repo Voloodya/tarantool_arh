@@ -1,0 +1,81 @@
+[
+    {
+        "name": "Agent",
+        "type": "record",
+        "doc": "Agent of estate",
+        "fields": [
+            {"name": "uuid", "type": "string"},
+            {"name": "name", "type": ["null", "string"], "default": null},
+            {"name": "phone", "type": ["null", "string"], "default": null}
+        ],
+        "indexes": ["uuid"],
+        "relations": [
+            { "name": "estates", "to": "Estate", "count": "many", "from_fields": "uuid", "to_fields": "agent_uuid" }
+        ]
+    },
+    {
+        "name": "Address",
+        "type": "record",
+        "fields": [
+            {"name": "country", "type": ["null", "string"], "default": null},
+            {"name": "city", "type": ["null", "string"], "default": null},
+            {"name": "street", "type": ["null", "string"], "default": null},
+            {"name": "building", "type": ["null", "string"], "default": null},
+            {"name": "metro", "type": ["null", "string"], "default": null},
+            {"name": "district", "type": "string"}
+        ]
+    },
+    {
+        "name": "Estate",
+        "type": "record",
+        "doc": "Estate from ad",
+        "fields": [
+            {"name": "uuid", "type": "string"},
+            {"name": "agent_uuid", "type": "string"},
+            {"name": "action", "type": ["null", "string"], "default": null},
+            {"name": "type", "type": ["null", "string"], "default": null},
+            {"name": "renovation", "type": ["null", "string"], "default": null},
+            {"name": "square", "type": ["null", "int"], "default": null},
+            {"name": "price", "type": ["null", "int"], "default": null},
+            {"name": "address", "type": "Address"}
+        ],
+        "indexes": [
+            "uuid",
+            "agent_uuid"
+        ],
+        "relations": [
+            { "name": "agent", "to": "Agent", "count": "one", "from_fields": "agent_uuid", "to_fields": "uuid" }
+        ]
+    },
+    {
+        "name": "DistrictStat",
+        "type": "record",
+        "doc": "Statistic of a district",
+        "fields": [
+            {"name": "district", "type": "string"},
+            {"name": "count", "type": "long"},
+            {"name": "avg_price", "type": "float"},
+            {"name": "min_price", "type": "float"},
+            {"name": "max_price", "type": "float"}
+        ],
+        "indexes": [
+            "district"
+        ]
+    },
+    {
+        "name": "Subscriber",
+        "type": "record",
+        "doc": "Subscriber to district from ads",
+        "fields": [
+            {"name": "email", "type": "string"},
+            {"name": "district", "type": "string"}
+        ],
+        "indexes": [
+            {
+                "name": "email_district",
+                "parts": ["email", "district"]
+            },
+            "district"
+        ]
+    }
+]

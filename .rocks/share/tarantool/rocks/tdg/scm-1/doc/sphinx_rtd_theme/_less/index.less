@@ -1,0 +1,126 @@
+@import (less, once) "pygmentize.less";
+
+html, body {
+    font-family: 'Open Sans',sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+    .wy-side-nav-search {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .breadcrumbs_and_search >  div[role="search"] {
+        display: none;
+    }
+    .breadcrumbs_and_search > .search_drop_btn {
+        display: none;
+    }
+    .wy-side-nav-search {
+        display: auto;
+    }
+}
+
+.breadcrumbs_and_search {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wy-side-scroll {
+    background-color: #1f1e1e;
+}
+
+.fa-minus-square-o:before, .wy-menu-vertical li.on a span.toctree-expand:before, .wy-menu-vertical li.current>a span.toctree-expand:before {
+    content: "\f0d8";
+}
+.fa-plus-square-o:before, .wy-menu-vertical li span.toctree-expand:before {
+    content: "\f0d7";
+}
+
+.rst-footer-buttons-btn {
+    background: rgba(216,216,216,0.4);
+    color: #262626 !important;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 6px 11px;
+    border-radius: 4px;
+    color: initial;
+}
+.rst-footer-buttons-btn:hover {
+    color: #363636 !important;
+    background: rgba(216,216,216,0.25);
+}
+
+.wy-breadcrumbs > li a {
+    color: inherit;
+}
+
+.wy-breadcrumbs > li:last-child {
+    color: #ff2e2f;
+    border-bottom-color: #ff2e2f;
+}
+.wy-breadcrumbs > li:last-child:after {
+    background-color: #ff2e2f;
+}
+
+// search
+.search_drop_btn {
+    border: none;
+    background: none;
+}
+.search_drop_btn.active, .search_drop_btn:hover {
+    color: #ff2e2f;
+}
+
+.seaarch_drop_input {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 10px;
+    input[name='q'] {
+        width: 100%;
+        border-radius: 2px;
+        border: solid 2px #e5e5e5;
+        box-shadow: none;
+    }
+}
+
+
+.wy-nav-top {
+    position: relative;
+    color: #ffffff;
+    display: none;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 25px;
+    align-items: center;
+
+    .search_drop_btn {
+        color: #ffffff;
+    }
+
+    .seaarch_drop_input {
+        margin: 0;
+        padding: 15px 25px 10px;
+        background-color: #ffffff;
+        z-index: 10;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wy-nav-top {
+        display: flex;
+    }
+}
+
+.wy-menu-vertical a span.toctree-expand {
+    display: block;
+    font-size: 16px;
+    line-height: 1em;
+    color: inherit;
+    position: absolute;
+    left: ~'calc(100% - 10px)';
+}

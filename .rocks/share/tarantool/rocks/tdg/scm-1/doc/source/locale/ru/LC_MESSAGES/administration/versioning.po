@@ -1,0 +1,9 @@
+
+#: ../../administration/versioning.rst:2
+msgid "Versioning"
+msgstr "Версионирование"
+
+#: ../../administration/versioning.rst:4
+msgid ""
+"This chapter explains the concept and use cases of data versioning in TDG."
+msgstr "В этой главе объясняется, как работает версионирование данных в TDG."

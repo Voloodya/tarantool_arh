@@ -1,0 +1,13 @@
+
+#: ../../administration/cluster-mgmt.rst:2
+msgid "Cluster management"
+msgstr "Управление кластером"
+
+#: ../../administration/cluster-mgmt.rst:4
+msgid ""
+"This chapter explains how to manage a TDG cluster: change cluster topology "
+"by adding and expelling nodes, manage the failover settings, and so on."
+msgstr ""
+"В этой главе рассказано, как управлять кластером TDG: изменять топологию, "
+"добавляя и исключая узлы, задавать настройки восстановления после сбоев "
+"(failover) и так далее."

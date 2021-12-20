@@ -1,0 +1,9 @@
+
+#: ../../administration/security.rst:2
+msgid "Security settings"
+msgstr "Настройки безопасности"
+
+#: ../../administration/security.rst:4
+msgid "This chapter explains how to administer security policy settings."
+msgstr ""
+"В этой главе рассказано, как управлять настройками политики безопасности."

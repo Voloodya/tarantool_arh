@@ -1,0 +1,53 @@
+
+#: ../../administration/security/authorization.rst:2
+msgid "Mandatory authentication mode"
+msgstr "Режим обязательной аутентификации"
+
+#: ../../administration/security/authorization.rst:4
+msgid ""
+"Right after TDG deployment, any anonymous users and external applications "
+"can access all TDG functions and data. As this action is not secure, TDG "
+"will highlight it in a warning message:"
+msgstr ""
+"Сразу после развертывания TDG любые анонимные пользователи и внешние "
+"приложения могут получать неавторизованный доступ ко всем функциям и данным,"
+" что ненадежно с точки зрения безопасности. Поэтому в TDG появляется "
+"соответствующее предупреждение."
+
+#: ../../administration/security/authorization.rst:10
+msgid "To enable mandatory authentication mode:"
+msgstr ""
+"Чтобы включить режим обязательной аутентификации, выполните следующие шаги:"
+
+#: ../../administration/security/authorization.rst:12
+msgid "Create a :ref:`user profile <create-new-user>` with the \"admin\" role."
+msgstr "Создайте :ref:`профиль пользователя <create-new-user>` с ролью \"admin\"."
+
+#: ../../administration/security/authorization.rst:14
+msgid "Sign in to the system as this user."
+msgstr "Войдите в систему под учетной записью этого пользователя."
+
+#: ../../administration/security/authorization.rst:16
+msgid "On the **Cluster** tab, enable the **Auth** toggle switch:"
+msgstr "На вкладке **Cluster** нажмите кнопку-переключатель **Auth**."
+
+#: ../../administration/security/authorization.rst:21
+msgid "In the **Authorization** dialog, click **Enable**:"
+msgstr "В диалоговом окне **Authorization** нажмите **Enable**."
+
+#: ../../administration/security/authorization.rst:27
+msgid "The mandatory authentication mode is on."
+msgstr "Режим обязательной аутентификации включен."
+
+#: ../../administration/security/authorization.rst:29
+msgid ""
+"Now users can access the TDG interface using login and password. After "
+":ref:`signing in <sign-in>`, they will have access to the tabs that are "
+"available to their :doc:`user role <role-access>`. External applications can"
+" get authorized access to TDG data and functions via :doc:`tokens <tokens>`."
+msgstr ""
+"Теперь пользователи могут :ref:`входить в систему <sign-in>`, используя "
+"логин и пароль. В интерфейсе TDG пользователю предоставляется доступ к "
+"определенным вкладкам. Набор вкладок зависит от :doc:`роли пользователя "
+"<role-access>`. Чтобы предоставить авторизованный доступ к данным и функциям"
+" TDG внешнему приложению, используйте :doc:`токены <tokens>`."

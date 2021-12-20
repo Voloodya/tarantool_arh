@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Repair queue &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s guide" href="../administration.html"/>
+        <link rel="next" title="Monitoring" href="monitoring.html"/>
+        <link rel="prev" title="Security checklist" href="security/security-checklist.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webui.html">Web UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security settings</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Repair queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jobs">Jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Repair queue</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="repair-queue">
+<h1>Repair queue<a class="headerlink" href="#repair-queue" title="Permalink to this headline">¶</a></h1>
+<p>If TDG cannot process an incoming object, the system puts the object in the repair queue.
+The administrator then checks it, fixes the problem, and sends the object to be processed again.</p>
+<div class="section" id="input">
+<span id="repair-queue-input"></span><h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h2>
+<p>On the <span class="guilabel">Repair queues</span> &gt; <span class="guilabel">Input</span> tab, there is a repair queue for submitted objects.</p>
+<img alt="Repair queues &gt; Input" src="../_images/input.png" />
+<p>Here you can find the incoming objects that TDG could not process.
+Here are the main reasons why objects end up in the repair queue:</p>
+<ul class="simple">
+<li>Error when processing an incoming object with a handler.</li>
+<li>The TDG system expects an object in a particular format,
+but the incoming object from an external system was submitted in a different format.</li>
+<li>Internal system error.</li>
+<li>Hardware failure.</li>
+</ul>
+<p>You can work with objects in the repair queue through the web interface on the <span class="guilabel">Input</span> tab:</p>
+<img alt="Objects in the repair queue" src="../_images/input-list.png" />
+<p>On this tab, you can see the list of objects, their status (“New”, “In Progress”, “Reworked”),
+and the date and time when they were placed in the repair queue.</p>
+<p>The <span class="guilabel">Repair queue</span> interface lets you do the following:</p>
+<ul class="simple">
+<li><span class="guilabel">Filter</span>: filter the objects by any combination of characters in any table column or by specifying the date or time range.</li>
+<li><span class="guilabel">Try again</span>: process the object again by the same handler.</li>
+<li><span class="guilabel">Delete</span>: delete the selected object from the repair queue.</li>
+<li><span class="guilabel">Try again all</span>: process all objects one more time.</li>
+<li><span class="guilabel">Delete all</span>: delete all objects from the repair queue.</li>
+</ul>
+<p>Click on the object to see its details:</p>
+<img alt="Detailed information about the object" src="../_images/object-info.png" />
+<p>In the <span class="guilabel">Object info</span> dialog, you can see:</p>
+<ul class="simple">
+<li><span class="guilabel">ID</span>: the object’s UUID.</li>
+<li><span class="guilabel">Reason</span>: error description and the complete stack trace.</li>
+<li><span class="guilabel">Object</span>: the object’s current structure in the JSON format.</li>
+</ul>
+<p>When an object gets into the repair queue, it has the status “New”.
+When it is processed for a second time, the object’s status changes to “In Progress”.
+If the object was processed successfully, it is removed from the repair queue.
+If an error occurs during reprocessing,
+the system will display an error message.
+The object will remain in the repair queue with the status “Reworked”.</p>
+<div class="section" id="notifications">
+<h3>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h3>
+<p>TDG users can receive notifications in case an object gets into the repair queue.
+To enable notifications, you need a mail server and a list of subscribers—that is, recipients.</p>
+<p>On the <span class="guilabel">Settings</span> &gt; <span class="guilabel">Mail server</span> tab, set the following parameters:</p>
+<ul class="simple">
+<li><span class="guilabel">Url</span>: the SMTP server used to send notifications.</li>
+<li><span class="guilabel">From</span>: the sender that will be shown in the mail client.</li>
+<li><span class="guilabel">Username</span>: SMTP server user name.</li>
+<li><span class="guilabel">Password</span>: SMTP server user password.</li>
+<li><span class="guilabel">Timeout (sec)</span>: SMTP server request timeout in seconds.</li>
+</ul>
+<p>On the <span class="guilabel">Settings</span> &gt; <span class="guilabel">Subscribers</span> tab, click the <span class="guilabel">Add subscriber</span> button to add a new subscriber.
+Specify the subscriber’s name and email.
+Later, you can edit the subscriber’s profile or delete it.</p>
+</div>
+</div>
+<div class="section" id="output">
+<span id="repair-queue-output"></span><h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>The object replication mechanism allows you to send objects to external systems in the desired format.
+In case of an error during the replication process, the object gets in the replication repair queue on the <span class="guilabel">Output</span> tab.</p>
+<p>This queue has the same functions as the <a class="reference internal" href="#repair-queue-input"><span class="std std-ref">repair queue</span></a> on the <span class="guilabel">Input</span> tab.
+The only difference is that the repair queue on the <span class="guilabel">Input</span> tab is for submitted objects that could not be processed and saved,
+whereas the replication repair queue on the <span class="guilabel">Output</span> tab is for objects that could not be replicated.</p>
+<p>To work with objects in the replication repair queue, open the <span class="guilabel">Repair queues</span> &gt; <span class="guilabel">Output</span> tab:</p>
+<img alt="Replication repair queue" src="../_images/output.png" />
+<p>Like in the <a class="reference internal" href="#repair-queue-input"><span class="std std-ref">repair queue</span></a>, you can filter objects, delete them, and try to replicate them again.</p>
+<p>The object status shows the reason why the object ended up in the replication repair queue:</p>
+<ul class="simple">
+<li>“Preprocessing error”: the replicated object was processed with an error.</li>
+<li>“Sending error”: an error occured while sending the object to an external system.</li>
+</ul>
+<p>If you choose an object and click <span class="guilabel">Try again</span>, the object will be processed again.
+Its status will change from “New” to “In progress”.
+If the operation is successful, the object will be moved to the next stage or deleted from the repair queue.
+If the operation finishes with an error, the status will change to “Rereplicated (Preprocessing error)” or “Rereplicated (Sending error)”.
+The object will remain in the replication repair queue.</p>
+</div>
+<div class="section" id="jobs">
+<span id="repair-queue-jobs"></span><h2>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
+<p>This is a repair queue for pending jobs that ended with an error.
+To monitor these jobs, open the <span class="guilabel">Repair queues</span> &gt; <span class="guilabel">Jobs</span> tab:</p>
+<img alt="Repair queue for pending jobs" src="../_images/jobs.png" />
+<p>This tab has the same functions as the <a class="reference internal" href="#repair-queue-input"><span class="std std-ref">repair queue for submitted objects</span></a> on the <span class="guilabel">Input</span> tab.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security/security-checklist.html" class="rst-footer-buttons-btn float-left" title="Security checklist" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Security checklist</a>
+      
+      
+        <a href="monitoring.html" class="rst-footer-buttons-btn float-right" title="Monitoring" accesskey="n" rel="next">Monitoring <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../_static/js/searchbox.js"></script>  
+</body>
+</html>

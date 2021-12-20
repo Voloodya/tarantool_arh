@@ -1,0 +1,13 @@
+rock_manifest = {
+   doc = {
+      ["CHANGELOG.md"] = "960152b09a314d83f0bcae23c8e13f44",
+      ["README.md"] = "69f320baed5c93b78173da589eea7bee"
+   },
+   ["ldap-1.0.2-1.rockspec"] = "b8775e90ee63a70f75d88bcb75e9e859",
+   lib = {
+      ["lualdap.so"] = "97bebfaad775d97fafa3cbbc1aea5d51"
+   },
+   lua = {
+      ["ldap.lua"] = "c49b3eda9f768f32988fb251b61d7851"
+   }
+}

@@ -1,0 +1,22 @@
+rock_manifest = {
+   ["avro-schema-3.0.6-1.rockspec"] = "cef8cef6f0597a85b8988bf6d3499895",
+   doc = {
+      ["CHANGELOG.md"] = "32704f511f71623cd2150ea967eebff1",
+      ["README.md"] = "032c5b47cb4a9ed1e795023b575793f2"
+   },
+   lib = {
+      ["avro_schema_rt_c.so"] = "aba0864aaa70111d9312d3bc496b5685"
+   },
+   lua = {
+      avro_schema = {
+         ["backend.lua"] = "860b456e5945c2a1732f875a71e6cb87",
+         ["compiler.lua"] = "0b88b58a5b90fe2f58b0907c31689e61",
+         ["fingerprint.lua"] = "ce3da5c8c09da9a7de6890cf95366502",
+         ["frontend.lua"] = "2f57a0542c45f4d6605ce2343765ddb2",
+         ["il.lua"] = "2a693a9edb05c1a90ecf31c5ad41e779",
+         ["init.lua"] = "e9b9202831e13687c4da6011a263049f",
+         ["runtime.lua"] = "d92057396e620028b571fa6e104ddc0f",
+         ["utils.lua"] = "a74d354e4cf43978bf1062a8596faa22"
+      }
+   }
+}

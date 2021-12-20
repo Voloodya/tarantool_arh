@@ -1,0 +1,477 @@
+
+#: ../../administration/security/users.rst:2
+msgid "Managing users"
+msgstr "Управление пользователями"
+
+#: ../../administration/security/users.rst:4
+msgid "This chapter describes the TDG user management operations:"
+msgstr "В этой главе рассматриваются операции управления пользователями TDG:"
+
+#: ../../administration/security/users.rst:10
+msgid "The list of users is in the **Settings > Users** tab:"
+msgstr "Список пользователей находится на вкладке **Settings > Users**:"
+
+#: ../../administration/security/users.rst:18
+msgid "Creating and editing user profiles"
+msgstr "Создание и редактирование профилей пользователей"
+
+#: ../../administration/security/users.rst:23
+msgid "Creating a new user"
+msgstr "Создание профиля пользователя"
+
+#: ../../administration/security/users.rst:25
+msgid "To create a new TDG user:"
+msgstr "Чтобы создать профиль пользователя TDG, выполните следующие шаги:"
+
+#: ../../administration/security/users.rst:27
+msgid ""
+"Switch to the **Settings > Users** tab. Click **Add new user**. You will get"
+" the **New user** dialog:"
+msgstr ""
+"Откройте вкладку **Settings > Users**. Нажмите **Add new user**. Откроется "
+"диалоговое окно создания пользователя **New user**:"
+
+#: ../../administration/security/users.rst:34
+msgid "In the **New user** dialog, set the following parameters:"
+msgstr "В окне **New user** укажите следующие параметры:"
+
+#: ../../administration/security/users.rst:36
+msgid "``Name``: user name."
+msgstr "``Name``: имя пользователя."
+
+#: ../../administration/security/users.rst:38
+msgid "``Email``: user email."
+msgstr "``Email``: электронная почта пользователя."
+
+#: ../../administration/security/users.rst:40
+msgid ""
+"``Password``: a password to log into the system. There are several options "
+"here: you can generate a password by clicking **Generate** or leave an empty"
+" field. In the second case, the system will automatically generate and send "
+"a password to the user's ``Email``, but it requires :ref:`a configured SMTP "
+"server <smtp-server>`."
+msgstr ""
+"``Password``: пароль для авторизации в системе. Сгенерируйте пароль сразу, "
+"нажав кнопку **Generate**, или оставьте поле пустым, чтобы система отправила"
+" автоматически сгенерированный пароль на адрес электронной почты, указанный "
+"в поле ``Email``. В последнем случае необходим :ref:`настроенный SMTP-сервер"
+" <smtp-server>`."
+
+#: ../../administration/security/users.rst:45
+msgid ""
+"``Expires in``: password expiration date. This field is optional. Passwords "
+"are checked for expiration approximately every 30 minutes. Accounts with "
+"expired passwords are blocked."
+msgstr ""
+"``Expires in``: срок действия пароля (опционально). Система проверяет, не "
+"истек ли срок действия паролей, примерно раз в 30 минут. Учетные записи, у "
+"которых истек срок действия пароля, блокируются."
+
+#: ../../administration/security/users.rst:50
+msgid "``Role``: user role according to the role-based model of access."
+msgstr "``Role``: роль пользователя согласно ролевой модели доступа."
+
+#: ../../administration/security/users.rst:52
+msgid ""
+"``Tenant``: leave the **Default** parameter unless you have several tenants."
+" In that case, choose the name of the tenant to add the user to."
+msgstr ""
+"``Tenant``: оставьте значение по умолчанию **Default**, если у вас только "
+"один тенант. Если их несколько, выберите тенант, для которого создается "
+"пользователь."
+
+#: ../../administration/security/users.rst:55
+msgid "Click **Submit**."
+msgstr "Нажмите **Submit**."
+
+#: ../../administration/security/users.rst:57
+msgid ""
+"You will now see the new user in the list of users. After you've created a "
+"user, you can edit the user's profile: change profile settings, reset "
+"password, block or delete the user."
+msgstr ""
+"Созданного пользователя вы увидите в общем списке. Теперь можно "
+"отредактировать его профиль: изменить настройки, сбросить пароль, а также "
+"заблокировать или удалить профиль."
+
+#: ../../administration/security/users.rst:63
+msgid "Editing a user profile"
+msgstr "Редактирование профиля пользователя"
+
+#: ../../administration/security/users.rst:65
+msgid ""
+"To edit a user profile, open the **Settings > Users** tab and click the "
+"pencil edit button:"
+msgstr ""
+"Чтобы отредактировать профиль пользователя, откройте вкладку **Settings > "
+"Users** и нажмите на значок карандаша:"
+
+#: ../../administration/security/users.rst:70
+msgid "Change profile settings and click **Submit**."
+msgstr "Измените настройки профиля и нажмите **Submit**."
+
+#: ../../administration/security/users.rst:75
+msgid "Deleting a user"
+msgstr "Удаление профиля пользователя"
+
+#: ../../administration/security/users.rst:77
+msgid "The administrator can delete any user from the user list:"
+msgstr "Администратор может удалить из списка любой профиль пользователя:"
+
+#: ../../administration/security/users.rst:79
+msgid ""
+"In the **Actions** column, choose the user profile you want to delete, click"
+" the ``...`` button, and select **Delete user**."
+msgstr ""
+"В колонке **Actions** найдите профиль нужного пользователя. В меню действий "
+"``...`` выберите **Delete user**."
+
+#: ../../administration/security/users.rst:81
+msgid "In the dialog tab, confirm the deletion of the user by clicking OK."
+msgstr "В диалоговом окне подтвердите удаление пользователя, нажав OK."
+
+#: ../../administration/security/users.rst:83
+msgid "The deleted user will be automatically removed from the list of users."
+msgstr "Пользователь будет удален из общего списка автоматически."
+
+#: ../../administration/security/users.rst:88
+msgid "Changing user status"
+msgstr "Изменение статуса пользователя"
+
+#: ../../administration/security/users.rst:90
+msgid ""
+"After you've created a user's profile, it is automatically activated in the "
+"system. You'll see the \"ACTIVE\" status in the **Status** column in the "
+"list of users. As an administrator, you can change this status and block the"
+" user:"
+msgstr ""
+"Созданный профиль будет сразу активирован в системе. В списке пользователей "
+"напротив этого профиля в колонке **Status** появится статус \"ACTIVE\". "
+"Администратор может изменить этот статус и заблокировать пользователя:"
+
+#: ../../administration/security/users.rst:94
+msgid ""
+"In the **Actions** column, click the ``...`` button and select **Block**:"
+msgstr "В колонке **Actions** в меню действий ``...`` выберите **Block**:"
+
+#: ../../administration/security/users.rst:99
+msgid ""
+"In the dialog tab, write the reason why you are blocking this user and click"
+" **Block**:"
+msgstr ""
+"В диалоговом окне опишите причину блокировки пользователя и нажмите "
+"**Block**:"
+
+#: ../../administration/security/users.rst:104
+msgid ""
+"After that, the user's status will change to \"BLOCKED\". To unblock the "
+"user, click the ``...`` button and select **Unblock**."
+msgstr ""
+"После этого статус пользователя изменится на \"BLOCKED\". Чтобы "
+"разблокировать пользователя, в меню действий ``...`` выберите **Unblock**."
+
+#: ../../administration/security/users.rst:110
+msgid "Resetting a password"
+msgstr "Сброс пароля"
+
+#: ../../administration/security/users.rst:112
+msgid "The administrator can reset the password of any user:"
+msgstr "Администратор может сбросить пароль любого из пользователей:"
+
+#: ../../administration/security/users.rst:114
+msgid ""
+"In the **Actions** column, choose the user profile you want to update, click"
+" the ``...`` button, and select **Reset password**."
+msgstr ""
+"В колонке **Actions** найдите профиль пользователя, который вы хотите "
+"отредактировать, и в меню действий ``...`` выберите **Reset password**."
+
+#: ../../administration/security/users.rst:116
+msgid ""
+"In the dialog tab, confirm the resetting of the password by clicking OK."
+msgstr "В диалоговом окне подтвердите сброс пароля, нажав OK."
+
+#: ../../administration/security/users.rst:118
+msgid ""
+"The user will get a temporary password via email that is set in the user's "
+"profile."
+msgstr ""
+"После этого пользователю придет временный пароль на электронную почту, "
+"указанную в его профиле."
+
+#: ../../administration/security/users.rst:122
+msgid ""
+"**Note:** to send a temporary password, you need a configured SMTP server."
+msgstr ""
+"**Примечание:** чтобы отправлять временные пароли, настройте SMTP-сервер."
+
+#: ../../administration/security/users.rst:124
+msgid "To set the workflow for sending temporary passwords:"
+msgstr ""
+"Чтобы организовать отправку временных паролей, выполните следующие шаги:"
+
+#: ../../administration/security/users.rst:126
+msgid "Install and start the SMTP server."
+msgstr "Разверните и запустите SMTP-сервер."
+
+#: ../../administration/security/users.rst:128
+msgid ""
+"In the ``config.yml`` file with TDG configuration, write the following "
+"settings:"
+msgstr ""
+"В файле конфигурации TDG ``config.yml`` пропишите следующие настройки:"
+
+#: ../../administration/security/users.rst:130
+msgid ""
+"connector:\n"
+"  output:\n"
+"    - name: to_smtp\n"
+"      type: smtp\n"
+"      url: <URL of SMTP server>\n"
+"      from: <sender's address>\n"
+"      timeout: <timeout value, seconds>\n"
+"\n"
+"account_manager:\n"
+"  only_one_time_passwords: true\n"
+"  output:\n"
+"    name: to_smtp"
+msgstr ""
+"connector:\n"
+"  output:\n"
+"    - name: to_smtp\n"
+"      type: smtp\n"
+"      url: <URL SMTP-сервера>\n"
+"      from: <адрес отправителя>\n"
+"      timeout: <время ожидания в секундах>\n"
+"\n"
+"account_manager:\n"
+"  only_one_time_passwords: true\n"
+"  output:\n"
+"    name: to_smtp"
+
+#: ../../administration/security/users.rst:145
+msgid "For example:"
+msgstr "Пример:"
+
+#: ../../administration/security/users.rst:147
+msgid ""
+"output:\n"
+"    - name: to_smtp\n"
+"      type: smtp\n"
+"      url: localhost:2525\n"
+"      from: tdg@example.com\n"
+"      timeout: 5"
+msgstr ""
+"output:\n"
+"    - name: to_smtp\n"
+"      type: smtp\n"
+"      url: localhost:2525\n"
+"      from: tdg@example.com\n"
+"      timeout: 5"
+
+#: ../../administration/security/users.rst:156
+msgid "Upload the changed configuration to the system."
+msgstr "Загрузите измененную конфигурацию в систему."
+
+#: ../../administration/security/users.rst:161
+msgid "Exporting and importing users"
+msgstr "Экспорт и импорт профилей пользователей"
+
+#: ../../administration/security/users.rst:163
+msgid "You can export and import user profiles in JSON format:"
+msgstr ""
+"Профили пользователей можно экспортировать из системы и импортировать в нее "
+"в формате JSON:"
+
+#: ../../administration/security/users.rst:171
+msgid "Exporting users"
+msgstr "Экспорт профилей пользователей"
+
+#: ../../administration/security/users.rst:173
+msgid ""
+"In the **Settings > Users** tab, click **Export**. The system will generate "
+"and export a JSON file. This file will contain an array with profiles of all"
+" current users."
+msgstr ""
+"На вкладке **Settings > Users** нажмите **Export**. Система сформирует и "
+"экспортирует файл JSON, содержащий массив с профилями всех текущих "
+"пользователей."
+
+#: ../../administration/security/users.rst:177
+msgid "Here is a user profile example:"
+msgstr "Пример профиля пользователя:"
+
+#: ../../administration/security/users.rst:179
+msgid ""
+"[\n"
+"   {\n"
+"    \"expires_in\":2592000,\n"
+"    \"login\":\"ui8896\",\n"
+"    \"email\":\"test@mail.ru\",\n"
+"    \"created_at\":1626360261875418600,\n"
+"    \"tenant\":null,\n"
+"    \"state_reason\":\"test@mail.ru state is changed to active: recover from disabled\",\n"
+"    \"failed_login_attempts\":1,\n"
+"    \"uid\":\"bd2e91f3-ce0f-4ff1-8aae-bc4212f99c7d\",\n"
+"    \"role\":\"admin\",\n"
+"    \"state\":\"active\"\n"
+"    ,\"username\":\"User1\",\n"
+"    \"last_login\":1628058891852268000,\n"
+"    \"last_password_update_time\":null\n"
+"   },\n"
+"   {\n"
+"   ...\n"
+"   }\n"
+"]"
+msgstr ""
+"[\n"
+"   {\n"
+"    \"expires_in\":2592000,\n"
+"    \"login\":\"ui8896\",\n"
+"    \"email\":\"test@mail.ru\",\n"
+"    \"created_at\":1626360261875418600,\n"
+"    \"tenant\":null,\n"
+"    \"state_reason\":\"test@mail.ru state is changed to active: recover from disabled\",\n"
+"    \"failed_login_attempts\":1,\n"
+"    \"uid\":\"bd2e91f3-ce0f-4ff1-8aae-bc4212f99c7d\",\n"
+"    \"role\":\"admin\",\n"
+"    \"state\":\"active\"\n"
+"    ,\"username\":\"User1\",\n"
+"    \"last_login\":1628058891852268000,\n"
+"    \"last_password_update_time\":null\n"
+"   },\n"
+"   {\n"
+"   ...\n"
+"   }\n"
+"]"
+
+#: ../../administration/security/users.rst:205
+msgid "Importing users"
+msgstr "Импорт профилей пользователей"
+
+#: ../../administration/security/users.rst:207
+msgid ""
+"To import users, you need a JSON file with an array of user profiles. You "
+"can make this file manually or generate it as described in the previous "
+"topic about the export. The JSON file must include the fields listed above "
+"in the user profile example, except for the fields called ``state_reason``, "
+"``last_login``, ``last_password_update_time``, ``password``."
+msgstr ""
+"Для импорта необходим файл в формате JSON с профилями пользователей. Этот "
+"файл можно подготовить вручную или же сформировать его и экспортировать, как"
+" описано выше. В файле JSON нужно задать все поля, указанные выше в примере "
+"профиля пользователя, за исключением ``state_reason``, ``last_login``, "
+"``last_password_update_time`` и ``password``."
+
+#: ../../administration/security/users.rst:212
+msgid "As for the password, there are several ways to set it:"
+msgstr "Пароль можно задать несколькими способами:"
+
+#: ../../administration/security/users.rst:214
+msgid ""
+"Manually: In the JSON file, set a ``password`` for every user. Make sure the"
+" passwords meet the :ref:`password policy <password-policy>` requirements. "
+"In the **Import users from JSON file** dialog, do not check any boxes. The "
+"passwords will be uploaded from the JSON file as-is."
+msgstr ""
+"Вручную. В файле JSON укажите для каждого пользователя пароль в поле "
+"``password``. Пароль должен соответствовать требованиям :ref:`политики в "
+"отношении паролей <password-policy>`. В диалоговом окне импорта профилей "
+"пользователей не отмечайте никакие параметры. Пароли будут загружены из "
+"файла JSON как есть."
+
+#: ../../administration/security/users.rst:219
+msgid ""
+"**Generate passwords**: Set ``null`` in the ``password`` field or don't "
+"include this field in the JSON file at all. In the **Import users from JSON "
+"file** dialog, check the box **Generate passwords**. The password will be "
+"automatically generated according to the current password policy."
+msgstr ""
+"Сгенерировать автоматически. Задайте ``null`` в поле ``password`` или вообще"
+" не указывайте это поле в файле JSON. В диалоговом окне импорта профилей "
+"пользователей выберите **Generate passwords**. Пароль будет создан "
+"автоматически в соответствии с требованиями текущей политики в отношении "
+"паролей."
+
+#: ../../administration/security/users.rst:223
+msgid ""
+"**Send password via users email**: You need a :ref:`configured SMTP server "
+"<smtp-server>` for this. In the **Import users from JSON file** dialog, "
+"check the **Send password via users email** box."
+msgstr ""
+"Отправить на адрес электронной почты. Для этого необходим :ref:`SMTP-сервер "
+"<smtp-server>`. В диалоговом окне **Import users from JSON file** выберите "
+"**Send password via users email**."
+
+#: ../../administration/security/users.rst:226
+msgid ""
+"You need to choose only one of the listed options for all imported users."
+msgstr ""
+"Нужно выбрать единственный вариант создания паролей для всех импортируемых "
+"профилей пользователей."
+
+#: ../../administration/security/users.rst:228
+msgid "Here is how to import users:"
+msgstr "Чтобы импортировать профили пользователей, выполните следующие шаги:"
+
+#: ../../administration/security/users.rst:230
+msgid "In the **Settings > Users** tab, click **Import**."
+msgstr "На вкладке **Settings > Users** нажмите **Import**."
+
+#: ../../administration/security/users.rst:232
+msgid ""
+"In the **Import users from JSON file** dialog, check one of the boxes or "
+"leave the boxes empty. It depends on the option you chose to set the users' "
+"passwords."
+msgstr ""
+"Если необходимо, в диалоговом окне импорта профилей пользователей отметьте "
+"способ создания паролей, который вы выбрали."
+
+#: ../../administration/security/users.rst:238
+msgid "Upload the JSON file with user profiles and click **Apply**."
+msgstr "Загрузите файл JSON с профилями пользователей и нажмите **Apply**."
+
+#: ../../administration/security/users.rst:240
+msgid ""
+"The new user profiles will now be added to the **Users** list table. The "
+"profile data will be shown in the web interface in the message containing "
+"the results of the import operation."
+msgstr ""
+"Новые профили пользователей будут добавлены в таблицу **Users**. В веб-"
+"интерфейсе вы увидите сообщение о результатах импорта, где будут указаны "
+"данные профилей."
+
+#: ../../administration/security/users.rst:243
+msgid ""
+"You can save the imported data, including the generated passwords, by "
+"clicking **Download**. The data will be saved as a ``.csv`` file."
+msgstr ""
+"Вы можете сохранить импортированные данные, в том числе сгенерированные "
+"пароли, нажав кнопку **Download**. Данные будут сохранены в файле ``.csv``."
+
+#: ../../administration/security/users.rst:249
+msgid "Managing password policy"
+msgstr "Управление политикой в отношении паролей"
+
+#: ../../administration/security/users.rst:251
+msgid ""
+"TDG has a password policy for users to sign into the system. This policy "
+"applies to the passwords that users set manually as well as to automatically"
+" generated passwords. The administrator can control the password policy in "
+"the **Settings > Password Policy** tab:"
+msgstr ""
+"Авторизацию пользователей в системе регулирует политика TDG в отношении "
+"паролей. Она применима в равной степени как к паролям, которые пользователи "
+"задают вручную, так и к автоматически сгенерированным паролям. Управлять "
+"политикой в отношении паролей можно на вкладке **Settings > Password "
+"Policy**:"
+
+#: ../../administration/security/users.rst:258
+msgid ""
+"Default password settings include lowercase and uppercase characters and "
+"digits from 0 to 9, inclusive. The default password length is 8 characters. "
+"You can change the default settings and click **Save**."
+msgstr ""
+"Согласно настройкам по умолчанию пароль должен содержать буквы в нижнем и "
+"верхнем регистре, а также цифры от 0 до 9. Вы можете изменить настройки по "
+"умолчанию и сохранить их, нажав **Save**."

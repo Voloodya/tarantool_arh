@@ -1,0 +1,14 @@
+
+#: ../../administration/security/security-checklist.rst:2
+msgid "Security checklist"
+msgstr "Чек-лист безопасности"
+
+#: ../../administration/security/security-checklist.rst:4
+msgid ""
+"This chapter will help you audit the security of Tarantool Data Grid. It "
+"explains certain security aspects, their rationale, and the ways to check "
+"them."
+msgstr ""
+"Эта глава поможет проверить, безопасно ли настроена система Tarantool Data "
+"Grid. В главе объясняется ряд принципов безопасности, а также "
+"рассказывается, почему они важны и как проверить систему на соответствие им."

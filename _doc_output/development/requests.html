@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data access requests &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Developer’s guide" href="../development.html"/>
+        <link rel="next" title="Data model" href="data-model.html"/>
+        <link rel="prev" title="Hello world with Lua" href="hello-world-lua.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration.html">Administrator’s guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../development.html">Developer’s guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hello-world-lua.html">Hello world with Lua</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data access requests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparing-a-data-model">Preparing a data model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#presenting-a-model-in-avro-schema">Presenting a model in Avro Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uploading-the-data-model">Uploading the data model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uploading-data">Uploading data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-access-requests-1">Data access requests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-object-type-query">General object type query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requests-by-primary-index">Requests by primary index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requests-by-secondary-index">Requests by secondary index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requests-by-compound-index">Requests by compound index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparison-operators">Comparison operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiple-conditions">Multiple conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requests-by-relations">Requests by relations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pagination">Pagination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requests-by-version">Requests by version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data-model.html">Data model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster-roles.html">Understanding cluster roles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../development.html">Developer’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Data access requests</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-access-requests">
+<h1>Data access requests<a class="headerlink" href="#data-access-requests" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter, you will go through a number of use cases to understand the logic and syntax of data access requests in TDG.</p>
+<p>You will use the already <a class="reference internal" href="../administration/deployment/ansible-deployment.html"><span class="doc">deployed TDG cluster</span></a> as the environment to run requests.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#preparing-a-data-model" id="toc-entry-1">Preparing a data model</a></li>
+<li><a class="reference internal" href="#uploading-the-data-model" id="toc-entry-2">Uploading the data model</a></li>
+<li><a class="reference internal" href="#uploading-data" id="toc-entry-3">Uploading data</a></li>
+<li><a class="reference internal" href="#data-access-requests-1" id="toc-entry-4">Data access requests</a></li>
+</ul>
+</div>
+<div class="section" id="preparing-a-data-model">
+<span id="graphql-model-prepare"></span><h2><a class="toc-backref" href="#toc-entry-1">Preparing a data model</a><a class="headerlink" href="#preparing-a-data-model" title="Permalink to this headline">¶</a></h2>
+<p>To upload data in TDG and then access the data via GraphQL requests, you need to define a data model first.
+You will use a simple model that has two object types—<code class="docutils literal notranslate"><span class="pre">Country</span></code> and <code class="docutils literal notranslate"><span class="pre">City</span></code>—with the following fields, indexes, and relations:</p>
+<p class="plantuml">
+<object data="../_images/plantuml-c067cfd0778c4feb0efabbb1a5a281bfe842c48b.svg" type="image/svg+xml" style="width:170px;height:367px;">
+<img src="../_images/plantuml-c067cfd0778c4feb0efabbb1a5a281bfe842c48b.png" alt="skinparam monochrome true
+hide empty members
+
+abstract class Country &lt;&lt; (B,white) &gt;&gt; {
+.. fields ..
++ title
++ phone_code
+.. indexes ..
+# title
+}
+
+abstract class City &lt;&lt; (S,gray) &gt;&gt; {
+.. fields ..
++ title
++ country
++ population
++ capital
+.. indexes ..
+# primary [title, country]
+# title
+# country
+# population
+}
+
+Country &quot;1&quot; o-- &quot;*&quot; City"/>
+
+</object></p>
+<div class="section" id="presenting-a-model-in-avro-schema">
+<span id="graphql-model-avro"></span><h3>Presenting a model in Avro Schema<a class="headerlink" href="#presenting-a-model-in-avro-schema" title="Permalink to this headline">¶</a></h3>
+<p>To upload the data model to TDG, you need to present it in the <em>Avro Schema</em> notation:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span>
+</span>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;phone_code&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">]}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;indexes&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;relations&quot;</span><span class="o">:</span> <span class="p">[</span>
+         <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="o">:</span> <span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="s2">&quot;many&quot;</span><span class="p">,</span> <span class="s2">&quot;from_fields&quot;</span><span class="o">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;to_fields&quot;</span><span class="o">:</span> <span class="s2">&quot;country&quot;</span> <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;City&quot;</span><span class="p">,</span>
+</span>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;capital&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;indexes&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span> <span class="s2">&quot;parts&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">]},</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;country&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;population&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="uploading-the-data-model">
+<span id="graphql-model-upload"></span><h2><a class="toc-backref" href="#toc-entry-2">Uploading the data model</a><a class="headerlink" href="#uploading-the-data-model" title="Permalink to this headline">¶</a></h2>
+<p>Next, you need to upload the <a class="reference internal" href="#graphql-model-avro"><span class="std std-ref">data model</span></a> to TDG. You can do so in the web interface.</p>
+<ol class="arabic">
+<li><p class="first">In a web browser, open the TDG web interface on an instance in a replica set with the “runner” cluster role.
+You can use the already <a class="reference internal" href="../administration/deployment/ansible-deployment.html"><span class="doc">deployed TDG cluster</span></a>.
+In this case, the instance’s URL will be <a class="reference external" href="http://172.19.0.2:8082">http://172.19.0.2:8082</a>.</p>
+</li>
+<li><p class="first">On the left menu, click the <strong>Model</strong> tab.</p>
+</li>
+<li><p class="first">Paste the <a class="reference internal" href="#graphql-model-avro"><span class="std std-ref">data model</span></a> into the <strong>Request</strong> field.</p>
+<img alt="Data model upload" src="../_images/model_upload02.png" />
+</li>
+<li><p class="first">Click <strong>Submit</strong>.</p>
+</li>
+</ol>
+<p>The data model has been uploaded. Now you can insert (upload), select, and delete data.</p>
+</div>
+<div class="section" id="uploading-data">
+<span id="graphql-data-upload"></span><h2><a class="toc-backref" href="#toc-entry-3">Uploading data</a><a class="headerlink" href="#uploading-data" title="Permalink to this headline">¶</a></h2>
+<p>You can upload data in TDG by means of a GraphQL mutation:</p>
+<ol class="arabic">
+<li><p class="first">On the left menu, click the <strong>GraphQL</strong> tab.</p>
+</li>
+<li><p class="first">Select <strong>default</strong> for the desired scheme and clear the request field.</p>
+<img alt="GraphQL tab" src="../_images/graphql.png" />
+</li>
+<li><p class="first">Paste the following request into the left field:</p>
+</li>
+</ol>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>mutation all {
+    russia:Country(insert: {
+        title: &quot;Russia&quot;,
+        phone_code: &quot;+7&quot;}) {
+    title
+    phone_code
+    }
+    germany:Country(insert: {
+        title: &quot;Germany&quot;,
+        phone_code: &quot;+49&quot;}) {
+    title
+    }
+    moscow:City(insert: {
+        title: &quot;Moscow&quot;,
+        country: &quot;Russia&quot;,
+        population: 12655050,
+        capital: true}) {
+    title
+    country
+    population
+    capital
+    }
+    spb:City(insert: {
+        title: &quot;Saint Petersburg&quot;,
+        country: &quot;Russia&quot;,
+        population: 5384342,
+        capital: false}) {
+    title
+    country
+    population
+    capital
+    }
+    tver:City(insert: {
+        title: &quot;Tver&quot;,
+        country: &quot;Russia&quot;,
+        population: 424969,
+        capital: false}) {
+    title
+    country
+    population
+    capital
+    }
+    berlin:City(insert: {
+        title: &quot;Berlin&quot;,
+        country: &quot;Germany&quot;,
+        population: 3520031,
+        capital: true}) {
+    title
+    country
+    population
+    capital
+    }
+    munich:City(insert: {
+        title: &quot;Munich&quot;,
+        country: &quot;Germany&quot;,
+        population: 1450381,
+        capital: false}) {
+    title
+    country
+    population
+    capital
+    }
+    dresden:City(insert: {
+        title: &quot;Dresden&quot;,
+        country: &quot;Germany&quot;,
+        population: 547172,
+        capital: false}) {
+    title
+    country
+    population
+    capital
+    }
+}
+</pre></div>
+</div>
+<ol class="arabic" start="4">
+<li><p class="first">Execute the mutation by clicking the <strong>Execute Query</strong> button:</p>
+<img alt="Uploading data" src="../_images/data_uploading02.png" />
+</li>
+</ol>
+<p>The data has been uploaded, as you can see by the system response in the right field.</p>
+</div>
+<div class="section" id="data-access-requests-1">
+<span id="graphql-queries"></span><h2><a class="toc-backref" href="#toc-entry-4">Data access requests</a><a class="headerlink" href="#data-access-requests-1" title="Permalink to this headline">¶</a></h2>
+<p>Here are the common use cases for data access requests:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#graphql-queries-gen"><span class="std std-ref">General object type query</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-prim"><span class="std std-ref">Requests by primary index</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-second"><span class="std std-ref">Requests by secondary index</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-compound"><span class="std std-ref">Requests by compound index</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-compar"><span class="std std-ref">Comparison operators</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-multiple"><span class="std std-ref">Multiple conditions</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-relations"><span class="std std-ref">Requests by relations</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-pagination"><span class="std std-ref">Pagination</span></a></li>
+<li><a class="reference internal" href="#graphql-queries-version"><span class="std std-ref">Requests by version</span></a></li>
+</ul>
+<p>The easiest way to run GraphQL request examples is to use the embedded GraphiQL client in the TDG web interface.
+For data access requests, use the <strong>default</strong> scheme:</p>
+<ol class="arabic simple">
+<li>On the left menu, click the <strong>GraphQL</strong> tab.</li>
+<li>Select <strong>default</strong> for the desired scheme, clear the request field, and paste the example request code.</li>
+</ol>
+<div class="section" id="general-object-type-query">
+<span id="graphql-queries-gen"></span><h3>General object type query<a class="headerlink" href="#general-object-type-query" title="Permalink to this headline">¶</a></h3>
+<p>To select objects of a particular type, specify the type’s name and the object fields to return.
+You don’t have to indicate all the object fields that are defined in the data model. Specify any number of fields you need.
+For example:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  Country {
+    title
+  }
+}
+</pre></div>
+</div>
+<p>The response is a JSON object that contains an array with all the records of the <code class="docutils literal notranslate"><span class="pre">Country</span></code> type.
+For each record, the response includes only the fields specified in the request.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Country&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Russia&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requests-by-primary-index">
+<span id="graphql-queries-prim"></span><h3>Requests by primary index<a class="headerlink" href="#requests-by-primary-index" title="Permalink to this headline">¶</a></h3>
+<p>A specific object can be selected by primary index:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  Country(title: &quot;Germany&quot;) {
+    title
+    phone_code
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="requests-by-secondary-index">
+<span id="graphql-queries-second"></span><h3>Requests by secondary index<a class="headerlink" href="#requests-by-secondary-index" title="Permalink to this headline">¶</a></h3>
+<p>Requests by secondary index have the same syntax:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  City(country: &quot;Russia&quot;) {
+    title
+    country
+    population
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="requests-by-compound-index">
+<span id="graphql-queries-compound"></span><h3>Requests by compound index<a class="headerlink" href="#requests-by-compound-index" title="Permalink to this headline">¶</a></h3>
+<p>To perform a request by compound index, specify an array of field values:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  City(primary: [&quot;Saint Petersburg&quot;, &quot;Russia&quot;]) {
+    title
+    country
+    population
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="comparison-operators">
+<span id="graphql-queries-compar"></span><h3>Comparison operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h3>
+<p>Comparison operators are represented by index name suffixes.</p>
+<p>Supported operators:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">_gt</span></code> (Greater Than)</li>
+<li><code class="docutils literal notranslate"><span class="pre">_ge</span></code> (Greater Than or Equal)</li>
+<li><code class="docutils literal notranslate"><span class="pre">_lt</span></code> (Less Than)</li>
+<li><code class="docutils literal notranslate"><span class="pre">_le</span></code> (Less Than or Equal)</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  City(population_ge: 1000000) {
+    title
+    country
+    population
+  }
+}
+</pre></div>
+</div>
+<p>String field indexes support the <code class="docutils literal notranslate"><span class="pre">_like</span></code> operator so you can search for a particular pattern in a string.
+You can use the wildcard sign <code class="docutils literal notranslate"><span class="pre">%</span></code> in the pattern.</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  City(title_like: &quot;M%&quot;) {
+    title
+    country
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-conditions">
+<span id="graphql-queries-multiple"></span><h3>Multiple conditions<a class="headerlink" href="#multiple-conditions" title="Permalink to this headline">¶</a></h3>
+<p>You can use several conditions in one request.
+In this case, the request will search for objects satisfying all the conditions simultaneously (logical AND).
+Use only indexed fields to specify the conditions.</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  City(country: &quot;Russia&quot;, population_lt: 1000000) {
+    title
+    country
+    population
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="requests-by-relations">
+<span id="graphql-queries-relations"></span><h3>Requests by relations<a class="headerlink" href="#requests-by-relations" title="Permalink to this headline">¶</a></h3>
+<p>To select objects by relations, use the same syntax as in the general object type query.</p>
+<p>In the <a class="reference internal" href="#graphql-model-prepare"><span class="std std-ref">example model</span></a>, there is a one-to-many relationship between the objects <code class="docutils literal notranslate"><span class="pre">Country</span></code> and <code class="docutils literal notranslate"><span class="pre">City</span></code>.
+Consequently, you can get the data both about the country and the cities in one request.</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+    Country(title: &quot;Russia&quot;) {
+        title
+        city {
+            title
+            population
+    }
+    }
+}
+</pre></div>
+</div>
+<p>Response example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;Country&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Russia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;population&quot;</span><span class="o">:</span> <span class="mf">12655050</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Saint Petersburg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;population&quot;</span><span class="o">:</span> <span class="mf">5384342</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Tver&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;population&quot;</span><span class="o">:</span> <span class="mf">424969</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pagination">
+<span id="graphql-queries-pagination"></span><h3>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h3>
+<p>TDG applies cursor-based pagination similar to the one described in the <a class="reference external" href="http://graphql.org/learn/pagination/#pagination-and-edges">GraphQL documentation</a>.</p>
+<p>In general, the request with pagination has the following syntax:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+    object_name(first:N, after:$cursor)
+    }
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">first</span></code> specifies the maximum number of elements to return. Defaults to 10.</li>
+<li><code class="docutils literal notranslate"><span class="pre">after</span></code> passes an opaque cursor—a string defining the element from which TDG should continue request execution.</li>
+</ul>
+<p>Here is the first request with pagination:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+    City(first: 2) {
+        title
+        country
+        cursor
+    }
+}
+</pre></div>
+</div>
+<p>The response is the following:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;City&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;cursor&quot;</span><span class="o">:</span> <span class="s2">&quot;gaRzY2FukqZCZXJsaW6nR2VybWFueQ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Berlin&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;cursor&quot;</span><span class="o">:</span> <span class="s2">&quot;gaRzY2FukqdEcmVzZGVup0dlcm1hbnk&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Dresden&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To get the next data batch, take the <code class="docutils literal notranslate"><span class="pre">cursor</span></code> field’s value of the last object received
+and pass it as the <code class="docutils literal notranslate"><span class="pre">after</span></code> argument to the next request:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+    City(first: 2, after: &quot;gaRzY2FukqdEcmVzZGVup0dlcm1hbnk&quot;) {
+        title
+        country
+        cursor
+    }
+}
+</pre></div>
+</div>
+<p>Then run this logic in a cycle until you get an empty page:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;City&quot;</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pagination for requests with relations works in a similar way:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+  Country(title: &quot;Russia&quot;) {
+    title
+    city(first: 2) {
+        title
+        population
+        cursor
+    }
+  }
+}
+</pre></div>
+</div>
+<p>Reversed pagination is also possible: TDG returns objects preceding the element marked with a cursor.
+For this, you need to specify a negative value for the <code class="docutils literal notranslate"><span class="pre">first</span></code> argument:</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>query {
+    City(first: -2) {
+        title
+        country
+        cursor
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="requests-by-version">
+<span id="graphql-queries-version"></span><h3>Requests by version<a class="headerlink" href="#requests-by-version" title="Permalink to this headline">¶</a></h3>
+<p>TDG implements object versioning. Consequently, it can run requests by conditions that are based on object versions.
+For more information, refer to the <a class="reference internal" href="../administration/versioning.html"><span class="doc">Versioning</span></a> page.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hello-world-lua.html" class="rst-footer-buttons-btn float-left" title="Hello world with Lua" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Hello world with Lua</a>
+      
+      
+        <a href="data-model.html" class="rst-footer-buttons-btn float-right" title="Data model" accesskey="n" rel="next">Data model <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../_static/js/searchbox.js"></script>  
+</body>
+</html>

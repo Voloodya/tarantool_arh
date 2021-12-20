@@ -1,0 +1,12 @@
+
+#: ../../reference.rst:2
+msgid "Reference"
+msgstr "Справочник"
+
+#: ../../reference.rst:4
+msgid ""
+"This document describes Tarantool Data Grid (TDG) API functions and "
+"configuration parameters."
+msgstr ""
+"Этот документ посвящен функциям API и параметрам конфигурации Tarantool Data"
+" Grid (TDG)."

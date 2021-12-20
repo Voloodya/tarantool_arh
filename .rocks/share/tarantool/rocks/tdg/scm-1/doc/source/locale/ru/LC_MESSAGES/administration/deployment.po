@@ -1,0 +1,10 @@
+
+#: ../../administration/deployment.rst:2
+msgid "Deployment"
+msgstr "Развертывание"
+
+#: ../../administration/deployment.rst:4
+msgid ""
+"This chapter explains the different ways of deploying Tarantool Data Grid."
+msgstr ""
+"В этой главе описаны способы, которыми можно развернуть Tarantool Data Grid."

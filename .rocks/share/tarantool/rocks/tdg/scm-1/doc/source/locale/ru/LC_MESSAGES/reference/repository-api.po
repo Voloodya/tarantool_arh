@@ -1,0 +1,16 @@
+
+#: ../../reference/repository-api.rst:2
+msgid "Repository API"
+msgstr "Repository API"
+
+#: ../../reference/repository-api.rst:4
+msgid ""
+"This reference describes the functions of the Repository API. The functions "
+"enable data manipulation operations such as simple and complex selection, "
+"insert, update, and delete. Also, there are functions for managing the "
+"system workflow."
+msgstr ""
+"В этом справочнике содержатся сведения о функциях Repository API, отвечающих"
+" за такие действия с данными, как простые и сложные операции выбора, "
+"вставка, изменение и удаление данных. Описаны также функции, позволяющие "
+"управлять процессом обработки данных."

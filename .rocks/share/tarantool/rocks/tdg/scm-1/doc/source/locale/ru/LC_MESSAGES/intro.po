@@ -1,0 +1,72 @@
+
+#: ../../intro.rst:2
+msgid "Introduction to Tarantool Data Grid 2.0"
+msgstr "Введение в Tarantool Data Grid 2.0"
+
+#: ../../intro.rst:4
+msgid ""
+"Tarantool Data Grid (TDG) is a product that makes it easier to create and "
+"maintain business solutions on the Tarantool platform. It is a separate "
+"product that complements Tarantool Enterprise. TDG allows you to launch "
+"solutions quickly and with minimal developer involvement."
+msgstr ""
+"Tarantool Data Grid (TDG) облегчает создание и поддержку бизнес-решений на "
+"платформе Tarantool. Это отдельный продукт, который дополняет Tarantool "
+"Enterprise. TDG позволяет запускать решения быстро и с минимальным участием "
+"разработчиков."
+
+#: ../../intro.rst:8
+msgid ""
+"Here's an example of a solution: a data mart that integrates data on "
+"customer accounts and credits and displays it in mobile and web application."
+msgstr ""
+"Вот пример решения: витрина для интеграции данных по счетам и кредитам "
+"клиента, чтобы отображать их в мобильном и веб-приложении."
+
+#: ../../intro.rst:16
+msgid ""
+"There are only three steps to create a business solution using Tarantool "
+"Data Grid:"
+msgstr ""
+"Чтобы создать бизнес-решение на Tarantool Data Grid, нужно выполнить всего 3"
+" шага:"
+
+#: ../../intro.rst:18
+msgid "**Step 1:** Describe the data object model."
+msgstr "**Шаг 1:** Описать модель объекта данных."
+
+#: ../../intro.rst:23
+msgid "**Step 2:** Set the data combination logic."
+msgstr "**Шаг 2:** Задать логику объединения данных."
+
+#: ../../intro.rst:28
+msgid "**Step 3:** Run the solution on a single server."
+msgstr "**Шаг 3:** Запустить решение на одном сервере."
+
+#: ../../intro.rst:33
+msgid ""
+"Once you've integrated TDG, a non-programmer, such as an analyst or an "
+"architect, can maintain and develop the solution. It is possible, because "
+"you get the maximum functionality out of the box to implement typical "
+"scenarios, such as data integrity checks or error handling, and needs that "
+"arise while creating solutions."
+msgstr ""
+"С помощью TDG поддерживать и развивать решение сможет и не-программист: "
+"аналитик или архитектор. Уже «из коробки» вы получаете максимум готовой "
+"функциональности для реализации типовых сценариев, вроде проверки "
+"целостности данных или обработки ошибок, и потребностей, которые возникают "
+"при создании решений."
+
+#: ../../intro.rst:37
+msgid ""
+"Here are the guides that explain how to work with the Tarantool Data Grid "
+"system:"
+msgstr "Руководства по работе с системой Tarantool Data Grid:"
+
+#: ../../intro.rst:39
+msgid ":doc:`For administrators </administration>`"
+msgstr ":doc:`Для администраторов </administration>`"
+
+#: ../../intro.rst:40
+msgid ":doc:`For developers </development>`"
+msgstr ":doc:`Для разработчиков </development>`"

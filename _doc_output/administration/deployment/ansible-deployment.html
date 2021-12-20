@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>First deployment with Ansible &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Deployment" href="../deployment.html"/>
+        <link rel="next" title="First manual deployment" href="manual-deployment.html"/>
+        <link rel="prev" title="Deployment" href="../deployment.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../deployment.html">Deployment</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">First deployment with Ansible</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-a-tgz-file-for-deployment">Getting a TGZ file for deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-virtual-machines">Setting up virtual machines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deploying-the-cluster">Deploying the cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-the-cluster">Managing the cluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="manual-deployment.html">First manual deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="run-in-docker.html">Running Tarantool Data Grid in Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../webui.html">Web UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security.html">Security settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repair-queue.html">Repair queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+            <li><a href="../deployment.html">Deployment</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>First deployment with Ansible</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="first-deployment-with-ansible">
+<h1>First deployment with Ansible<a class="headerlink" href="#first-deployment-with-ansible" title="Permalink to this headline">¶</a></h1>
+<p>This guide explains how to deploy Tarantool Data Grid (TDG) for the first time using Ansible.
+It offers an option of TDG deployment on two virtual machines with a pre-defined configuration.</p>
+<div class="section" id="getting-a-tgz-file-for-deployment">
+<h2>Getting a TGZ file for deployment<a class="headerlink" href="#getting-a-tgz-file-for-deployment" title="Permalink to this headline">¶</a></h2>
+<p>To deploy Tarantool Data Grid, you need an RPM (<code class="docutils literal notranslate"><span class="pre">.rpm</span></code>), TGZ (<code class="docutils literal notranslate"><span class="pre">tar.gz</span></code>), or Docker image (<code class="docutils literal notranslate"><span class="pre">docker-image.tar.gz</span></code>) file.
+For deployment with Ansible, you can only use either an RPM or a TGZ file.
+For now, a TGZ file will do just fine.
+It is easier to deploy and does not require root access.</p>
+<p>Download a TGZ file of the latest version at the customer zone of <a class="reference external" href="https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2">tarantool.io</a>.
+Make sure your browser did not unarchive the downloaded file: the file extension should be <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code>.</p>
+<p>If you do not have access to the customer zone, you can get one by applying <a class="reference external" href="https://www.tarantool.io/en/datagrid/#contact">this form</a>
+or writing to <strong>sales&#64;tarantool.io</strong>.</p>
+</div>
+<div class="section" id="setting-up-virtual-machines">
+<h2>Setting up virtual machines<a class="headerlink" href="#setting-up-virtual-machines" title="Permalink to this headline">¶</a></h2>
+<p>For TDG deployment, you need to bring up two virtual machines with Linux OS (CentOS 7/RHEL 7 are preferable) and SSH access.
+If you already have them, just skip this topic.
+If you don’t have virtual machines, then follow these instructions.</p>
+<p>Install <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> to run virtual machines and
+<a class="reference external" href="https://www.vagrantup.com/">Vagrant</a> to automate the configuration process.
+Vagrant will prepare the configuration of two virtual machines with additional scripts for TDG to deploy.</p>
+<p>Make sure you have <code class="docutils literal notranslate"><span class="pre">VBoxManage</span></code> in your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> environment variable.
+Check with the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>which VBoxManage
+</pre></div>
+</div>
+<p>In the downloaded TGZ file, there is a directory called <code class="docutils literal notranslate"><span class="pre">deploy</span></code>.
+There you’ll find <code class="docutils literal notranslate"><span class="pre">Vagrantfile</span></code>, which automates the creation of a test environment for cluster deployment.</p>
+<p>Open the terminal, unpack the <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> archive, go to the <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory, and run virtual machines:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xzf tdg-&lt;VERSION&gt;.tar.gz <span class="c1"># change &lt;VERSION&gt; for the TDG version you&#39;ve downloaded</span>
+<span class="nb">cd</span> tdg2/deploy
+vagrant up
+</pre></div>
+</div>
+<p>This command will bring up two virtual machines with CentOS 7 and passwordless SSH access for user <code class="docutils literal notranslate"><span class="pre">vagrant</span></code>.
+IP addresses of those machines are: <code class="docutils literal notranslate"><span class="pre">172.19.0.2</span></code> and <code class="docutils literal notranslate"><span class="pre">172.19.0.3</span></code>.</p>
+</div>
+<div class="section" id="deploying-the-cluster">
+<span id="ansible-deploy"></span><h2>Deploying the cluster<a class="headerlink" href="#deploying-the-cluster" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preparing">
+<h3>Preparing<a class="headerlink" href="#preparing" title="Permalink to this headline">¶</a></h3>
+<p>After you’ve created virtual machines, install locally <a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/">Ansible</a>
+and Tarantool Cartridge <a class="reference external" href="https://github.com/tarantool/ansible-cartridge">Ansible role</a> (the latest 1.x version).
+If Ansible role version 2.x is available, you can choose it instead, but you may face some challenges.</p>
+<p>Here is one of the ways to install Ansible and Ansible role:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install ansible~<span class="o">=</span><span class="m">4</span>.1.0 <span class="c1"># version 4.1 or later, but not version 5.x</span>
+ansible-galaxy install tarantool.cartridge,1.10.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring">
+<span id="ansible-deploy-conf"></span><h3>Configuring<a class="headerlink" href="#configuring" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory, there is the <code class="docutils literal notranslate"><span class="pre">hosts.yml</span></code> file.
+It contains cluster configuration.</p>
+<p>Open it to set cluster cookie and path to package:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
+    <span class="c1"># cartridge_package_path: &quot;../../packages/tdg-ENTER-VERSION-HERE.tgz&quot; # path relative to playbook</span>
+    <span class="c1"># cartridge_cluster_cookie: &quot;ENTER-SECRET-COOKIE-HERE&quot; # change for &quot;secret-cookie&quot;</span>
+</pre></div>
+</div>
+<p>Delete # to uncomment these lines, enter the TDG version that you’ve downloaded, and specify the path to the TGZ file.
+Also, set a cluster cookie which should be a unique string.
+For this tutorial, just “secret-cookie” will do.</p>
+<p>Here is an example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
+    <span class="nt">cartridge_package_path</span><span class="p">:</span> <span class="s">&quot;../tdg-2.0.0-1132-g2358e716.tgz&quot;</span>
+    <span class="nt">cartridge_cluster_cookie</span><span class="p">:</span> <span class="s">&quot;secret-cookie&quot;</span>
+</pre></div>
+</div>
+<p>If you need to, you can always edit this file to change cluster configuration.
+Here is some info about file sections:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">all.var</span></code> for common variables</li>
+<li><code class="docutils literal notranslate"><span class="pre">all.children.tdg_group.hosts</span></code> for instances parameters</li>
+<li><code class="docutils literal notranslate"><span class="pre">all.children.tdg_group.children</span></code> to specify parameters for a group of instances:<ul>
+<li>to group the instances by the host, set their <code class="docutils literal notranslate"><span class="pre">ansible_host</span></code> parameter</li>
+<li>to group the instances by replica set, set their <code class="docutils literal notranslate"><span class="pre">replicaset_alias</span></code>, <code class="docutils literal notranslate"><span class="pre">roles</span></code>, <code class="docutils literal notranslate"><span class="pre">failover_priority</span></code> parameters, and so on.</li>
+</ul>
+</li>
+</ul>
+<p>You can find more information about parameters in Tarantool Cartridge <a class="reference external" href="https://github.com/tarantool/ansible-cartridge">Ansible role documentation</a>.</p>
+</div>
+<div class="section" id="deploying">
+<h3>Deploying<a class="headerlink" href="#deploying" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory, there are <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks">Ansible playbooks</a>
+that will help you finish the deployment.
+There are two options of TDG deployment with the given playbooks:</p>
+<ul class="simple">
+<li>Deploying a TDG cluster with completely configured topology.</li>
+<li>Deploying a TDG cluster with a list of unconfigured instances.</li>
+</ul>
+<p>For a complete TDG deployment with topology, run this command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ansible-playbook -i hosts.yml playbooks/deploy.yml
+</pre></div>
+</div>
+<p>If you want to practice configuring the topology of the cluster via the web interface, run the playbook to deploy only instances:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ansible-playbook -i hosts.yml playbooks/deploy_without_topology.yml
+</pre></div>
+</div>
+<p>Now you can open <a class="reference external" href="http://172.19.0.2:8081">http://172.19.0.2:8081</a> in your web browser to see the cluster web interface.
+This is what you’ll see if you chose to deploy without topology:</p>
+<img alt="Cluster example" src="../../_images/TDG-deployed.png" />
+</div>
+</div>
+<div class="section" id="managing-the-cluster">
+<h2>Managing the cluster<a class="headerlink" href="#managing-the-cluster" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuring-topology-of-the-cluster">
+<span id="ansible-deploy-topology"></span><h3>Configuring topology of the cluster<a class="headerlink" href="#configuring-topology-of-the-cluster" title="Permalink to this headline">¶</a></h3>
+<p>If you have deployed instances with topology, skip this topic.</p>
+<p>If you have deployed instances without topology,
+you can now edit topology by creating replica sets and specifying their parameters in the web interface:</p>
+<ol class="arabic">
+<li><p class="first">On the Cluster tab, there is a set of unconfigured instances.
+Select the <strong>core</strong> instance with the <code class="docutils literal notranslate"><span class="pre">172.19.0.2:3001</span></code> URL and click <strong>Configure</strong>.
+You will get the <strong>Configure server</strong> dialog:</p>
+<img alt="Editing topology" src="../../_images/edit-topology.png" />
+</li>
+<li><p class="first">In the <strong>Configure server</strong> dialog, specify two replica set parameters: replica set name and role.</p>
+<p>For the <strong>core</strong> instance, give the replica set name “core” and select the “core” role.
+After you’ve set the parameters, click <strong>Create replica set</strong>.</p>
+</li>
+<li><p class="first">Set the same parameters for the rest of the unconfigured instances as follows:</p>
+<div class="table docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Instance URL</th>
+<th class="head">Replica set name</th>
+<th class="head">Roles</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>172.19.0.2:3002</td>
+<td>runner_1</td>
+<td>runner, connector, failover-coordinator</td>
+</tr>
+<tr class="row-odd"><td>172.19.0.2:3003</td>
+<td>storage_1</td>
+<td>storage</td>
+</tr>
+<tr class="row-even"><td>172.19.0.2:3004</td>
+<td>storage_2</td>
+<td>storage</td>
+</tr>
+<tr class="row-odd"><td>172.19.0.3:3001</td>
+<td>runner_2</td>
+<td>runner, connector</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><p class="first">There are two instances left to configure, <strong>storage_1_replica</strong> with the <code class="docutils literal notranslate"><span class="pre">172.19.0.3:3002</span></code> URL
+and <strong>storage_2_replica</strong> with the <code class="docutils literal notranslate"><span class="pre">172.19.0.3:3003</span></code> URL.</p>
+<p>Join them to the already existing replica sets with <strong>storage</strong> roles:</p>
+<ul class="simple">
+<li>Select <strong>storage_1_replica</strong> and click <strong>Configure</strong>.</li>
+<li>In the <strong>Configure server</strong> dialog, switch to the tab called <strong>Join Replica Set</strong>.</li>
+<li>Check <strong>storage_1</strong> and click <strong>Join replica set</strong>.</li>
+</ul>
+<img alt="Join Replica Set" src="../../_images/join-replica-set.png" />
+<p>For <strong>storage_2_replica</strong>, repeat the same steps, but check <strong>storage_2</strong> instead.</p>
+</li>
+</ol>
+<p>After assigning all roles, enable <code class="docutils literal notranslate"><span class="pre">storage</span></code> replica sets by clicking “Bootstrap vshard”.
+It initializes Tarantool <code class="docutils literal notranslate"><span class="pre">vshard</span></code> module.
+You can read more about this module in <a class="reference external" href="https://www.tarantool.io/en/doc/latest/reference/reference_rock/vshard/">Tarantool documentation</a>.</p>
+<img alt="Bootstrap vshard" src="../../_images/bootstrap-vshard.png" />
+<p>You’ve created virtual buckets that are allocated to storages according to the number of instances with the <code class="docutils literal notranslate"><span class="pre">storage</span></code> role.</p>
+<img alt="Virtual buckets" src="../../_images/virtual-buckets.png" />
+</div>
+<div class="section" id="starting-or-stopping-instances">
+<h3>Starting or stopping instances<a class="headerlink" href="#starting-or-stopping-instances" title="Permalink to this headline">¶</a></h3>
+<p>This step is optional.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory, there are also playbooks that start or stop the instances.
+You can stop and disable all instances by <code class="docutils literal notranslate"><span class="pre">stop.yml</span></code> playbook:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ansible-playbook -i hosts.yml playbooks/stop.yml
+</pre></div>
+</div>
+<p>You can start and enable all instances by <code class="docutils literal notranslate"><span class="pre">start.yml</span></code> playbook:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ansible-playbook -i hosts.yml playbooks/start.yml
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deployment.html" class="rst-footer-buttons-btn float-left" title="Deployment" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Deployment</a>
+      
+      
+        <a href="manual-deployment.html" class="rst-footer-buttons-btn float-right" title="First manual deployment" accesskey="n" rel="next">First manual deployment <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../../_static/js/searchbox.js"></script>  
+</body>
+</html>

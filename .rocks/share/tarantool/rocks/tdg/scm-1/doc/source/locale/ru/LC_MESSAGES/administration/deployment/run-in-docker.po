@@ -1,0 +1,232 @@
+
+#: ../../administration/deployment/run-in-docker.rst:2
+msgid "Running Tarantool Data Grid in Docker"
+msgstr "Запуск Tarantool Data Grid в Docker"
+
+#: ../../administration/deployment/run-in-docker.rst:4
+msgid ""
+"You can run Tarantool Data Grid (TDG) as a Docker container to develop your "
+"solution or check if TDG is suitable for your project."
+msgstr ""
+"Вы можете запустить TDG в Docker-контейнере, чтобы разработать свое решение "
+"или проверить, подходит ли Tarantool Data Grid для вашего проекта."
+
+#: ../../administration/deployment/run-in-docker.rst:6
+msgid "This guide will show you how to:"
+msgstr "В этом руководстве рассказано, как:"
+
+#: ../../administration/deployment/run-in-docker.rst:8
+msgid ":ref:`Download the Docker image file <download-docker-image>`."
+msgstr ":ref:`скачать файл с Docker-образом <download-docker-image>`;"
+
+#: ../../administration/deployment/run-in-docker.rst:9
+msgid ":ref:`Run a TDG instance as a Docker container <run-container>`."
+msgstr ""
+":ref:`запустить экземпляр (инстанс, instance) TDG в Docker-контейнере <run-"
+"container>`;"
+
+#: ../../administration/deployment/run-in-docker.rst:10
+msgid ":ref:`Configure the instance <configure-instance>`."
+msgstr ":ref:`настроить экземпляр <configure-instance>`."
+
+#: ../../administration/deployment/run-in-docker.rst:15
+msgid "Getting Docker image file for deployment"
+msgstr "Подготовка файла с Docker-образом для развертывания"
+
+#: ../../administration/deployment/run-in-docker.rst:17
+msgid ""
+"Download the Docker image file of the latest version at the customer zone of"
+" `tarantool.io "
+"<https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2>`_. The "
+"download link looks like ``tdg-<version>-<hash>-docker-image.tar.gz``."
+msgstr ""
+"В личном кабинете `tarantool.io "
+"<https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2>`_ "
+"скачайте файл с Docker-образом последней версии. Ссылка на скачивание "
+"выглядит так: ``tdg-<версия>-<хеш>-docker-image.tar.gz``."
+
+#: ../../administration/deployment/run-in-docker.rst:21
+msgid ""
+"If you do not have access to the customer zone, you can get one by applying "
+"`this form <https://www.tarantool.io/en/datagrid/#contact>`_ or writing to "
+"**sales@tarantool.io**."
+msgstr ""
+"Если у вас нет доступа к личному кабинету, заполните `эту форму "
+"<https://www.tarantool.io/en/datagrid/#contact>`_ или напишите на "
+"**sales@tarantool.io**."
+
+#: ../../administration/deployment/run-in-docker.rst:28
+msgid "Running an instance"
+msgstr "Запуск экземпляра"
+
+#: ../../administration/deployment/run-in-docker.rst:30
+msgid "First, load the Docker image from the file that you've downloaded:"
+msgstr "Сначала загрузите Docker-образ из скачанного файла:"
+
+#: ../../administration/deployment/run-in-docker.rst:32
+msgid ""
+"$ # change <version> and <hash> for the TDG version that you've downloaded\n"
+"$ docker load --input tdg2_tdg-<version>-<hash>docker-image.tar.gz"
+msgstr ""
+"$ # замените <version> и <hash> на версию и хеш скачанного TDG\n"
+"$ docker load --input tdg2_tdg-<version>-<hash>docker-image.tar.gz"
+
+#: ../../administration/deployment/run-in-docker.rst:37
+msgid "The output will look like the following:"
+msgstr "Результат будет выглядеть так:"
+
+#: ../../administration/deployment/run-in-docker.rst:39
+msgid ""
+"$ docker load --input tdg2_tdg-2.0.0-1197-g1144f0c9-docker-image.tar.gz\n"
+"174f56854903: Loading layer [==================================================>]  211.7MB/211.7MB\n"
+"3755a040b03f: Loading layer [==================================================>]  124.4kB/124.4kB\n"
+"62e0389f69ce: Loading layer [==================================================>]   80.7MB/80.7MB\n"
+"6230a7f7e181: Loading layer [==================================================>]   2.56kB/2.56kB\n"
+"e714472acbb5: Loading layer [==================================================>]  54.62MB/54.62MB\n"
+"32e4a08d6732: Loading layer [==================================================>]  2.048kB/2.048kB\n"
+"63380e3c2f5c: Loading layer [==================================================>]  127.6MB/127.6MB\n"
+"9a6936065be6: Loading layer [==================================================>]  4.348MB/4.348MB\n"
+"e70d4b034a27: Loading layer [==================================================>]  12.29kB/12.29kB\n"
+"Loaded image: tdg:2.0.0-1197-g1144f0c9"
+msgstr ""
+"$ docker load --input tdg2_tdg-2.0.0-1197-g1144f0c9-docker-image.tar.gz\n"
+"174f56854903: Loading layer [==================================================>]  211.7MB/211.7MB\n"
+"3755a040b03f: Loading layer [==================================================>]  124.4kB/124.4kB\n"
+"62e0389f69ce: Loading layer [==================================================>]   80.7MB/80.7MB\n"
+"6230a7f7e181: Loading layer [==================================================>]   2.56kB/2.56kB\n"
+"e714472acbb5: Loading layer [==================================================>]  54.62MB/54.62MB\n"
+"32e4a08d6732: Loading layer [==================================================>]  2.048kB/2.048kB\n"
+"63380e3c2f5c: Loading layer [==================================================>]  127.6MB/127.6MB\n"
+"9a6936065be6: Loading layer [==================================================>]  4.348MB/4.348MB\n"
+"e70d4b034a27: Loading layer [==================================================>]  12.29kB/12.29kB\n"
+"Loaded image: tdg:2.0.0-1197-g1144f0c9"
+
+#: ../../administration/deployment/run-in-docker.rst:53
+msgid ""
+"For details about ``docker load``, refer to the `Docker documentation "
+"<https://docs.docker.com/engine/reference/commandline/load/>`__."
+msgstr ""
+"Подробнее о ``docker load`` можно прочитать в `документации Docker "
+"<https://docs.docker.com/engine/reference/commandline/load/>`__."
+
+#: ../../administration/deployment/run-in-docker.rst:56
+msgid "Find an archive named ``tdg`` in the list of images:"
+msgstr "В списке образов найдите архив под названием ``tdg``:"
+
+#: ../../administration/deployment/run-in-docker.rst:58
+msgid ""
+"$ docker image ls tdg\n"
+"REPOSITORY   TAG                    IMAGE ID       CREATED       SIZE\n"
+"tdg          2.0.0-1197-g1144f0c9   564a45b770f8   10 days ago   463MB"
+msgstr ""
+"$ docker image ls tdg\n"
+"REPOSITORY   TAG                    IMAGE ID       CREATED       SIZE\n"
+"tdg          2.0.0-1197-g1144f0c9   564a45b770f8   10 days ago   463MB"
+
+#: ../../administration/deployment/run-in-docker.rst:64
+msgid "Now run a container with a TDG instance:"
+msgstr "Теперь запустите контейнер с экземпляром TDG:"
+
+#: ../../administration/deployment/run-in-docker.rst:66
+msgid "$ docker run --rm -it -p 8080:8080 tdg:<tag>"
+msgstr "$ docker run --rm -it -p 8080:8080 tdg:<tag>"
+
+#: ../../administration/deployment/run-in-docker.rst:70
+msgid "For example:"
+msgstr "Пример:"
+
+#: ../../administration/deployment/run-in-docker.rst:72
+msgid "$ docker run --rm -it -p 8080:8080 tdg:2.0.0-1197-g1144f0c9"
+msgstr "$ docker run --rm -it -p 8080:8080 tdg:2.0.0-1197-g1144f0c9"
+
+#: ../../administration/deployment/run-in-docker.rst:76
+msgid ""
+"You will now find the unconfigured instance at `localhost:8080 "
+"<http://localhost:8080>`_:"
+msgstr ""
+"Экземпляр без заданной конфигурации теперь можно найти по адресу "
+"`localhost:8080 <http://localhost:8080>`_:"
+
+#: ../../administration/deployment/run-in-docker.rst:84
+msgid "Configuring instance"
+msgstr "Конфигурация экземпляра"
+
+#: ../../administration/deployment/run-in-docker.rst:86
+msgid ""
+"On the Cluster tab, there is an unconfigured instance. To access all basic "
+"functions to work with data, click **Configure**. You will get the "
+"**Configure server** dialog:"
+msgstr ""
+"На вкладке **Cluster** находится экземпляр без заданной конфигурации. Чтобы "
+"получить доступ ко всем базовым функциям работы с данными, нажмите "
+"**Configure**. Появится окно **Configure server**:"
+
+#: ../../administration/deployment/run-in-docker.rst:93
+msgid ""
+"In the **Configure server** dialog, specify two replica set parameters: "
+"replica set name and roles. Set any name and choose **Select all** option to"
+" switch on these roles:"
+msgstr ""
+"В диалоговом окне **Configure server** укажите значения двух параметров "
+"набора реплик: replica set name (имя набора реплик) и roles (роли). Задайте "
+"любое имя и выберите **Select all**, чтобы включить эти роли:"
+
+#: ../../administration/deployment/run-in-docker.rst:96
+msgid "``core``: configuration and administration"
+msgstr "``core``: настройка и администрирование;"
+
+#: ../../administration/deployment/run-in-docker.rst:98
+msgid "``runner``: running the business logic using Lua code"
+msgstr "``runner``: запуск бизнес-логики с помощью кода на Lua;"
+
+#: ../../administration/deployment/run-in-docker.rst:100
+msgid "``connector``: data exchange with external systems"
+msgstr "``connector``: обмен данными с внешними системами;"
+
+#: ../../administration/deployment/run-in-docker.rst:102
+msgid "``storage``: data validation and storage"
+msgstr "``storage``: проверка и хранение данных."
+
+#: ../../administration/deployment/run-in-docker.rst:104
+msgid ""
+"``failover-coordinator`` role enables by default. You can read more about "
+"this role in `Tarantool Cartridge documentation "
+"<https://github.com/tarantool/cartridge/blob/master/rst/topics/failover.rst#stateful-"
+"failover>`_."
+msgstr ""
+"Роль ``failover-coordinator`` включена по умолчанию. Подробнее об этой роли "
+"можно узнать в `документации по Tarantool Cartridge "
+"<https://github.com/tarantool/cartridge/blob/master/rst/topics/failover.rst#stateful-"
+"failover>`_."
+
+#: ../../administration/deployment/run-in-docker.rst:107
+msgid "After assigning all roles, click **Create replica set**."
+msgstr ""
+"После назначения всех ролей нажмите **Create replica set**, чтобы создать "
+"набор реплик."
+
+#: ../../administration/deployment/run-in-docker.rst:111
+msgid ""
+"In this example, all roles are switched simultaneously in one replica set. "
+"It is a good way to practice and see what TDG can do, but a wrong pattern to"
+" follow in production."
+msgstr ""
+"В этом примере все роли включаются одновременно в одном наборе реплик. Это "
+"удобно для практики и позволяет больше узнать о возможностях TDG, но в "
+"производственной среде так делать не стоит."
+
+#: ../../administration/deployment/run-in-docker.rst:114
+msgid ""
+"Initialize Tarantool ``vshard`` module by clicking **Bootstrap vshard**:"
+msgstr ""
+"Нажмите **Bootstrap vshard**, чтобы инициализировать Tarantool-модуль "
+"``vshard``:"
+
+#: ../../administration/deployment/run-in-docker.rst:119
+msgid ""
+"You can read more about this module in `Tarantool documentation "
+"<https://www.tarantool.io/en/doc/latest/reference/reference_rock/vshard/>`_."
+msgstr ""
+"Для получения дополнительной информации об этом модуле обратитесь к "
+"`документации по Tarantool "
+"<https://www.tarantool.io/en/doc/latest/reference/reference_rock/vshard/>`_."

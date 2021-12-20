@@ -1,0 +1,561 @@
+
+#: ../../administration/webui.rst:2
+msgid "Web UI"
+msgstr "Веб-интерфейс"
+
+#: ../../administration/webui.rst:4
+msgid ""
+"This chapter explains how to access TDG web UI and sign in. It also gives an"
+" overview of the web UI controls and functions."
+msgstr ""
+"В этой главе рассказано, как получить доступ к веб-интерфейсу TDG и "
+"авторизоваться в системе. Кроме того, в главе описаны элементы управления и "
+"функции, представленные в веб-интерфейсе."
+
+#: ../../administration/webui.rst:7
+msgid ""
+"In the example below, authorization to the TDG system is already enabled. To"
+" learn how to enable authorization, read the :doc:`authorization guide "
+"<security/authorization>`."
+msgstr ""
+"В примере ниже описана ситуация, когда авторизация в системе TDG уже "
+"включена. Подробнее о том, как включить авторизацию, вы можете узнать из "
+":doc:`руководства по авторизации <security/authorization>`."
+
+#: ../../administration/webui.rst:13
+msgid "Signing in"
+msgstr "Вход в систему"
+
+#: ../../administration/webui.rst:15
+msgid "To access the TDG web interface, you need to sign in:"
+msgstr "Чтобы получить доступ к веб-интерфейсу TDG, выполните следующие шаги:"
+
+#: ../../administration/webui.rst:17
+msgid "Contact your administrator to get your credentials:"
+msgstr "Обратитесь к администратору за данными учетной записи."
+
+#: ../../administration/webui.rst:19
+msgid ""
+"**Username**: login that is automatically generated when the administrator "
+"creates a :doc:`user profile <security/users>`. For example, ``ui8896`` or "
+"``gz1200``."
+msgstr ""
+"**Username**: имя пользователя генерируется автоматически, когда "
+"администратор создает :doc:`профиль пользователя <security/users>`. Примеры "
+"имени пользователя: ``ui8896``, ``gz1200``."
+
+#: ../../administration/webui.rst:22
+msgid ""
+"**Password**: automatically generated when the administrator creates a "
+":doc:`user profile <security/users>`."
+msgstr ""
+"**Password**: пароль генерируется автоматически, когда администратор создает"
+" :doc:`профиль пользователя <security/users>`."
+
+#: ../../administration/webui.rst:24
+msgid ""
+"**TDG server address**: ``http://<address>:<http_port>``, is set by the "
+"administrator in the configuration file. This guide uses the "
+"``http://172.19.0.2:8080`` server address as an example."
+msgstr ""
+"**Адрес сервера TDG**: администратор задает адрес сервера в формате "
+"``http://<адрес>:<порт_http>`` в файле конфигурации. В этом руководстве в "
+"качестве примера используется адрес сервера ``http://172.19.0.2:8080``."
+
+#: ../../administration/webui.rst:27
+msgid ""
+"Open the TDG server address in the browser. You will see the authorization "
+"dialog:"
+msgstr ""
+"В браузере введите адрес сервера TDG, чтобы открыть диалоговое окно "
+"авторизации."
+
+#: ../../administration/webui.rst:34
+msgid ""
+"Input your credentials. In the **Username** text field, enter your login. In"
+" the **Password** text field, enter your password."
+msgstr ""
+"Введите учетные данные: в поле **Username** — имя пользователя, а в поле "
+"**Password** — пароль."
+
+#: ../../administration/webui.rst:38
+msgid "Click **Login**."
+msgstr "Нажмите **Login**."
+
+#: ../../administration/webui.rst:40
+msgid ""
+"During the authorization process, the TDG system will check that your "
+"credentials are correct. Also, it will check your access rights to "
+"particular TDG tabs. After a successful authorization, you will see the TDG "
+"interface. You will only get access to certain tabs in the TDG interface. It"
+" depends on the :doc:`user role <security/role-access>` that the "
+"administrator has given you."
+msgstr ""
+"Во время авторизации система TDG проверяет правильность ваших учетных данных"
+" и права доступа к определенным вкладкам TDG. После успешной авторизации вы "
+"увидите интерфейс TDG с доступом только к определенным вкладкам. Набор "
+"вкладок зависит от :doc:`роли пользователя <security/role-access>`, которую "
+"вам назначил администратор."
+
+#: ../../administration/webui.rst:46
+msgid ""
+"If there is a typo in the credentials, TDG won't be able to identify you. In"
+" that case, you will see the \"Authentication failed\" message:"
+msgstr ""
+"Если вы допустите опечатку в учетных данных, TDG не сможет вас "
+"идентифицировать. В этом случае появится сообщение \"Authentication "
+"failed\":"
+
+#: ../../administration/webui.rst:53
+msgid "Try to input your credentials one more time."
+msgstr "Попробуйте ввести учетные данные еще раз."
+
+#: ../../administration/webui.rst:58
+msgid "Web UI overview"
+msgstr "Общее описание веб-интерфейса"
+
+#: ../../administration/webui.rst:60
+msgid "In the TDG interface, there are two sections:"
+msgstr "Интерфейс TDG состоит из двух частей:"
+
+#: ../../administration/webui.rst:62
+msgid ""
+"**Tab pane**: a list of tabs to switch between different sections of TDG."
+msgstr ""
+"**Панель вкладок** отображает список вкладок для навигации по разделам TDG."
+
+#: ../../administration/webui.rst:64
+msgid "**Working area**: displays the contents of the selected tab."
+msgstr "**Рабочая область** отображает содержание активной вкладки."
+
+#: ../../administration/webui.rst:72
+msgid "Tab pane"
+msgstr "Панель со вкладками"
+
+#: ../../administration/webui.rst:74
+msgid ""
+"The contents of the tab pane vary depending on the :doc:`user role "
+"<security/role-access>`. Users with the \"admin\" and \"supervisor\" rights "
+"can see all tabs. Users with the access rights of the \"user\" role have "
+"access to a limited set of tabs."
+msgstr ""
+"Доступ к той или иной вкладке зависит от :doc:`роли пользователя "
+"<security/role-access>`. Например, пользователи с ролями \"admin\" и "
+"\"supervisor\" видят все вкладки, а пользователю с ролью \"user\" доступен "
+"ограниченный набор."
+
+#: ../../administration/webui.rst:78
+msgid ""
+"At the bottom of the page, there is a **Collapse menu** button. Click it to "
+"hide the full tab pane view."
+msgstr ""
+"Кнопка **Collapse menu** в нижней части страницы служит для переключения "
+"панели вкладок в компактный режим и обратно."
+
+#: ../../administration/webui.rst:81
+msgid "The tab pane consists of the following tabs:"
+msgstr "На панели расположены следующие вкладки:"
+
+#: ../../administration/webui.rst:89
+msgid "Cluster"
+msgstr "Cluster"
+
+#: ../../administration/webui.rst:90
+msgid "Cluster configuration and administration."
+msgstr "Конфигурация и администрирование кластера."
+
+#: ../../administration/webui.rst:92
+msgid "Configuration files"
+msgstr "Configuration files"
+
+#: ../../administration/webui.rst:93
+msgid "TDG configuration settings management."
+msgstr "Управление параметрами конфигурации TDG."
+
+#: ../../administration/webui.rst:95
+msgid "Test"
+msgstr "Test"
+
+#: ../../administration/webui.rst:96
+msgid "Sending test queries in JSON or XML (SOAP) format."
+msgstr "Отправка тестовых запросов в формате JSON или XML (SOAP)."
+
+#: ../../administration/webui.rst:98
+msgid "GraphQL"
+msgstr "GraphQL"
+
+#: ../../administration/webui.rst:99
+msgid "Sending queries in GraphQL format."
+msgstr "Отправка запросов в формате GraphQL."
+
+#: ../../administration/webui.rst:101
+msgid "Model"
+msgstr "Model"
+
+#: ../../administration/webui.rst:102
+msgid "Current data model uploaded to the system."
+msgstr "Актуальная модель данных, загруженная в систему."
+
+#: ../../administration/webui.rst:104
+msgid "Repair Queues: Input"
+msgstr "Repair Queues: Input"
+
+#: ../../administration/webui.rst:105
+msgid "Repair queue for the uploaded objects."
+msgstr "Ремонтная очередь для загруженных объектов."
+
+#: ../../administration/webui.rst:107
+msgid "Repair Queues: Output"
+msgstr "Repair Queues: Output"
+
+#: ../../administration/webui.rst:108
+msgid "Repair queue for the objects replicated to external systems."
+msgstr "Ремонтная очередь для объектов, реплицированных во внешние системы."
+
+#: ../../administration/webui.rst:110
+msgid "Repair Queues: Jobs"
+msgstr "Repair Queues: Jobs"
+
+#: ../../administration/webui.rst:111
+msgid "Repair queue for pending jobs that ended with an error."
+msgstr "Ремонтная очередь для завершенных с ошибкой задач."
+
+#: ../../administration/webui.rst:113
+msgid "Logger"
+msgstr "Logger"
+
+#: ../../administration/webui.rst:114
+msgid "Event log."
+msgstr "Журнал событий."
+
+#: ../../administration/webui.rst:116
+msgid "Audit Log"
+msgstr "Audit Log"
+
+#: ../../administration/webui.rst:117
+msgid "Audit log."
+msgstr "Журнал аудита."
+
+#: ../../administration/webui.rst:119
+msgid "Tasks"
+msgstr "Tasks"
+
+#: ../../administration/webui.rst:120
+msgid "Task management."
+msgstr "Управление задачами."
+
+#: ../../administration/webui.rst:122
+msgid "Data types"
+msgstr "Data types"
+
+#: ../../administration/webui.rst:123
+msgid "Data types that are represented in the uploaded data model."
+msgstr "Типы данных, представленные в загруженной модели данных."
+
+#: ../../administration/webui.rst:125
+msgid "Connectors"
+msgstr "Connectors"
+
+#: ../../administration/webui.rst:126
+msgid "Connector creation and management."
+msgstr "Создание коннекторов и управление ими."
+
+#: ../../administration/webui.rst:128
+msgid "Settings"
+msgstr "Settings"
+
+#: ../../administration/webui.rst:129
+msgid "System settings management."
+msgstr "Управление настройками системы."
+
+#: ../../administration/webui.rst:131
+msgid "Doc"
+msgstr "Doc"
+
+#: ../../administration/webui.rst:132
+msgid ""
+"English version of TDG documentation that is available locally. It is "
+"deployed from the package with the rest of TDG. As a result, it only "
+"contains the chapters published before the package was formed. You can read "
+"the up-to-date documentation both in English and in Russian at `tarantool.io"
+" <https://www.tarantool.io/en/tdg/latest/>`_."
+msgstr ""
+"Версия документации TDG на английском языке, доступная локально из "
+"разворачиваемого пакета TDG. Таким образом, она содержит только ту "
+"информацию, которая была опубликована до формирования пакета. Актуальную "
+"документацию на русском и английском языках вы можете найти на сайте "
+"`tarantool.io <https://www.tarantool.io/en/tdg/latest/>`_."
+
+#: ../../administration/webui.rst:140
+msgid "Cluster tab"
+msgstr "Вкладка Cluster"
+
+#: ../../administration/webui.rst:142
+msgid ""
+"The **Cluster** tab displays the current status of the TDG instances "
+"cluster. You can administrate it via UI. There are several groups of "
+"elements in the interface for cluster management:"
+msgstr ""
+"На вкладке **Cluster** отображается текущий статус кластера экземпляров TDG."
+" На этой вкладке вы можете администрировать кластер через веб-интерфейс. "
+"Элементы управления можно разделить на несколько групп:"
+
+#: ../../administration/webui.rst:151
+msgid "Replica sets"
+msgstr "Раздел Replica sets"
+
+#: ../../administration/webui.rst:156
+msgid "In the highlighted area, you can see general replica set statistics:"
+msgstr ""
+"В выделенной области отображается основная статистика по наборам реплик "
+"(replica sets)."
+
+#: ../../administration/webui.rst:164
+msgid "Total"
+msgstr "Total"
+
+#: ../../administration/webui.rst:165
+msgid "Total number of replica sets in the cluster."
+msgstr "Общее количество наборов реплик в кластере."
+
+#: ../../administration/webui.rst:167
+msgid "Unhealthy"
+msgstr "Unhealthy"
+
+#: ../../administration/webui.rst:168
+msgid "Number of replica sets with the \"unhealthy\" status."
+msgstr "Количество наборов реплик в статусе \"unhealthy\"."
+
+#: ../../administration/webui.rst:170
+msgid "Servers"
+msgstr "Servers"
+
+#: ../../administration/webui.rst:171
+msgid "Total number of TDG instances."
+msgstr "Общее количество экземпляров TDG."
+
+#: ../../administration/webui.rst:173
+msgid "Filter"
+msgstr "Filter"
+
+#: ../../administration/webui.rst:174
+msgid "A dropdown menu to filter replica sets by status or cluster role."
+msgstr ""
+"Выпадающее меню, позволяющее фильтровать наборы реплик по статусу или "
+"кластерной роли."
+
+#: ../../administration/webui.rst:176
+msgid "Search box"
+msgstr "Окно поиска"
+
+#: ../../administration/webui.rst:177
+msgid ""
+"A search box to display replica sets filtered by URI, UUID, role, alias, or "
+"labels."
+msgstr ""
+"Поле для поиска наборов реплик с возможностью фильтрации по URI, UUID, роли,"
+" алиасу или меткам."
+
+#: ../../administration/webui.rst:180
+msgid "Replica set widget"
+msgstr "Виджет набора реплик"
+
+#: ../../administration/webui.rst:185
+msgid "The following statistics are available in the replica set widget:"
+msgstr "В виджете набора реплик отображается следующая информация:"
+
+#: ../../administration/webui.rst:193
+msgid "Name and role"
+msgstr "Имя и роль"
+
+#: ../../administration/webui.rst:194
+msgid "For example, replica set \"storage_1\" with the role \"storage\"."
+msgstr "Например, набор реплик \"storage_1\" с ролью \"storage\"."
+
+#: ../../administration/webui.rst:196 ../../administration/webui.rst:233
+msgid "Status"
+msgstr "Статус"
+
+#: ../../administration/webui.rst:197
+msgid ""
+"\"Healthy\" means the current replica set functions properly. \"Unhealthy\" "
+"means the current replica set is not available or does not function "
+"properly."
+msgstr ""
+"Статус \"healthy\" означает, что набор реплик функционирует нормально. "
+"Статус \"unhealthy\" означает, что набор реплик недоступен или функционирует"
+" неправильно."
+
+#: ../../administration/webui.rst:200
+msgid "Storage group and replica set weight"
+msgstr "Вес набора реплик и группа, к которой набор относится"
+
+#: ../../administration/webui.rst:201
+msgid ""
+"Only for replica sets with the \"storage\" role. For example, storage group "
+"\"default\", replica set weight \"1\"."
+msgstr ""
+"Только для наборов реплик с ролью \"storage\". Например: группа (storage "
+"group) --- \"default\", вес (replica set weight) --- 1."
+
+#: ../../administration/webui.rst:204
+msgid "**Edit** button"
+msgstr "Кнопка **Edit**"
+
+#: ../../administration/webui.rst:205
+msgid "Opens a dialog where you can edit the parameters of the replica set."
+msgstr ""
+"Открывает диалоговое окно, в котором можно редактировать параметры набора "
+"реплик."
+
+#: ../../administration/webui.rst:207
+msgid "Instances widgets"
+msgstr "Виджеты экземпляров"
+
+#: ../../administration/webui.rst:208
+msgid "The widgets of the instances included in this replica set."
+msgstr "Виджеты экземпляров, включенных в этот набор реплик."
+
+#: ../../administration/webui.rst:211
+msgid "Instance widget"
+msgstr "Виджет экземпляра"
+
+#: ../../administration/webui.rst:216
+msgid ""
+"The widget of the instance is in the highlighted area. It allows you to see "
+"the following information about the instance:"
+msgstr "Виджет экземпляра в выделенной области содержит следующую информацию:"
+
+#: ../../administration/webui.rst:225
+msgid "Instance name"
+msgstr "Имя экземпляра"
+
+#: ../../administration/webui.rst:226
+msgid "For example, \"storage_1\" or \"storage_1_replica\"."
+msgstr "Например, \"storage_1\" или \"storage_1_replica\"."
+
+#: ../../administration/webui.rst:228
+msgid "URI"
+msgstr "URI"
+
+#: ../../administration/webui.rst:229
+msgid ""
+"Instance URI for binary port access. Is set in the cluster configuration via"
+" the ``advertise_uri`` parameter. For example, ``172.19.0.2:3003``."
+msgstr ""
+"URI для доступа по бинарному порту. Задается параметром ``advertise_uri`` в "
+"конфигурации кластера (например, ``172.19.0.2:3003``)."
+
+#: ../../administration/webui.rst:234
+msgid ""
+"\"Healthy\" means the current instance functions properly. \"Unhealthy\" "
+"means the current instance is not available or does not function properly."
+msgstr ""
+"Статус \"healthy\" означает, что экземпляр функционирует нормально. Статус "
+"\"unhealthy\" означает, что экземпляр недоступен или функционирует "
+"неправильно."
+
+#: ../../administration/webui.rst:237
+msgid "Leader indicator"
+msgstr "Индикатор лидера"
+
+#: ../../administration/webui.rst:238
+msgid "Indicates if the instance is the leader in the replica set."
+msgstr "Показывает, является ли инстанс лидером (leader) в наборе реплик."
+
+#: ../../administration/webui.rst:240
+msgid "Memory usage indicator"
+msgstr "Индикатор памяти"
+
+#: ../../administration/webui.rst:241
+msgid ""
+"The actual memory used / memory limit set for the instance. For example, 3.3"
+" MiB / 1024.0 MiB."
+msgstr ""
+"Фактически используемая память / лимит памяти, заданный для этого "
+"экземпляра. Например, 3.3 MiB / 1024.0 MiB."
+
+#: ../../administration/webui.rst:244
+msgid "Virtual buckets indicator"
+msgstr "Индикатор виртуальных сегментов"
+
+#: ../../administration/webui.rst:245
+msgid ""
+"Indicates the number of virtual buckets on the instance. Only for replica "
+"sets with the \"storage\" role."
+msgstr ""
+"Показывает количество виртуальных сегментов экземпляра (только для наборов "
+"реплик с ролью \"storage\")."
+
+#: ../../administration/webui.rst:248
+msgid "``…`` button"
+msgstr "Кнопка ``…``"
+
+#: ../../administration/webui.rst:249
+msgid ""
+"Options to see instance details, promote the instance as a leader, disable "
+"or expel the instance."
+msgstr ""
+"Меню с набором функций: просмотр информации об экземпляре, назначение "
+"экземпляра лидера, отключение или исключение экземпляра."
+
+#: ../../administration/webui.rst:252
+msgid "Instance details"
+msgstr "Информация об экземпляре"
+
+#: ../../administration/webui.rst:254
+msgid ""
+"For each instance, you can view detailed information about its parameters in"
+" read-only mode. On the **Cluster** tab of the instance, click ``…`` > "
+"**Server details**:"
+msgstr ""
+"Подробную информацию о параметрах каждого экземпляра можно просмотреть в "
+"режиме только для чтения. Для этого на вкладке **Cluster** рядом с нужным "
+"экземпляром нажмите ``…`` > **Server details**:"
+
+#: ../../administration/webui.rst:260
+msgid ""
+"You will see a pop-up window with detailed information about the instance "
+"parameters:"
+msgstr "Появится окно с подробной информацией о параметрах экземпляра:"
+
+#: ../../administration/webui.rst:266
+msgid "More functions"
+msgstr "Другие функции"
+
+#: ../../administration/webui.rst:271
+msgid "Several more TDG functions are also available on the **Cluster** tab:"
+msgstr "На вкладке **Cluster** доступны еще несколько функций:"
+
+#: ../../administration/webui.rst:279
+msgid "Issues"
+msgstr "Issues"
+
+#: ../../administration/webui.rst:280
+msgid "The history of issues occurring in the cluster operation."
+msgstr "Просмотр истории ошибок, возникших при работе кластера"
+
+#: ../../administration/webui.rst:282
+msgid "Probe server"
+msgstr "Probe server"
+
+#: ../../administration/webui.rst:283
+msgid "Manual server availability check. Used when configuring a cluster."
+msgstr ""
+"Ручная проверка доступности сервера (используется при настройке кластера)"
+
+#: ../../administration/webui.rst:286
+msgid "Auth"
+msgstr "Auth"
+
+#: ../../administration/webui.rst:287
+msgid "Enable and disable mandatory authorization mode."
+msgstr "Включение и отключение режима обязательной авторизации"
+
+#: ../../administration/webui.rst:289
+msgid "Failover: disabled/eventual/stateful"
+msgstr "Failover: disabled/eventual/stateful"
+
+#: ../../administration/webui.rst:290
+msgid "Switch for automatic recovery mode after failure."
+msgstr "Переключение режима автоматического восстановления после отказа"

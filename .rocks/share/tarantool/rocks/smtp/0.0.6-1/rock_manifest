@@ -1,0 +1,17 @@
+rock_manifest = {
+   doc = {
+      LICENSE = "8068acc73d4d111341c44cc4e5b5cf61",
+      ["README.md"] = "d05a81971630b89149a5c1e5e14f1dcd"
+   },
+   lib = {
+      smtp = {
+         ["lib.so"] = "5c89a7527e94a2456469088ff2972593"
+      }
+   },
+   lua = {
+      smtp = {
+         ["init.lua"] = "d03ef23c3e7c0b872fcfae267f87f521"
+      }
+   },
+   ["smtp-0.0.6-1.rockspec"] = "f3fe3664dd0a092e997f391bca206fbd"
+}

@@ -1,0 +1,10 @@
+---
+
+- name: Deploy Tarantool Data Grid without topology
+  hosts: tdg_group
+  become: true
+  gather_facts: false
+  vars:
+    cartridge_scenario_name: 'configure_instances'
+  roles:
+    - tarantool.cartridge

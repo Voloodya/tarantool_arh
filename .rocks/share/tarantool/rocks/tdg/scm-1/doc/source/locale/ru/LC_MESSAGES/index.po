@@ -1,0 +1,8 @@
+
+#: ../../index.rst:2
+msgid "Tarantool Data Grid 2.0 Documentation"
+msgstr "Документация Tarantool Data Grid 2.0"
+
+#: ../../index.rst:4
+msgid "Documentation contents:"
+msgstr "Содержание:"

@@ -1,0 +1,136 @@
+
+#: ../../administration/manual-deployment.rst:2
+msgid "First manual deployment"
+msgstr "Первое развертывание вручную"
+
+#: ../../administration/manual-deployment.rst:4
+msgid ""
+"This guide explains how to quickly deploy Tarantool Data Grid (TDG) manually"
+" for the first time. As a result, you will get a single node TDG cluster "
+"deployed locally."
+msgstr ""
+"В этом руководстве описано, как впервые быстро развернуть Tarantool Data "
+"Grid (TDG) вручную. В результате вы локально развернете кластер TDG с одним "
+"узлом."
+
+#: ../../administration/manual-deployment.rst:9
+msgid ""
+"For TDG deployment, you need Linux OS (CentOS 7/RHEL 7 are preferable). "
+"Otherwise, you'll need to set up a virtual machine with Linux OS first."
+msgstr ""
+"Чтобы развернуть TDG, вам понадобится ОС Linux (желательно CentOS 7/RHEL 7)."
+" Если у вас другая ОС, сначала вам нужно будет создать виртуальную машину с "
+"ОС Linux."
+
+#: ../../administration/manual-deployment.rst:14
+msgid "Getting a TGZ file for deployment"
+msgstr "Подготовка TGZ-файла для развертывания"
+
+#: ../../administration/manual-deployment.rst:16
+msgid ""
+"To deploy Tarantool Data Grid, you need an RPM (``.rpm``), TGZ (``tar.gz``),"
+" or Docker image (``docker-image.tar.gz``) file. For the first deployment, a"
+" TGZ file will do just fine. It is easier to deploy and does not require "
+"root access."
+msgstr ""
+"Чтобы развернуть Tarantool Data Grid, вам понадобится RPM-файл (``.rpm``), "
+"TGZ-файл (``tar.gz``) или Docker-образ (``docker-image.tar.gz``). Для "
+"первого развертывания подойдет TGZ-файл. Его проще развернуть, и вам не "
+"потребуется root-доступ."
+
+#: ../../administration/manual-deployment.rst:20
+msgid ""
+"Download a TGZ file of the latest version at the customer zone of "
+"`tarantool.io "
+"<https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2>`_. Make "
+"sure your browser did not unarchive the downloaded file: the file extension "
+"should be ``tar.gz``."
+msgstr ""
+"Скачайте TGZ-файл последней версии в личном кабинете на сайте `tarantool.io "
+"<https://www.tarantool.io/en/accounts/customer_zone/packages/tdg2>`_. "
+"Убедитесь, что ваш браузер не разархивировал скачанный файл: расширение "
+"файла должно быть ``tar.gz``."
+
+#: ../../administration/manual-deployment.rst:23
+msgid ""
+"If you do not have access to the customer zone, you can get one by applying "
+"`this form <https://www.tarantool.io/en/datagrid/#contact>`_ or writing to "
+"**sales@tarantool.io**."
+msgstr ""
+"Если у вас нет доступа к личному кабинету, заполните `эту форму "
+"<https://www.tarantool.io/en/datagrid/#contact>`_ или напишите на "
+"**sales@tarantool.io**."
+
+#: ../../administration/manual-deployment.rst:27
+msgid "Deployment"
+msgstr "Развертывание"
+
+#: ../../administration/manual-deployment.rst:29
+msgid "Unpack ``tar.gz`` file:"
+msgstr "Распакуйте файл ``tar.gz``:"
+
+#: ../../administration/manual-deployment.rst:31
+msgid ""
+"$ tar xzf tdg-<VERSION>.tar.gz # change <VERSION> for the TDG version that "
+"you've downloaded"
+msgstr ""
+"$ tar xzf tdg-<VERSION>.tar.gz # замените <VERSION> на версию скачанного TDG"
+
+#: ../../administration/manual-deployment.rst:35
+msgid "Run a single node TDG cluster inside the unpacked ``tar.gz`` file:"
+msgstr ""
+"Запустите кластер TDG с одним узлом внутри распакованного архива ``tar.gz``:"
+
+#: ../../administration/manual-deployment.rst:37
+msgid "$ ./tarantool ./init.lua --bootstrap true"
+msgstr "$ ./tarantool ./init.lua --bootstrap true"
+
+#: ../../administration/manual-deployment.rst:41
+msgid ""
+"If you already have Tarantool installed, make sure that now, while deploying"
+" TDG, you use the Tarantool version that is packed in the just downloaded "
+"``tar.gz`` archive."
+msgstr ""
+"Если у вас уже установлен Tarantool, убедитесь, что для развертывания TDG вы"
+" используете ту версию Tarantool, которая была упакована в только что "
+"скачанный архив ``tar.gz``."
+
+#: ../../administration/manual-deployment.rst:44
+msgid ""
+"Go to `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_ to check the "
+"deployed TDG:"
+msgstr ""
+"Перейдите на `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_, чтобы "
+"проверить развернутый кластер TDG:"
+
+#: ../../administration/manual-deployment.rst:49
+msgid ""
+"By running ``tarantool ./init.lua --bootstrap true``, you've deployed a "
+"configured instance with assigned roles. If you want to try and assign roles"
+" by yourself, run:"
+msgstr ""
+"Выполнив команду ``tarantool ./init.lua --bootstrap true``, вы развернули "
+"сконфигурированный экземпляр (инстанс, instance) с назначенными ролями. Если"
+" вы хотите попробовать назначить роли самостоятельно, выполните:"
+
+#: ../../administration/manual-deployment.rst:52
+msgid "$ tarantool ./init.lua"
+msgstr "$ tarantool ./init.lua"
+
+#: ../../administration/manual-deployment.rst:56
+msgid "As a result, you'll get an unconfigured TDG instance:"
+msgstr "В результате у вас будет экземпляр TDG с незаданной конфигурацией:"
+
+#: ../../administration/manual-deployment.rst:61
+msgid ""
+"In case you want to start over and deploy TDG from scratch, don't forget to "
+"delete the configuration, xlog, and snap files that TDG created during the "
+"first deployment:"
+msgstr ""
+"Если вы хотите заново развернуть TDG с нуля, не забудьте сначала удалить "
+"файлы конфигурации, а также xlog- и snap-файлы, которые были созданы при "
+"первом развертывании TDG:"
+
+#: ../../administration/manual-deployment.rst:64
+msgid "$ rm -rf ./dev/output"
+msgstr "$ rm -rf ./dev/output"

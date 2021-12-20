@@ -1,0 +1,4 @@
+
+#: ../../release.rst:2
+msgid "Release notes"
+msgstr "Примечания к версиям"

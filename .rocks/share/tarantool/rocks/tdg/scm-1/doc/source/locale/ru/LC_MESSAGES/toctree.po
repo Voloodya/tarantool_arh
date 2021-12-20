@@ -1,0 +1,4 @@
+
+#: ../../toctree.rst:3
+msgid "Contents:"
+msgstr "Содержание:"

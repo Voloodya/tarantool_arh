@@ -1,0 +1,11 @@
+rock_manifest = {
+   doc = {
+      ["CHANGELOG.md"] = "187f7e5acc1f44324e3882f00b64122d",
+      LICENSE = "29daa77c844ea3a54034322e8810c80b",
+      ["README.md"] = "b33e40f95678e98f455a6d81ea2dacaf"
+   },
+   lib = {
+      ["watchdog.so"] = "6eb94447e82bd27f38f22460d59da5a4"
+   },
+   ["watchdog-1.1.1-1.rockspec"] = "213352002f776cd90bd1187c6f832728"
+}

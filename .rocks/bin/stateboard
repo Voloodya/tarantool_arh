@@ -1,0 +1,3 @@
+#!/bin/sh
+
+LUAROCKS_SYSCONFDIR='/__w/sdk/sdk/build.sdk/tarantool-2.8/static-build/tarantool-prefix/etc/tarantool/rocks' exec '/opt/tarantool-enterprise/tarantool' -e 'package.path="/root/.cartridge/tmp/pack-bdxxn7ig1v/package-files/tdg/.rocks/share/tarantool/?.lua;/root/.cartridge/tmp/pack-bdxxn7ig1v/package-files/tdg/.rocks/share/tarantool/?/init.lua;"..package.path;package.cpath="/root/.cartridge/tmp/pack-bdxxn7ig1v/package-files/tdg/.rocks/lib/tarantool/?.so;"..package.cpath;local k,l,_=pcall(require,"luarocks.loader") _=k and l.add_context("cartridge","scm-1")' '/root/.cartridge/tmp/pack-bdxxn7ig1v/package-files/tdg/.rocks/share/tarantool/rocks/cartridge/scm-1/bin/stateboard' "$@"

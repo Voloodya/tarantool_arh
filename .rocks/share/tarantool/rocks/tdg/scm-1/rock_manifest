@@ -1,0 +1,276 @@
+rock_manifest = {
+   doc = {
+      Makefile = "4096428ec9becef2be48b1022f65a4c1",
+      ["README.md"] = "f2d555d226aefc44a4ef04110dca3e85",
+      cases = {
+         ["business_cases.md"] = "e0de6636b9f3e2000b100a2ea42118f6",
+         ["user_stories.md"] = "fc26fd8c2eb4c4f6cbb9ace80b4855bd"
+      },
+      ["conf.py"] = "7d3f7b217932c80aba4134ea96ea5332",
+      ["crowdin.yaml"] = "e597194f159cd52ca71dbc0a8d022279",
+      ext = {
+         ["DownloadPageBlock.py"] = "a8b591ae408192f3bdeab8099fdbe90d",
+         ["DropdownList.py"] = "cc889cb3f76cde4bf3cc45f64ce9cd0e",
+         ["LuaDomain.py"] = "359e512a7b26c2625b5b564502a5cadd",
+         ["LuaLexer.py"] = "d4cd7b964416da246090a7172ca184d0",
+         ["ModuleBlock.py"] = "0e3904a2a9a9eefb5e8c7c5dbf3e5096",
+         ["TapLexer.py"] = "ff8b2d58c31e5a98ba3a8cd4ed7743ee",
+         ["TarantoolSessionLexer.py"] = "b7f526fc8cc1e2d3737d596b2ba26363",
+         ["WebPageButtons.py"] = "0847234c67e71201ceb462b840cdc767",
+         ["WebPageMap.py"] = "05517ab48d41273b6c484eb71bafef94",
+         ["WebPageSection.py"] = "711992528ab8467390e33fab33670943",
+         ["WebPageServer.py"] = "e2a196ac47ea360aac3c6636d1f1982a",
+         ["__init__.py"] = "d41d8cd98f00b204e9800998ecf8427e",
+         __pycache__ = {
+            ["DownloadPageBlock.cpython-36.pyc"] = "1e1cac30915a16307bf679de98a694ab",
+            ["DropdownList.cpython-36.pyc"] = "b6e9645389a955d2af6c851ce016702d",
+            ["LuaDomain.cpython-36.pyc"] = "837def3bc1d9b882f2e586df7f3485f3",
+            ["LuaLexer.cpython-36.pyc"] = "822598cb18e5edc3e70e54c1fb9528e4",
+            ["ModuleBlock.cpython-36.pyc"] = "55bedf743196c307d9890c8396005386",
+            ["TapLexer.cpython-36.pyc"] = "87f37cd1ab7a5d48bae0a0de8d090568",
+            ["TarantoolSessionLexer.cpython-36.pyc"] = "463a56f446d9e1b3aa6917d4f5045b9d",
+            ["WebPageButtons.cpython-36.pyc"] = "52cc8aa5c420300860b458b129814dfd",
+            ["WebPageMap.cpython-36.pyc"] = "45a9bf16ec9c41b8fa5f2237840d965e",
+            ["WebPageSection.cpython-36.pyc"] = "0287fb89a0528956d20a44355a62ade8",
+            ["__init__.cpython-36.pyc"] = "a70b7703b32815389331dbbbfa2a343e",
+            ["custom.cpython-36.pyc"] = "75eefbfe8dba7a6ba9567ed6ebd25b13"
+         },
+         ["custom.py"] = "12e98636b4a2d56f103181e77a87581d"
+      },
+      pandoc = {
+         ["filter-espd.py"] = "df0d5e76ee969d679a3b8660aa8fc6db",
+         ["filter.py"] = "308e6c821e8ab98d030ceb0513843bb7",
+         ["reference-espd.docx"] = "260d5072803348be3225582fcaae7854",
+         ["reference-gost.docx"] = "06f509e440cefd8991f5999ae3290ebe",
+         ["reference.docx"] = "0352c4e943626c10ecd567447154a9d8"
+      },
+      ["requirements.txt"] = "e3fdf1e2d19c55356352dce192fd9c85",
+      source = {
+         _static = {
+            [".gitkeep"] = "d41d8cd98f00b204e9800998ecf8427e",
+            ["TDG-deployed.png"] = "cb52b9619b2d15fb63f5fe687dbae104",
+            ["add-new-role.png"] = "f232c98d0105ebe661eaf59a425ceb5b",
+            ["add-new-user.png"] = "aff8925096c6382dbdf79687875034e6",
+            ["add-token.png"] = "415cdf1121588db7f4537a9f6fd5de73",
+            ["add_node01.png"] = "ec80923ff2f14130c2ad91886d3879c2",
+            ["add_node02.png"] = "6926c9ed347f6685e3f3e59d3a09efe5",
+            ["add_node03.png"] = "d9fe747b883736c0aa81bebc51c03d43",
+            ["assign-data-action.png"] = "04ba206c9950ef425e7468614fa1374a",
+            ["authentication-failed.png"] = "adf0e35e8b7df84bb8ca9bab06d60546",
+            ["authorization.png"] = "fde6bdbb8e3672a91a785a6493548fc5",
+            ["block-user.png"] = "35fd9acb76963636855227e50dcd0dba",
+            ["bootstrap-vshard-button.png"] = "473aeb9af352a4ae5f8abc43a1af1103",
+            ["bootstrap-vshard.png"] = "5a3ada59a0c93c0eb41fe70f356c36a0",
+            ["clustertab1.png"] = "44ef523795d681518173a23a92aec15a",
+            ["clustertab2.png"] = "266000486556dc6896a936e4ce6dc9d2",
+            ["clustertab3.png"] = "85c401e68347ae6e989a7e31bb2b63a2",
+            ["clustertab4.png"] = "15c75a4c60519a48613afb38048818db",
+            ["configure-server-dialog.png"] = "034c0945483eb85ff33596fb7db97da9",
+            ["configured-instance.png"] = "077e7732ceef92d93d22ace8d410d63b",
+            ["configured.png"] = "c7659762dc5bd5a405dc986758b4453d",
+            ["data-action-dialog.png"] = "0715a4a3674409a851a39ca8da71c7fa",
+            ["data_uploading02.png"] = "8ceb383ed6c661c869ff656f7c554218",
+            ["default-roles.png"] = "c1c84e7b8c07e372c6d4da7441291f19",
+            ["delete-user.png"] = "21e8417ad7ac139e0c97c0c447fa65a6",
+            ["edit-topology.png"] = "83ea10dd609920c0629e1148303287fe",
+            ["edit-user.png"] = "c47d4748351a1149b808e367888a934b",
+            ["enable-auth.png"] = "eb2377eed8ad1a91bd92cdce0fda22dc",
+            ["enable-auth2.png"] = "1d063dd5f1885ebd9e68548ab57d2d60",
+            ["export-import.png"] = "2b5efcf1aa89b99ac8ef0e2768929d5a",
+            ["graphql.png"] = "d10f62fe499ea98f5e236ff0fef7d813",
+            ["hello-lua.png"] = "d9bfc43af2337186b6508f70d38497f0",
+            ["hello-lua2.png"] = "4978c65ad74f7d03eb3221d1348af698",
+            ["hello-lua3.png"] = "41db1b061cafd0af7130012417dad0d3",
+            ["http-connector-edit.png"] = "535bbe0b98a3d6e2c6e57fcc55833e97",
+            ["import-result.png"] = "fdc4e130d18b9b24d5cf8d6e0b91de69",
+            ["import-users.png"] = "14de8363333631d4d286b282da617996",
+            ["input-error.png"] = "69cfb06b2da2805bdc588b38f4974207",
+            ["input-list.png"] = "0108d20507e915228f53efb030026fd8",
+            ["input.png"] = "8ae54f081df484751ed4bfeba7862763",
+            ["instance-parameters.png"] = "654e832b7459da07be9b7846ec463e1a",
+            ["jobs.png"] = "5f46e7aad164e27aec3e90cca498a62e",
+            ["join-replica-set.png"] = "5a9831a81c024da225d623cfe584445c",
+            ["list-of-roles.png"] = "9d97d86fb4b480deeee0b97cc581af8e",
+            ["model.png"] = "6749164eb0ae0ad945e255efd42133c2",
+            ["model_upload02.png"] = "253805c1e235137ffa14965c4c3b4fe5",
+            ["new-token.png"] = "e6cbb14b778f73291709211645eb8617",
+            ["object-info.png"] = "5c365f73d76c6265b6e3458154d95241",
+            ["output.png"] = "866275384e95ca622a35335f2d5dc593",
+            ["password-policy.png"] = "3e76bad86f4030ba8036a9dafd78e867",
+            ["randomized-playlist.png"] = "0b810941c27626d989f331c17bcc2a9c",
+            ["reading-all.png"] = "849784b296ceffc95570395a4a42d7c9",
+            ["reading-band.png"] = "3a0aea940123e6cfed43587b6e86ede2",
+            ["server-details.png"] = "dfcea9459af4d6387d1150c7e52d9792",
+            ["solution_example.en.png"] = "1e978c5c4e78a5b76223927282a1eaeb",
+            ["solution_example.ru.png"] = "a0cc31a153ccf91ac3b448e1bae37e4d",
+            ["step1.en.png"] = "6955d96783e7f4ad8993dbaa76ad1568",
+            ["step1.ru.png"] = "e1d063b0ab54ea8e4d8db0881b34c934",
+            ["step2.en.png"] = "ee55d2922ae57cfe665e4700ffb46373",
+            ["step2.ru.png"] = "9831fd3d2418f0c32fe9baf5580ff605",
+            ["step3.en.png"] = "d7928db1864c3991bba5698108870ad2",
+            ["step3.ru.png"] = "2a405818eda92556f7199d03a83fdfce",
+            ["test.png"] = "69284a6824ea00934ae128038dd3ea14",
+            ["token-dialog.png"] = "387c093cfb50d7b754fd84cadc0182a7",
+            ["unconfigured-instance.png"] = "d33717b8404b4a55d5f2d81ba8679ef0",
+            ["unconfigured.png"] = "70d368c7af9dc9f9fc8ea7f9f03fd005",
+            ["uploading.png"] = "486ef99c5cbf7dc61015d78a62d4a518",
+            ["users.png"] = "44dc11bed7239a6d6de2ee0f2feda0b3",
+            ["virtual-buckets.png"] = "f4061f2a1d225392305e9c6f0643fc68",
+            ["warning-auth.png"] = "0dc56a5f8a6be785ffcf4ae81f55d0ca",
+            ["web-ui.png"] = "0a68da579a5470ec292255ccb02e0280"
+         },
+         administration = {
+            ["add_node.rst"] = "f2faf426bf562fb8ceaa641b67e621de",
+            ["cluster-mgmt.rst"] = "bbd20fcf7fd72896b67e195e3ad2a4a9",
+            deployment = {
+               ["ansible-deployment.rst"] = "447f0d5ff8e9ce5f57ff3819821694f8",
+               ["manual-deployment.rst"] = "b085218a7f437cf4ab3591c05b6520de",
+               ["run-in-docker.rst"] = "401b41ebab9dea13db56d0c2c9eafd10"
+            },
+            ["deployment.rst"] = "bd77a01df2aff577f8324ae5cc4117c9",
+            ["maintenance.rst"] = "f093fd8d10c84d08500f3c62e31a726b",
+            ["monitoring.rst"] = "b1ebe10d72900ec220d548ec7c3fb948",
+            ["repair-queue.rst"] = "76c8984d876a564d09ed3ea6b9670af5",
+            security = {
+               ["actions.rst"] = "0d132c191dc37fa347b9653d7fc982c8",
+               ["authorization.rst"] = "17f7e94b2e51cc13e49710caf5800e4e",
+               ["role-access.rst"] = "5c4811ca602f2f1cb42d0e7252947feb",
+               ["security-checklist.rst"] = "15340a4c5b851bbedf4b5186972b4a40",
+               ["tokens.rst"] = "d3bab0afc19eafec9ce7312fe5682adb",
+               ["users.rst"] = "9418ffb99fc36c27b78745c9cb06fea7"
+            },
+            ["security.rst"] = "1b9d1a680c6d4d996f90b58ec996b335",
+            ["tenants.rst"] = "b328a0d44a4df8848080938df876b4d8",
+            ["versioning.rst"] = "3ffdd506c02e005517d436a7fbcd5b71",
+            ["webui.rst"] = "1a391e204850edb424cdc6ce7761e998"
+         },
+         ["administration.rst"] = "498795f359a6b0f223b9b97b09faf926",
+         development = {
+            ["architecture.rst"] = "f4d17ad29ec0f92060b5d86fe4ec0b1e",
+            ["cluster-roles.rst"] = "b750b9daf85c2c73ceb4a49723079e62",
+            ["data-model.rst"] = "01534ce6cc3f324c9ebec8cbf51f38ec",
+            ["hello-world-lua.rst"] = "28fb9d86bcde13198873acef90ab32c1",
+            ["requests.rst"] = "0bd9946f80097e7add530007429cab7a"
+         },
+         ["development.rst"] = "04e2343e3aa4a9e1c19aee4ccfbc224c",
+         ["index.rst"] = "40470309d38ef491d06b05da35608c3a",
+         ["intro.rst"] = "703d58ecd365af70ccb00ea45ebacfda",
+         locale = {
+            ["cleanup.py"] = "82a8ad025de33efcdfada27961d96063",
+            ru = {
+               LC_MESSAGES = {
+                  administration = {
+                     ["add_node.po"] = "e6c15ba528cbef041919230dd3815fa1",
+                     ["ansible-deployment.po"] = "8a9e049e754fbd69ce81edb73b2f7953",
+                     ["cluster-mgmt.po"] = "79fb1911f661712b974c8064e607590c",
+                     deployment = {
+                        ["ansible-deployment.po"] = "66f1e9a72ddd6fabd798726a59a4d09e",
+                        ["manual-deployment.po"] = "bd7e4aa88421d533fb8801b0ddab671d",
+                        ["run-in-docker.po"] = "615b14049cc1a38113593c9670c0bc10"
+                     },
+                     ["deployment.po"] = "d56d0eea1b29bb3226fb5a754782bdec",
+                     ["maintenance.po"] = "8f2c2b3505f81d80c6393e3f0e2fc072",
+                     ["manual-deployment.po"] = "9b56bc88c199074d6a35b5bf99ce31bc",
+                     ["monitoring.po"] = "01b0c5a05072cfb2c1a94bba6a489e39",
+                     ["repair-queue.po"] = "b68749c885a70b0eb7a2f09d3e33a05e",
+                     security = {
+                        ["actions.po"] = "0db202424fbb29b6f68f3319d8a2e052",
+                        ["authorization.po"] = "1fc32342f00aa960d42994fe53796e7f",
+                        ["role-access.po"] = "1a7d19073165b0cb9374a1f0f1fdfa50",
+                        ["security-checklist.po"] = "059eb5c909cb0343222504b3b4318447",
+                        ["tokens.po"] = "6518dd58545551eea6f481750822cde9",
+                        ["user-roles.po"] = "396b0795961a9a61ed2bfebbc1c76f7d",
+                        ["users.po"] = "7e2a73ba6b1c66afbf82d301e9298ce7"
+                     },
+                     ["security.po"] = "314eb7524fe13ff30f01c34abe9865df",
+                     ["tenants.po"] = "fdae28eba0a9cfaed5ef1aa16b1198b6",
+                     ["versioning.po"] = "a94b4c5cc32cc6c903c6418cd777b5cd",
+                     ["webui.po"] = "060e44a361e23d1f2b89931eea2339df"
+                  },
+                  ["administration.po"] = "fd4ae4bf228ee6636ca80858d0dcc49b",
+                  development = {
+                     ["architecture.po"] = "a31fddae6623e6d6cdd353d93aa56961",
+                     ["cluster-roles.po"] = "f0d5e7040877cc2696d2ca89b835f2ae",
+                     ["data-model.po"] = "036e7258e40180824d83259bb83d4a09",
+                     ["hello-world-lua.po"] = "8d00a1b4d1895161e73f1594086d4094",
+                     ["requests.po"] = "827601c40eea2aaacef826f2402a0e9f"
+                  },
+                  ["development.po"] = "32d0f3fd42888c3719b69c31a1f2ee99",
+                  ["index.po"] = "8dd8a2609865be26311450c3d844b9c4",
+                  ["intro.po"] = "e093be15ac34affe7a5261cc436db75f",
+                  reference = {
+                     ["config-yml.po"] = "924c7d9b8f8564703b53f2ec55e960dc",
+                     ["permissions.po"] = "5b83310c707d0e5b445519bcc6679f24",
+                     ["repository-api.po"] = "8f46571fb4fb6054196acf776b46975e",
+                     ["sandbox-api.po"] = "989bb29d0fbf132903156eea424f0aed"
+                  },
+                  ["reference.po"] = "2de0975425086c6327236c5b45672a4b",
+                  release = {
+                     ["changelog.po"] = "5c9cbdfcc85dda838187492ea27e636e",
+                     ["whats-new.po"] = "5265444a226d0d9bfef9e6451037393e"
+                  },
+                  ["release.po"] = "355df43f5f0543efa124f78643df26fe",
+                  ["toctree.po"] = "2b231c4e1f58da44be3efd89e1a48d29"
+               }
+            }
+         },
+         reference = {
+            ["config-yml.rst"] = "90068c3de53b76819d79c303675e80c4",
+            ["permissions.rst"] = "1e27adb36e3a4ad887b83de0eca8c18f",
+            ["repository-api.rst"] = "4b88152003fea04b97fdb8ca096765b3",
+            ["sandbox-api.rst"] = "c6e52e38247744bb0d09dd3b7412706a"
+         },
+         ["reference.rst"] = "dd0f357568fc8b8a2a69586aa2f30cdb",
+         release = {
+            ["changelog.rst"] = "49fe87d0254a561a0939a5420af33a26",
+            ["whats-new.rst"] = "82b5f586755ce47aff1ff595cd86f516"
+         },
+         ["release.rst"] = "016e505fd1e85fcd108f446c76c37075",
+         ["toctree.rst"] = "8ae3f5d551eb84f572d8235c34dce926"
+      },
+      sphinx_rtd_theme = {
+         ["__init__.py"] = "d38bddcfd2142365af20f3c089f6e81e",
+         __pycache__ = {
+            ["__init__.cpython-36.pyc"] = "e2b04d9eecb500adecafe7226ebe0cb5"
+         },
+         _less = {
+            ["index.less"] = "999aa8f1c190f6119b4b2c4bbebb04cb",
+            ["pygmentize.less"] = "88d4179a8ce97dcc02e3c4cbd2ad0798"
+         },
+         ["breadcrumbs.html"] = "0ebb950734bdd07b18a69e745ab0518d",
+         ["footer.html"] = "0225711c0640770030803413e98056c3",
+         ["layout.html"] = "a505b5d16f3bc54b03b12119f5113ab8",
+         ["search.html"] = "f5ddb22dec25f6c4d38f73755a68077e",
+         ["searchbox.html"] = "4af5222296d7ef20406c7f830bbb3ac7",
+         static = {
+            css = {
+               ["badge_only.css"] = "b6f1ba6f00d9582e672ae93637a6f6aa",
+               ["custom.css"] = "e12f21a53c5205d0dbf192a5173d8e6f",
+               ["theme.css"] = "3f8860863a9bd6eae0ec02f5ae034d9a"
+            },
+            fonts = {
+               ["Inconsolata-Bold.ttf"] = "b0312789bfb46bc4570209693d0bf28f",
+               ["Inconsolata-Regular.ttf"] = "29b00ebcf93fda46ac9957fa4816eafd",
+               ["Lato-Bold.ttf"] = "79203a1947440ede448a384841980e3c",
+               ["Lato-Regular.ttf"] = "8d72101cad1547bed5ba3105041eeeae",
+               ["RobotoSlab-Bold.ttf"] = "d63ef23299458362f3edbf6cd8c2c510",
+               ["RobotoSlab-Regular.ttf"] = "1ec06eed11bbcb1ee510b8f3522adea8",
+               ["fontawesome-webfont.eot"] = "25a32416abee198dd821b0b17a198a8f",
+               ["fontawesome-webfont.svg"] = "d7c639084f684d66a1bc66855d193ed8",
+               ["fontawesome-webfont.ttf"] = "1dc35d25e61d819a9c357074014867ab",
+               ["fontawesome-webfont.woff"] = "c8ddf1e5e5bf3682bc7bebf30f394148",
+               ["fontawesome-webfont.woff2"] = "e6cf7c6ec7c2d6f670ae9d762604cb0b"
+            },
+            js = {
+               ["modernizr.min.js"] = "42306a279a9e831515347ae319181cd1",
+               ["searchbox.js"] = "b491e96d909ce2b97074bae9ec78cfae",
+               ["theme.js"] = "505da71215620a31f2597c69f199be2c"
+            }
+         },
+         ["theme.conf"] = "960a042ebb3025da8df51a984337a61f",
+         ["versions.html"] = "e9f45b62f77481c389acd925ee25986b"
+      },
+      ["upload_output.sh"] = "f1777d1c727642a236b9982e116d51b7"
+   },
+   ["tdg-scm-1.rockspec"] = "f2cc4d4384732eb31be884a121e30baa"
+}

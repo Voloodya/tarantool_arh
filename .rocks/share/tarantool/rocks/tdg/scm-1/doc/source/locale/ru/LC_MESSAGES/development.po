@@ -1,0 +1,12 @@
+
+#: ../../development.rst:2
+msgid "Developer's guide"
+msgstr "Руководство разработчика"
+
+#: ../../development.rst:4
+msgid ""
+"This document explains how to work with Tarantool Data Grid (TDG) if you are"
+" a developer."
+msgstr ""
+"В этом документе объясняется, как разработчику пользоваться системой "
+"Tarantool Data Grid (TDG)."

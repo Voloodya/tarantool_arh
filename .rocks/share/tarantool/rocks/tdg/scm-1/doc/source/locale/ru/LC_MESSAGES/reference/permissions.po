@@ -1,0 +1,15 @@
+
+#: ../../reference/permissions.rst:2
+msgid "Permissions"
+msgstr "Права доступа"
+
+#: ../../reference/permissions.rst:4
+msgid ""
+"Tarantool Data Grid has a role-based model of access to system functions and"
+" data stored in the system. This chapter explains what data actions are "
+"available while creating a role and what these actions allow users to do."
+msgstr ""
+"В Tarantool Data Grid используется основанная на ролях модель доступа к "
+"системным функциям и данным, хранящимся в системе. В этой главе подробно "
+"описываются профили доступа, которые можно назначать для создаваемых ролей, "
+"и связанные с этими профилями действия."

@@ -1,0 +1,72 @@
+---
+types:
+  __file: model.avsc
+
+connector:
+  input:
+    - name: http
+      type: http
+      routing_key: input_processor
+
+  routing:
+    - key: smtp_key
+      output: to_smtp
+
+  output:
+    - name: to_smtp
+      type: smtp
+      url: localhost:2525
+      from: tdg@example.com
+      timeout: 5
+
+    - name: dummy
+      type: dummy
+
+input_processor:
+  handlers:
+    - key: input_processor
+      function: handler.call
+
+  storage:
+    - key: estate_key
+      type: Estate
+    - key: agent_key
+      type: Agent
+    - key: subscriber_key
+      type: Subscriber
+
+output_processor:
+  estate_key:
+    handlers:
+      - function: output.estate_output.call
+        outputs:
+          - dummy
+
+services:
+  calc_district_stat:
+    doc: "calculate statistic for selected district"
+    function: districts_stat.calc_statistics.call
+    return_type: string
+    args:
+      district: string
+  calc_all_districts_stat:
+    doc: "calculate statistic for all district"
+    function: districts_stat.calc_statistics.call
+    return_type: string
+
+tasks:
+  update_all_districts_stat:
+    kind: periodical
+    function: districts_stat.calc_statistics.call
+    # Cron-like syntax with seconds precision
+    # Format: second minute hour day month weekday
+    schedule: "0 */5 * * * *"
+
+logger:
+  enabled: true
+
+versioning:
+  - type: Agent
+    enabled: true
+  - type: Estate
+    enabled: true

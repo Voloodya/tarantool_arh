@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Role-based access control &mdash; Tarantool Data Grid 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Tarantool Data Grid 2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Security settings" href="../security.html"/>
+        <link rel="next" title="Managing users" href="users.html"/>
+        <link rel="prev" title="Security settings" href="../security.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/css/custom.css">
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction to Tarantool Data Grid 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../administration.html">Administrator’s guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webui.html">Web UI</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../security.html">Security settings</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Role-based access control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-roles-1">Default roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-new-user-roles-via-ui">Adding new user roles via UI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="users.html">Managing users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tokens.html">Adding tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authorization.html">Mandatory authentication mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html">Setting up data actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security-checklist.html">Security checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../repair-queue.html">Repair queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cluster-mgmt.html">Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tenants.html">Tenants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <button class="search_drop_btn"><i class="fa fa-search"></i></button>
+
+        <div class="seaarch_drop_input">
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="breadcrumbs_and_search">
+  <div>
+    <ul class="wy-breadcrumbs">
+      
+        
+        <li><a href="../../index.html">Docs</a></li>
+        
+          <li role="slash"> / </li>
+          
+            <li><a href="../../administration.html">Administrator’s guide</a></li>
+            <li  role="slash"> / </li>
+          
+            <li><a href="../security.html">Security settings</a></li>
+            <li  role="slash"> / </li>
+          
+        <li>Role-based access control</li>
+      
+    </ul>
+  </div>
+  
+  <button class="search_drop_btn max"><i class="fa fa-search"></i></button>
+  
+  <div class="seaarch_drop_input max">
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  </div>
+  
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="role-based-access-control">
+<h1>Role-based access control<a class="headerlink" href="#role-based-access-control" title="Permalink to this headline">¶</a></h1>
+<p>Tarantool Data Grid has a role-based model of access to system functions and data stored in the system.
+The administrator sets data access permissions via UI or external tools (LDAP).
+Each role has a set of permissions that determine what users or external applications with that role can access and change.</p>
+<p>You can find the list of roles on the <strong>Settings &gt; Roles</strong> tab:</p>
+<img alt="List of roles" src="../../_images/list-of-roles.png" />
+<div class="section" id="default-roles-1">
+<span id="default-roles"></span><h2>Default roles<a class="headerlink" href="#default-roles-1" title="Permalink to this headline">¶</a></h2>
+<p>There are three default roles that you can assign to users and external applications for authorized access and actions in the system:</p>
+<ul class="simple">
+<li>admin</li>
+<li>supervisor</li>
+<li>user.</li>
+</ul>
+<p>The default roles have a predefined set of permissions, and they cannot be edited or deleted.</p>
+<div class="table docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="50%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Role</th>
+<th class="head">Authority</th>
+<th class="head">Data access</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>admin</td>
+<td>Full access to TDG functions</td>
+<td>Read and write access for all aggregates</td>
+</tr>
+<tr class="row-odd"><td>supervisor</td>
+<td>Full read-only access to TDG functions</td>
+<td>Read access for all aggregates</td>
+</tr>
+<tr class="row-even"><td>user</td>
+<td>Default access: has access to the Test tab to send test objects,
+the Repair Queues tab, the Tasks tab, and the GraphQL tab.</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="adding-new-user-roles-via-ui">
+<span id="new-roles-ui"></span><h2>Adding new user roles via UI<a class="headerlink" href="#adding-new-user-roles-via-ui" title="Permalink to this headline">¶</a></h2>
+<p>You can create new user roles based on the default roles or the roles you’ve already created.</p>
+<p>To create a new user role:</p>
+<ol class="arabic simple">
+<li>Switch to the <strong>Settings &gt; Roles</strong> tab and click <strong>Add new role</strong>.</li>
+<li>In the <strong>New role</strong> dialog, set the following parameters:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">Name</span></code>: the name of the new role.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: an optional description of the new role.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Roles</span></code>: an optional selection of the existing role on the basis of which the new role will be created.</li>
+</ul>
+</li>
+<li>In the list of actions, select the actions that will be available to the new user role.
+Don’t forget to check whether the role allows access to the interface page.
+For example, if you allow the new role to make GraphQL queries, make sure to check the box <strong>Pages Access &gt; Show GraphQL page</strong> in the list of actions.</li>
+<li>Click <strong>Add new role</strong>.</li>
+</ol>
+<img alt="New role dialog" src="../../_images/add-new-role.png" />
+<p>After you’ve created a new user role, you can edit or delete it any time.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../security.html" class="rst-footer-buttons-btn float-left" title="Security settings" accesskey="p" rel="prev"><i class="fa fa-caret-left"></i></span> Security settings</a>
+      
+      
+        <a href="users.html" class="rst-footer-buttons-btn float-right" title="Managing users" accesskey="n" rel="next">Managing users <i class="fa fa-caret-right"></i></a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Mail.Ru Group.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+  <script type="text/javascript" src="../../_static/js/searchbox.js"></script>  
+</body>
+</html>

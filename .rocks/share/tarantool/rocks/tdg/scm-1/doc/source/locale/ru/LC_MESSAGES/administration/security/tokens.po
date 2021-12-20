@@ -1,0 +1,96 @@
+
+#: ../../administration/security/tokens.rst:2
+msgid "Adding tokens"
+msgstr "Добавление токенов"
+
+#: ../../administration/security/tokens.rst:4
+msgid ""
+"Tokens help external system applications to get authorized access to TDG "
+"data and functions. In the web interface, the administrator generates a "
+"token, assigns it access rights to TDG objects, and passes the token to the "
+"developers of the external system."
+msgstr ""
+"С помощью токенов внешние системные приложения получают авторизованный "
+"доступ к данным и функциям TDG. Администратор через веб-интерфейс генерирует"
+" токен, назначает для него нужные права доступа к объектам TDG и передает "
+"его разработчикам внешней системы."
+
+#: ../../administration/security/tokens.rst:8
+msgid "You can generate a token in the **Settings > Tokens** tab:"
+msgstr "Сгенерировать токен можно на вкладке **Settings > Tokens**:"
+
+#: ../../administration/security/tokens.rst:10
+msgid "Click **Add token**:"
+msgstr "Нажмите **Add token**:"
+
+#: ../../administration/security/tokens.rst:15
+msgid "In the **Create token** dialog, submit the following parameters:"
+msgstr "В диалоговом окне **Create token** укажите следующие параметры:"
+
+#: ../../administration/security/tokens.rst:17
+msgid ""
+"``Name``: the name (key) of the token, which will further identify it in the"
+" system."
+msgstr ""
+"``Name``: имя (ключ) токена, по которому он будет идентифицироваться в "
+"системе."
+
+#: ../../administration/security/tokens.rst:19
+msgid "``Expires in``: token expiration date. This parameter is optional."
+msgstr "``Expires in``: срок действия токена (опционально)."
+
+#: ../../administration/security/tokens.rst:22
+msgid ""
+"``Role``: token role. Similar to the user's role according to the :doc:`role"
+" model of access <role-access>`."
+msgstr ""
+"``Role``: роль токена. Аналогична роли пользователя в :doc:`ролевой модели "
+"доступа <role-access>`."
+
+#: ../../administration/security/tokens.rst:25
+msgid ""
+"``Tenant``: leave the **Default** parameter unless you have several tenants."
+" In that case, choose the name of the tenant."
+msgstr ""
+"``Tenant``: оставьте значение по умолчанию **Default**, если у вас только "
+"один тенант. Если их несколько, выберите тенант, для которого создается "
+"пользователь."
+
+#: ../../administration/security/tokens.rst:31
+msgid "Click **Submit** to generate a token."
+msgstr "Нажмите **Submit**, чтобы сгенерировать токен."
+
+#: ../../administration/security/tokens.rst:33
+msgid ""
+"The token will be explicitly available only in the message in the web "
+"interface:"
+msgstr ""
+"В веб-интерфейсе появится сообщение, где токен будет представлен в явном "
+"виде:"
+
+#: ../../administration/security/tokens.rst:38
+msgid ""
+"For security reasons, the token is only shown explicitly once when it is "
+"generated. The token message will disappear as soon as you leave this page "
+"or generate a new token."
+msgstr ""
+"В целях безопасности токен в явном виде показывается только один раз, при "
+"генерации. Сообщение с токеном исчезнет, как только вы покинете страницу или"
+" сгенерируете новый токен."
+
+#: ../../administration/security/tokens.rst:41
+msgid ""
+"After you've created a token, you cannot edit its name and tenant, only its "
+"role and the validity period."
+msgstr ""
+"Ни имя созданного токена, ни тенант, для которого он сгенерирован, "
+"редактировать невозможно. Однако вы можете изменять роль токена и его срок "
+"действия."
+
+#: ../../administration/security/tokens.rst:43
+msgid ""
+"You can block, delete, export, and import tokens similarly to :doc:`user "
+"profiles <users>`."
+msgstr ""
+"Как и :doc:`профили пользователей <users>`, токены можно блокировать, "
+"удалять, экспортировать и импортировать."

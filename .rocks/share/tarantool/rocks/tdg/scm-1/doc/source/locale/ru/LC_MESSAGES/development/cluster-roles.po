@@ -1,0 +1,51 @@
+
+#: ../../development/cluster-roles.rst:2
+msgid "Understanding cluster roles"
+msgstr "Кластерные роли"
+
+#: ../../development/cluster-roles.rst:4
+msgid "This chapter gives basic information about cluster roles in TDG."
+msgstr "В этой главе приводятся основные сведения о кластерных ролях в TDG."
+
+#: ../../development/cluster-roles.rst:6
+msgid ""
+"The functions of TDG instances in the cluster are allocated based on roles. "
+"Cluster roles are Lua modules that implement instance-specific logic."
+msgstr ""
+"Каждый экземпляр TDG в кластере выполняет те или иные функции в соответствии"
+" со своей ролью. Кластерные роли — это Lua-модули, реализующие на "
+"экземплярах определенную логику."
+
+#: ../../development/cluster-roles.rst:9
+msgid "TDG has four easily scalable cluster roles:"
+msgstr "В TDG существует четыре легко масштабируемых кластерных роли:"
+
+#: ../../development/cluster-roles.rst:11
+msgid "``Core``: configuration and administration."
+msgstr "``Core``: настройка и администрирование."
+
+#: ../../development/cluster-roles.rst:12
+msgid "``Storage``: data validation and storage."
+msgstr "``Storage``: проверка и хранение данных."
+
+#: ../../development/cluster-roles.rst:13
+msgid "``Runner``: running the business logic using Lua code."
+msgstr "``Runner``: запуск бизнес-логики с помощью кода на Lua."
+
+#: ../../development/cluster-roles.rst:14
+msgid "``Connector``: data exchange with external systems."
+msgstr "``Connector``: обмен данными с внешними системами."
+
+#: ../../development/cluster-roles.rst:16
+msgid ""
+"There is also the cluster role called ``failover-coordinator`` for setting "
+"the stateful failover mode. You can read more about this role in `Tarantool "
+"Cartridge documentation "
+"<https://www.tarantool.io/en/doc/latest/book/cartridge/cartridge_dev/#stateful-"
+"failover>`_."
+msgstr ""
+"Еще одна кластерная роль, ``failover-coordinator``, позволяет включать режим"
+" восстановления после сбоев с сохранением состояния (stateful failover). "
+"Подробности можно найти в `документации Tarantool Cartridge "
+"<https://www.tarantool.io/en/doc/latest/book/cartridge/cartridge_dev/#stateful-"
+"failover>`_."

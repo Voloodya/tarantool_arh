@@ -1,0 +1,25 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "b67321c7764a71a18c74f9671014951c"
+   },
+   lib = {
+      odbc = {
+         ["libcoio_odbc.so"] = "e0c13f773c048deb60e86c90f93f131b"
+      }
+   },
+   lua = {
+      odbc = {
+         ["coio_odbc.c"] = "4887215c33a3d154884f1b7dd0237117",
+         ["connection.lua"] = "79d92c17109ccc6e79e5e3cd448bfa7d",
+         ["cursor.lua"] = "2b782744f7857748c76744d8c4470564",
+         ["odbc_header.lua"] = "27c2e0d78db2b48032dbc8dfb2357806",
+         ["odbc_lib.lua"] = "03451a83e2560f9092c1b5507ee6b735",
+         ["pool.lua"] = "627428bfad33e04c8dce32afbc8a7f03",
+         ["prepare.lua"] = "d00637f936506ea6eb7a385fb340d4ec",
+         ["sql_utils.lua"] = "215c2ce81c0fe60625f4df62c01b1901",
+         ["utils.lua"] = "66ecab1f79c809c26db8ff451b9cf473"
+      },
+      ["odbc.lua"] = "5d4b2d03b6fdae8ef1933150ff40afba"
+   },
+   ["odbc-1.0.1-1.rockspec"] = "e09d5d585724ff9874e56aa3da5cff18"
+}

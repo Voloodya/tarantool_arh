@@ -1,0 +1,12 @@
+---
+
+- name: Start Tarantool Data Grid instances
+  hosts: tdg_group
+  become: true
+  gather_facts: false
+  vars:
+    cartridge_scenario:
+      - start_instance
+      - wait_instance_started
+  roles:
+    - tarantool.cartridge

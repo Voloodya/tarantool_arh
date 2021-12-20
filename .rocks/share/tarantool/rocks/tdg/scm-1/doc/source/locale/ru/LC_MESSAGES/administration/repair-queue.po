@@ -1,0 +1,298 @@
+
+#: ../../administration/repair-queue.rst:2
+msgid "Repair queue"
+msgstr "Ремонтная очередь"
+
+#: ../../administration/repair-queue.rst:4
+msgid ""
+"If TDG cannot process an incoming object, the system puts the object in the "
+"repair queue. The administrator then checks it, fixes the problem, and sends"
+" the object to be processed again."
+msgstr ""
+"Если система TDG не может обработать входящий объект, она помещает его в "
+"ремонтную очередь. Затем администратор проверяет его, устраняет проблему и "
+"отправляет объект на повторную обработку."
+
+#: ../../administration/repair-queue.rst:10
+msgid "Input"
+msgstr "Вкладка \"Input\""
+
+#: ../../administration/repair-queue.rst:12
+msgid ""
+"On the :guilabel:`Repair queues` > :guilabel:`Input` tab, there is a repair "
+"queue for submitted objects."
+msgstr ""
+"На вкладке :guilabel:`Repair queues` > :guilabel:`Input` находится ремонтная"
+" очередь для отправленных объектов."
+
+#: ../../administration/repair-queue.rst:17
+msgid ""
+"Here you can find the incoming objects that TDG could not process. Here are "
+"the main reasons why objects end up in the repair queue:"
+msgstr ""
+"Сюда попадают входящие объекты, которые система TDG не смогла обработать. "
+"Вот основные причины, по которым это происходит:"
+
+#: ../../administration/repair-queue.rst:20
+msgid "Error when processing an incoming object with a handler."
+msgstr "Ошибка при применении обработчика к входящему объекту."
+
+#: ../../administration/repair-queue.rst:22
+msgid ""
+"The TDG system expects an object in a particular format, but the incoming "
+"object from an external system was submitted in a different format."
+msgstr ""
+"Система TDG ожидает объект в определенном формате, а входящий объект из "
+"внешней системы был отправлен в другом формате."
+
+#: ../../administration/repair-queue.rst:25
+msgid "Internal system error."
+msgstr "Внутренняя системная ошибка."
+
+#: ../../administration/repair-queue.rst:27
+msgid "Hardware failure."
+msgstr "Сбой оборудования."
+
+#: ../../administration/repair-queue.rst:29
+msgid ""
+"You can work with objects in the repair queue through the web interface on "
+"the :guilabel:`Input` tab:"
+msgstr ""
+"С объектами ремонтной очереди можно работать через веб-интерфейс на вкладке "
+":guilabel:`Input`:"
+
+#: ../../administration/repair-queue.rst:34
+msgid ""
+"On this tab, you can see the list of objects, their status (\"New\", \"In "
+"Progress\", \"Reworked\"), and the date and time when they were placed in "
+"the repair queue."
+msgstr ""
+"На этой вкладке можно увидеть список объектов, их статус (\"New\" — "
+"\"Новый\", \"In Progress\" — \"В процессе\", \"Reworked\" — \"Обработан\"), "
+"а также дату и время, когда они были помещены в ремонтную очередь."
+
+#: ../../administration/repair-queue.rst:37
+msgid "The :guilabel:`Repair queue` interface lets you do the following:"
+msgstr ""
+"Интерфейс :guilabel:`Repair queue` (Ремонтная очередь) позволяет выполнять "
+"следующие действия:"
+
+#: ../../administration/repair-queue.rst:39
+msgid ""
+":guilabel:`Filter`: filter the objects by any combination of characters in "
+"any table column or by specifying the date or time range."
+msgstr ""
+":guilabel:`Filter`: фильтрация объектов в любом столбце таблицы по любой "
+"комбинации символов, а также по диапазону дат или времени."
+
+#: ../../administration/repair-queue.rst:41
+msgid ":guilabel:`Try again`: process the object again by the same handler."
+msgstr ""
+":guilabel:`Try again`: повторно применить к объекту тот же обработчик."
+
+#: ../../administration/repair-queue.rst:43
+msgid ":guilabel:`Delete`: delete the selected object from the repair queue."
+msgstr ":guilabel:`Delete`: удалить выбранный объект из ремонтной очереди."
+
+#: ../../administration/repair-queue.rst:45
+msgid ":guilabel:`Try again all`: process all objects one more time."
+msgstr ":guilabel:`Try again all`: повторно обработать все объекты."
+
+#: ../../administration/repair-queue.rst:47
+msgid ":guilabel:`Delete all`: delete all objects from the repair queue."
+msgstr ":guilabel:`Delete all`: удалить все объекты из ремонтной очереди."
+
+#: ../../administration/repair-queue.rst:49
+msgid "Click on the object to see its details:"
+msgstr "Выберите объект, чтобы увидеть подробную информацию о нем:"
+
+#: ../../administration/repair-queue.rst:54
+msgid "In the :guilabel:`Object info` dialog, you can see:"
+msgstr ""
+"В диалоговом окне :guilabel:`Object info` находится следующая информация:"
+
+#: ../../administration/repair-queue.rst:56
+msgid ":guilabel:`ID`: the object's UUID."
+msgstr ":guilabel:`ID`: UUID объекта."
+
+#: ../../administration/repair-queue.rst:58
+msgid ":guilabel:`Reason`: error description and the complete stack trace."
+msgstr ":guilabel:`Reason`: описание ошибки и полная трассировка стека."
+
+#: ../../administration/repair-queue.rst:60
+msgid ":guilabel:`Object`: the object's current structure in the JSON format."
+msgstr ""
+":guilabel:`Object`: текущая структура объекта, представленная в формате "
+"JSON."
+
+#: ../../administration/repair-queue.rst:62
+msgid ""
+"When an object gets into the repair queue, it has the status \"New\". When "
+"it is processed for a second time, the object's status changes to \"In "
+"Progress\". If the object was processed successfully, it is removed from the"
+" repair queue. If an error occurs during reprocessing, the system will "
+"display an error message. The object will remain in the repair queue with "
+"the status \"Reworked\"."
+msgstr ""
+"Статус объекта, только что попавшего в ремонтную очередь, --- \"New\". При "
+"повторной обработке статус объекта меняется на \"In Progress\". Успешно "
+"обработанный объект удаляется из очереди. Если во время повторной обработки "
+"произойдет ошибка, система сообщит об этом, а объект останется в очереди со "
+"статусом \"Reworked\"."
+
+#: ../../administration/repair-queue.rst:70
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: ../../administration/repair-queue.rst:72
+msgid ""
+"TDG users can receive notifications in case an object gets into the repair "
+"queue. To enable notifications, you need a mail server and a list of "
+"subscribers---that is, recipients."
+msgstr ""
+"Пользователей системы TDG можно оповещать каждый раз, когда в ремонтную "
+"очередь попадает новый объект. Чтобы включить уведомления, нужен почтовый "
+"сервер и список подписчиков, которые будут их получать."
+
+#: ../../administration/repair-queue.rst:75
+msgid ""
+"On the :guilabel:`Settings` > :guilabel:`Mail server` tab, set the following"
+" parameters:"
+msgstr ""
+"На вкладке :guilabel:`Settings` > :guilabel:`Mail server` установите "
+"следующие параметры:"
+
+#: ../../administration/repair-queue.rst:77
+msgid ":guilabel:`Url`: the SMTP server used to send notifications."
+msgstr ":guilabel:`Url`: SMTP-сервер, используемый для отправки уведомлений."
+
+#: ../../administration/repair-queue.rst:79
+msgid ":guilabel:`From`: the sender that will be shown in the mail client."
+msgstr ":guilabel:`From`: отправитель, отображаемый почтовым клиентом."
+
+#: ../../administration/repair-queue.rst:81
+msgid ":guilabel:`Username`: SMTP server user name."
+msgstr ":guilabel:`Username`: имя пользователя SMTP-сервера."
+
+#: ../../administration/repair-queue.rst:83
+msgid ":guilabel:`Password`: SMTP server user password."
+msgstr ":guilabel:`Password`: пароль пользователя SMTP-сервера."
+
+#: ../../administration/repair-queue.rst:85
+msgid ":guilabel:`Timeout (sec)`: SMTP server request timeout in seconds."
+msgstr ""
+":guilabel:`Timeout (sec)`: время ожидания ответа от SMTP-сервера в секундах."
+
+#: ../../administration/repair-queue.rst:87
+msgid ""
+"On the :guilabel:`Settings` > :guilabel:`Subscribers` tab, click the "
+":guilabel:`Add subscriber` button to add a new subscriber. Specify the "
+"subscriber's name and email. Later, you can edit the subscriber's profile or"
+" delete it."
+msgstr ""
+"Чтобы добавить нового подписчика, на вкладке :guilabel:`Settings` > "
+":guilabel:`Subscribers` (Подписчики) нажмите кнопку :guilabel:`Add "
+"subscriber` (Добавить подписчика). Укажите имя и адрес электронной почты. "
+"Позже профиль подписчика можно отредактировать или удалить."
+
+#: ../../administration/repair-queue.rst:94
+msgid "Output"
+msgstr "Вкладка \"Output\""
+
+#: ../../administration/repair-queue.rst:96
+msgid ""
+"The object replication mechanism allows you to send objects to external "
+"systems in the desired format. In case of an error during the replication "
+"process, the object gets in the replication repair queue on the "
+":guilabel:`Output` tab."
+msgstr ""
+"Механизм репликации объектов позволяет посылать объекты внешней системе в "
+"нужном формате. Если при репликации возникает ошибка, объект помещается в "
+"ремонтную очередь репликации на вкладке :guilabel:`Output`."
+
+#: ../../administration/repair-queue.rst:99
+msgid ""
+"This queue has the same functions as the :ref:`repair queue <repair-queue-"
+"input>` on the :guilabel:`Input` tab. The only difference is that the repair"
+" queue on the :guilabel:`Input` tab is for submitted objects that could not "
+"be processed and saved, whereas the replication repair queue on the "
+":guilabel:`Output` tab is for objects that could not be replicated."
+msgstr ""
+"Эта очередь служит для того же, что и :ref:`ремонтная очередь на вкладке "
+"Input <repair-queue-input>`. Единственное отличие: очередь на вкладке "
+":guilabel:`Input` предназначена для отправленных объектов, которые не "
+"удалось обработать и сохранить, а ремонтная очередь репликации на вкладке "
+":guilabel:`Output` --- для объектов, которые не удалось реплицировать."
+
+#: ../../administration/repair-queue.rst:103
+msgid ""
+"To work with objects in the replication repair queue, open the "
+":guilabel:`Repair queues` > :guilabel:`Output` tab:"
+msgstr ""
+"Для работы с объектами в ремонтной очереди репликации откройте вкладку "
+":guilabel:`Repair queues` > :guilabel:`Output`:"
+
+#: ../../administration/repair-queue.rst:108
+msgid ""
+"Like in the :ref:`repair queue <repair-queue-input>`, you can filter "
+"objects, delete them, and try to replicate them again."
+msgstr ""
+"Как и в :ref:`ремонтной очереди <repair-queue-input>`, объекты можно "
+"фильтровать, удалять и пытаться снова реплицировать."
+
+#: ../../administration/repair-queue.rst:110
+msgid ""
+"The object status shows the reason why the object ended up in the "
+"replication repair queue:"
+msgstr ""
+"Статус объекта показывает, почему объект оказался в ремонтной очереди "
+"репликации."
+
+#: ../../administration/repair-queue.rst:112
+msgid ""
+"\"Preprocessing error\": the replicated object was processed with an error."
+msgstr "Preprocessing error: реплицируемый объект был обработан с ошибкой."
+
+#: ../../administration/repair-queue.rst:114
+msgid ""
+"\"Sending error\": an error occured while sending the object to an external "
+"system."
+msgstr ""
+"Sending error: произошла ошибка при отправке объекта во внешнюю систему."
+
+#: ../../administration/repair-queue.rst:116
+msgid ""
+"If you choose an object and click :guilabel:`Try again`, the object will be "
+"processed again. Its status will change from \"New\" to \"In progress\". If "
+"the operation is successful, the object will be moved to the next stage or "
+"deleted from the repair queue. If the operation finishes with an error, the "
+"status will change to \"Rereplicated (Preprocessing error)\" or "
+"\"Rereplicated (Sending error)\". The object will remain in the replication "
+"repair queue."
+msgstr ""
+"Если вы выберете объект и нажмете :guilabel:`Try again`, он будет обработан "
+"снова. Его статус изменится с \"New\" на \"In progress\". Если операция "
+"пройдет успешно, объект будет перемещен на следующий этап или удален из "
+"ремонтной очереди. Если операция завершится с ошибкой, статус объекта "
+"изменится на \"Rereplicated (Preprocessing error)\" или \"Rereplicated "
+"(Sending error)\". При этом объект останется в ремонтной очереди репликации."
+
+#: ../../administration/repair-queue.rst:125
+msgid "Jobs"
+msgstr "Вкладка \"Jobs\""
+
+#: ../../administration/repair-queue.rst:127
+msgid ""
+"This is a repair queue for pending jobs that ended with an error. To monitor"
+" these jobs, open the :guilabel:`Repair queues` > :guilabel:`Jobs` tab:"
+msgstr ""
+"Чтобы увидеть ремонтную очередь для отложенных задач, завершенных с ошибкой,"
+" откройте вкладку :guilabel:`Repair queues` > :guilabel:`Jobs`:"
+
+#: ../../administration/repair-queue.rst:133
+msgid ""
+"This tab has the same functions as the :ref:`repair queue for submitted "
+"objects <repair-queue-input>` on the :guilabel:`Input` tab."
+msgstr ""
+"Эта очередь служит для того же, что и :ref:`ремонтная очередь для "
+"отправленных объектов <repair-queue-input>` на вкладке :guilabel:`Input`."

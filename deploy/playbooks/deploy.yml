@@ -1,0 +1,8 @@
+---
+
+- name: Deploy Tarantool Data Grid
+  hosts: tdg_group
+  become: true
+  gather_facts: false
+  roles:
+    - tarantool.cartridge

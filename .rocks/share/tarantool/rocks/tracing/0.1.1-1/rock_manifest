@@ -1,0 +1,64 @@
+rock_manifest = {
+   doc = {},
+   examples = {
+      cartridge = {
+         app = {
+            roles = {
+               ["formatter.lua"] = "a1c1653166c6fa746d33b732ff4b26ee",
+               ["printer.lua"] = "760b89c75ad1eb72fcc068442ecc8bb2",
+               ["server.lua"] = "7483e8c186ad4fc96940f0247f761448",
+               ["tracing.lua"] = "894d015d8b570d51df049574846eaabd"
+            }
+         },
+         ["deps.sh"] = "79bcfac88fac0366d43770830702422d",
+         ["init.lua"] = "40bb0945c9a4256e41319b6e6eab06fb",
+         test = {
+            helper = {
+               ["integration.lua"] = "00c6221d0812c2afd2394bb1451f0139"
+            },
+            ["helper.lua"] = "c464249cc30dad370488e78b3d4d7912",
+            integration = {
+               ["api_test.lua"] = "dce2a5addd05ad965a57dae294391797"
+            }
+         },
+         ["tracing-for-cartridge-scm-1.rockspec"] = "a3cb3670053c97d504e4016008b6b126"
+      },
+      http = {
+         client = {
+            ["init.lua"] = "6288497926172afb8e394fd163214570"
+         },
+         formatter = {
+            ["init.lua"] = "cb6a0d6ce19f5819a5d9de0f4a8fe9d9"
+         },
+         publisher = {
+            ["init.lua"] = "baf3dfe63f46f43dbf140c194af640df"
+         }
+      }
+   },
+   lua = {
+      opentracing = {
+         extractors = {
+            ["http.lua"] = "8629cfb6fc57e8a4226d683f9ca1fac2",
+            ["map.lua"] = "e80aa25aba9bc59b6a42c6e6debea87f",
+            ["validate.lua"] = "5e46de33adb6818a6883bed59b949bf4"
+         },
+         ["extractors.lua"] = "5459634049cd25826ba6c370fe810eff",
+         injectors = {
+            ["http.lua"] = "63d3367b5e8f97cceaef55a9fdc64020",
+            ["map.lua"] = "3639c946b714ea23d41e672e15f66120"
+         },
+         ["injectors.lua"] = "112a5453c9d4787f2f16d2155fb3a2b7",
+         ["span.lua"] = "39242a0adc069b70c5feea081021b66e",
+         ["span_context.lua"] = "e974f2bf14fc72711d843501f399244d",
+         ["tracer.lua"] = "6d47b9d506bd8a75753f3ba272b276b2"
+      },
+      ["opentracing.lua"] = "684fda8bb0bc49ee1af56ad9b4e48618",
+      zipkin = {
+         ["bounded_queue.lua"] = "a02e06db09957b6a648a1871bfee54b9",
+         ["handler.lua"] = "75dc93b4571374f708e7df142e5c6798",
+         ["reporter.lua"] = "4cbc54a18fcb2fa8b079f828672623b9",
+         ["tracer.lua"] = "ebc4989dd54110744fc9999695c7ab71"
+      }
+   },
+   ["tracing-0.1.1-1.rockspec"] = "ce27ccbf3f0e5a69d87bab8aa1053f8d"
+}
